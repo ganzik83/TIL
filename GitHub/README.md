@@ -1,3 +1,21 @@
+# Git 설치 및 초기 설정
+
+1. <https://github.com> 가입
+
+2. <https://git-scm.com/downloads> 에서 mac용 git 설치
+
+3. 터미널에서 아래 명령어를 통해 git이 설치되었는지 확인
+   ```
+   git version
+   ```
+4. 초기설정
+   ```
+   git config --global user.name "your name"
+   git config --global user.email "your@email.com"
+   ```
+
+---
+
 # GitHub 사용법 - 기초
 
 README.md 파일에 echo명령어를 통해 "# TTL"를 출력한다
