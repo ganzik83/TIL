@@ -14,4 +14,4 @@ sudo vim /etc/hosts
 >
 > ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6 **hostname**
 
-hostname을 추가해준다
+`hostname`을 추가해준다
