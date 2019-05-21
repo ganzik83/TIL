@@ -53,6 +53,12 @@ sudo ufw status
 sudo ufw disable
 ```
 
+## 9. App list 확인
+
+```
+sudo ufw app list
+```
+
 ---
 
 Port 범위는 콜론으로 설정
