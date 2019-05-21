@@ -54,3 +54,9 @@ git remote add origin https://github.com/ganzik/TIL.git
 ```bash
 git push -u origin master
 ```
+
+---
+
+## GitHub Learning Lab
+
+<https://lab.github.com/courses>
