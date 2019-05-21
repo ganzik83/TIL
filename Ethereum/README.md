@@ -6,7 +6,7 @@
 
 ## 백서(White Paper)
 
-> [White_Paper](./docs/white_paper_kr.pdf)
+> [White_Paper](./docs/white_paper.pdf)
 
 > [White_Paper - kr](./docs/white_paper_kr.pdf)
 
