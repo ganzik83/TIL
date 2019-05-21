@@ -7,3 +7,9 @@
 ## 참고 사이트
 
 <https://ko.khanacademy.org/computing/computer-science/cryptography>
+
+## 실습 및 예제 사이트
+
+<https://math.bab2min.pe.kr/substt>
+
+[www.browserling.com/tools/aes-decrypt](www.browserling.com/tools/aes-decrypt)
