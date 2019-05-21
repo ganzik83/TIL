@@ -6,7 +6,7 @@ Sudo 실행시 10초 이상 딜레이 되는 현상이 발생
 
 /etc/hosts 파일 수정
 
-```
+```bash
 sudo vim /etc/hosts
 ```
 

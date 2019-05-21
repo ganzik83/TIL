@@ -2,13 +2,13 @@
 
 ## 1. 설치
 
-```
+```bash
 sudo apt-get install ufw
 ```
 
 ## 2. 활성화
 
-```
+```bash
 sudo ufw enable
 ```
 
@@ -16,14 +16,14 @@ sudo ufw enable
 
 들어오는 통신은 막고 나가는 통신은 허용하기
 
-```
+```bash
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
 
 ## 4. 네트워크 허용
 
-```
+```bash
 sudo ufw allow ssh
 sudo ufw allow 80/tcp
 sudo ufw allow from 192.168.0.1
@@ -31,31 +31,31 @@ sudo ufw allow from 192.168.0.1
 
 ## 5. 네트워크 거부
 
-```
+```bash
 sudo ufw deny 8080/tcp
 ```
 
 ## 6. 네트워크 삭제
 
-```
+```bash
 sudo ufw delete allow ssh
 ```
 
 ## 7. 규칙 확인
 
-```
+```bash
 sudo ufw status
 ```
 
 ## 8. 비활성화
 
-```
+```bash
 sudo ufw disable
 ```
 
 ## 9. App list 확인
 
-```
+```bash
 sudo ufw app list
 ```
 
