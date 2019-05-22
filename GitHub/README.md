@@ -1,3 +1,7 @@
+# Git 한글 책
+
+<https://git-scm.com/book/ko/v2>
+
 # Git 설치 및 초기 설정
 
 1. <https://github.com> 가입
