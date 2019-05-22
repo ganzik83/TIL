@@ -55,6 +55,8 @@ git remote add origin https://github.com/ganzik/TIL.git
 git push -u origin master
 ```
 
+---
+
 # GitHub Workflow
 
 The GitHub flow is a lightweight, branch-based workflow built around core Git commands used by teams around the globe—including ours.
