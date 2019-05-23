@@ -13,3 +13,8 @@ TCP/IP Protocol 기반으로 전 세계 컴퓨터를 하나로 연결
 ## 인트라넷(Intranet)
 
 독립적인 네트워크
+
+# HTTP
+
+- request, response
+- stateless

@@ -191,3 +191,7 @@ git push
 ## GitHub Learning Lab
 
 <https://lab.github.com/courses>
+
+## GitHub Youtube 강좌
+
+<https://www.youtube.com/watch?v=rhP5pseOJc0&list=PLRx0vPvlEmdD5FLIdwTM4mKBgyjv4no81>
