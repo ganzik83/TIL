@@ -1,7 +1,5 @@
 # CSRF(Cross Site Request Forgery)
 
-<https://terms.naver.com/entry.nhn?docId=3431919&cid=58437&categoryId=58437>
-
 <https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EA%B0%84_%EC%9A%94%EC%B2%AD_%EC%9C%84%EC%A1%B0>
 
 사이트 간 요청 위조(또는 크로스 사이트 요청 위조, 영어: Cross-site request forgery, CSRF, XSRF)는 웹사이트 취약점 공격의 하나로, 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록 등)를 특정 웹사이트에 요청하게 하는 공격을 말한다.
@@ -33,9 +31,10 @@ img src= "https://travel.service.com/travel_update?.src=Korea&.dst=Hell"
 
 ## 외부 링크
 
-<http://www.virtualforge.de/vmovie/xsrf/xsrf_attacked.html>[깨진 링크(과거 내용 찾기)]  
 gmail hijack : <http://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/>  
 xsrf in adsl router : <http://www.webappsec.org/projects/whid/byid_id_2008-05.shtml>  
 cracking simple anti-xsrf (in zeroboard 4.1 bbs)  
 xsrf in web services (in zeroboard 4.1 bbs admin)  
 <https://web.archive.org/web/20090107050121/http://x82.inetcop.org/h0me/papers/web2.0-csrf.pdf>
+
+<https://terms.naver.com/entry.nhn?docId=3431919&cid=58437&categoryId=58437>
