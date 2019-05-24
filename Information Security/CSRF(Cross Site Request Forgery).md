@@ -20,7 +20,7 @@
 3. 공격용 HTML 페이지는 다음과 같은 이미지태그를 가진다.
 
 ```bash
-<img src= "https://travel.service.com/travel_update?.src=Korea&.dst=Hell">
+img src= "https://travel.service.com/travel_update?.src=Korea&.dst=Hell"
 ```
 
 해당 링크는 클릭시
