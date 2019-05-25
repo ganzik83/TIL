@@ -27,6 +27,10 @@ vi /etc/gdm3/custom.conf
 
 [security] 항목의 root 활성화 옵션 추가
 
+> [daemon]
+> AutomaticLoginEnable=true
+> AutomaticLogin=root
+>
 > [security]  
 > AllowRoot=true
 
@@ -38,6 +42,15 @@ vi /etc/pam.d/gdm-password
 
 auth required 주석 처리
 ![gdm-password](./imgs/gdm-password.png)
+
+/etc/pam.d 경로로 이동하여 gdm-login 파일을 수정 후 저장
+
+```bash
+vi /etc/pam.d/gdm-login
+```
+
+auth required 주석 처리
+![gdm-login](./imgs/gdm-login.png)
 
 `mesg n || true` 주석처리
 
