@@ -36,4 +36,13 @@ vi /etc/gdm3/custom.conf
 vi /etc/pam.d/gdm-password
 ```
 
+auth required 주석 처리
 ![gdm-password](./imgs/gdm-password.png)
+
+`mesg n || true` 주석처리
+
+```bash
+vi /root/.profile
+```
+
+![profile](./imgs/profile.png)
