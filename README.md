@@ -1,3 +1,5 @@
+![ethereum](./ethereum/imgs/ethereum.jpg)
+
 # 긍정
 
 해낼 수 있다고 생각하는 사람이 해낸다
