@@ -1,4 +1,4 @@
-![ethereum](./ethereum/imgs/ethereum.png)
+![ethereum](./Ethereum/imgs/ethereum.png)
 
 # 긍정
 
