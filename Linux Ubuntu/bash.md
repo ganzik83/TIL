@@ -98,3 +98,58 @@ do
 done
 exit 0
 ```
+
+2단부터 9단까지 구구단을 가로로 출력하라
+
+```bash
+#!/bin/bash
+
+# i x j = x
+for (( j = 1 ; j < 10 ; j ++ ))
+do
+	for (( i = 2 ; i < 10 ; i ++ ))
+	do
+		# printf "%s x %s = %s \t" $i $j `expr $i \* $j`
+		x=`expr $i \* $j`
+		echo -e -n "$i x $j = $x\t"
+	done
+	# printf "\n"
+	echo
+done
+```
+
+> 연습문제 2
+
+1. 임의의 숫자를 생성
+2. 사용자가 숫자를 입력해서 1.에서 생성한 숫자를 맞추는 게임
+3. 만약 사용자가 입력한 숫자가 1.에서 생성한 숫자와 다르면, 크다, 작다 메시지를 출력하고, 맞으면 정답 메시지를 출력하고 종료한다
+4. 맞추는 회수는 10회로 제한한다
+5. 10회를 초과하면 실패 메시지를 출력하고 종료한다.
+
+```bash
+#!/bin/bash
+r=$(rand)
+
+count=0
+while [ $count -lt 10 ]
+do
+	echo 숫자를 입력하세요.
+	read num
+
+	if [ $num -eq $r ]
+	then
+		echo 정답입니다.
+		exit 0
+	fi
+
+	if [ $num -lt $r ]
+	then
+		echo 더 큰 수를 입력하세요.
+	else
+		echo 더 작은 수를 입력하세요.
+	fi
+	count=`expr $count + 1`
+done
+echo 회수를 초과했습니다.
+exit 1
+```
