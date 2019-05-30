@@ -80,7 +80,9 @@ echo "'$myvar' = $myvar"
 
 ```bash
 #!bin/sh
-
+num1=100
+num2=$num1+200
+echo $num2    # 100 + 200 이 출력된다
 
 ```
 
