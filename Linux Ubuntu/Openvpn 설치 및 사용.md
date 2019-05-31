@@ -89,5 +89,5 @@ vpn_ganzik.ovpn 파일을 클라이언트 환경에 가져온다
 vpn_ganzik.ovpn 파일을 이용해서 접속하면 정상적으로 작동한다
 
 데스크톱 환경에서는
-<https://openvpn.net>
+<https://openvpn.net>, <https://tunnelblick.net/downloads.html>
 에서 실행파일을 받는다
