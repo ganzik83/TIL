@@ -70,3 +70,11 @@
   cd /mnt/hgfs
   ls -al
   ```
+
+> ntfs, samba 등으로 마운트 할때는 포멧 위치에 알맞은 포멧을 사용하면 된다(이때도 -t옵션은 동일)
+
+```bash
+mount -t ntfs /dev/hda2 /mnt/winxp
+
+mount -t smbfs -o username=root //192.168.0.1/linux /mnt/smb
+```
