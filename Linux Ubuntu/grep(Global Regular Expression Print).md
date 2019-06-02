@@ -65,3 +65,53 @@ grep -h hello *
 | \\>       | 단어의 끝 지시자                                          | \\>hello     | hello로 끝나는 단어를 포함하는 행과 대응      |
 | x\\{m\\}  | 문자 x를 m번 반복                                         | o\\{5\\}     | 문자 o가 5회 연속적으로 나오는 모든 행과 대응 |
 | x\\{m.\\} | 적어도 m번 반복                                           | o\\{5.\\}    | 문자 o가 최소한 5번 반복되는 모든 행과 대응   |
+
+```bash
+# greptest파일에서 Agarwal, agarwal, agrrwal, agaawal 등의 문자를 찾는다
+grep "[aA]g[ar][ar]wal" greptest
+
+# d로 시작하는 모든 파일에서 notepad를 포함하는 모든 행을 찾는다
+grep notepad d*
+
+# greptest파일에서 a,b,c,d로 시작하는 단어를 찾는다
+grep [a-d] greptest
+
+# greptest파일에서 a나 b로 시작되는 모든 행을 찾는다
+grep ^[ab] greptest
+
+# greptest 파일에서 a나 b가 들어있지 않은 행을 찾는다. abroad처럼 a나 b를 제외한 문자가 포함되면 출력한다
+grep [^ab] greptest
+
+# greptest 파일에서 숫자가 존재하는 줄을 출력
+grep [0-9] greptest
+
+# greptest파일에서 app으로 시작하는 모든 단어를 찾는다
+grep app* greptest
+
+# aa가 한 번 나오고 그 뒤에 a가 0번 혹은 여러번 나온 후에 공백이 연이어 등장하는 문자열을 포함한 모든 행을 출력
+grep aaa* greptest
+
+# /etc/vsftpd/vsftpd.conf 파일에서 #으로 시작하지 않는 줄만 출력
+grep -v ^# /etc/vsftpd/vsftpd.conf
+
+# greptest 파일에서 .5가 나오는 모든 행을 출력
+grep \.5 greptest
+
+# greptest 파일에서 N.I.K.E 를 찾는다
+grep N\.I\.K\.E greptest
+
+# 소문자 하나로 시작하고 `\<[a-z]` 이어서 공백을 포함한 임의 개수의 여러문자가 나오며 `.*` n으로 끝나는 단어가 포함된 모든 행을 출력
+grep \<[a-z].*n\> greptest
+```
+
+## 유용한 예시
+
+프로세스 리스트에서 원하는 프로세스 상태 찾기
+
+```bash
+# 모든 프로세스 상태 정보를 자세히 보여준다
+ps aux
+
+# 도커 프로세스가 돌아가는지 알고 싶은 경우
+ps aux | grep docker
+```
