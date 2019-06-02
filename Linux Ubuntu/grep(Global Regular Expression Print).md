@@ -27,3 +27,39 @@ grep [option] pattern file(s)
 | -o     | 지정한 패턴과 매칭되는 것만 출력한다 (--only-matching)                                   |
 | -E     | 보통 grep은 하나의 패턴만을 검색하는데, 이 옵션은                                        | (파이프)와 연계하여 여러 패턴을 찾는다. egrep 명령과 같다 |
 | -F     | 지정한 문자들, 특히 특수문자를 기호 그대로 인식하여 출력한다. fgrep명령과 같다           |
+
+```bash
+# 현재 디렉터리의 모든 파일들이 'hello'라는 문자열이 들어있는 줄을 몇 개씩 가지고 있는지 보여준다
+grep -c hello *
+
+# 현재 디렉터리에 있는 모든 파일 중에서 'hello'라는 문자열이 들어있는 줄을 출력하는데 파일명은 출력하지 않는다
+grep -h hello *
+```
+
+## 정규식
+
+고정 문자열이 아닌 특정 패턴을 가진 문자열을 찾고 싶을 때는 정규식을 사용한다  
+정규식은 다른 명령어나 다른 언어에서도 자주 사용되므로 꼭 숙지하자
+
+| 메타문자  | 기능                                                      | 예시         | 예 설명                                       |
+| --------- | --------------------------------------------------------- | ------------ | --------------------------------------------- |
+| ^         | 행의 시작 지시자                                          | ^hello       | hello로 시작하는 모든 행                      |
+| \$        | 행의 끝 지시자                                            | hello\$      | hello로 끝나는 모든 행                        |
+| .         | a single character                                        | h...o        | h와 o사이에 세 글자가 있어야 함               |
+|           | 하나의 문자와 대응                                        |              |
+| ?(egrep)  | the preceding character matches 0 or more 1 times only    | hel?o        | hello, helo 등을 검색                         |
+|           | 앞 문자가 0또는 한개로 된 것을 의미                       |              |
+| .\*       | Nothing or any number of charaters                        | hel.\*o      | helo, helao, helfsadfsdfo 등 검색             |
+|           | 0이거나 그 이상의 문자                                    |              |
+| \*        | zero or more occurrences of the previous character        | hel\*o       | helo, hello, helllo, helllllo 등을 검색       |
+|           | 앞 문자가 하나이거나 반복되어진 것을 의미                 |              |
+| \|(egrep) | or(또는)이라는 의미                                       | or           | is                                            | go | oranges, Lisa, mongodb 등등 셋 중 하나라도 들어있으면 검색 |
+| []        | 문자 리스트 중의 한 문자                                  | New[abc]     | Newa, Newb, Newc등을 검색                     |
+| [0-9]     | 0~9까지 숫자                                              | [0-9]        | 0부터 9까지 숫자를 포함                       |
+| [^]       | ^는 []안에 들어가면 not을 의미한다                        | [^1-3]       | 1,2,3을 제외한 모든 문자                      |
+| \         | ignores the special meaning of the character following it | New\.\[abc\] | New.abc와 같은 말을 찾는다                    |
+|           | 지정문자 특징을 무시한다                                  |              | 정규표현식 .이나[]패턴을 무시한다             |
+| \\<       | 딘어의 시작 지시자                                        | \\<hello     | hello로 시작하는 단어를 포함하는 행과 대응    |
+| \\>       | 단어의 끝 지시자                                          | \\>hello     | hello로 끝나는 단어를 포함하는 행과 대응      |
+| x\\{m\\}  | 문자 x를 m번 반복                                         | o\\{5\\}     | 문자 o가 5회 연속적으로 나오는 모든 행과 대응 |
+| x\\{m.\\} | 적어도 m번 반복                                           | o\\{5.\\}    | 문자 o가 최소한 5번 반복되는 모든 행과 대응   |
