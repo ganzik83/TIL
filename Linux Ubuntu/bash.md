@@ -114,6 +114,63 @@ exit 0
 
 ![bash 파라미터 변수](./imgs/bashpara.png)
 
+## 리다이렉트 Redirect
+
+### \>
+
+출력 리다이렉션. 명령 실행의 표준 출력(stdout)을 파일로 저장. 장치도 파일로 처리하기 때문에 명령 실행 결과를 장치로 보낼 수 있음.
+
+```bash
+# good morning 을 현재 디렉토리의 today.txt파일로 출력해서 저장
+echo "good morning" > ./today.txt
+
+# 디바이스로 보내면 어디서 볼 수 있을까?
+echo "good morning" > /dev/null
+```
+
+### \<
+
+입력 리다이렉션. 파일 내용을 읽어 명령의 표준 입력(stdin)으로 사용.
+
+```bash
+# 현재 폴더의 today.txt 파일을 입력받아 화면에 출력한다
+cat < ./today.txt
+```
+
+### \>>
+
+명령 실행의 표준 출력(stdout)을 파일에 추가한다  
+`>` 는 파일을 덮어쓰지만 `>>` 는 파일 뒷 부분에 내용을 추가한다
+
+```bash
+# 현재 디렉토리의 today.txt 파일에 good afternoon 마지막에 출력하여 저장한다
+echo "good afternoon" >> ./today.txt
+```
+
+### 2>
+
+명령 실행의 표준 에러(stderr)를 파일로 저장
+
+### 2>>
+
+명령 실행의 표준 에러(stderr)를 파일에 추가
+
+### &>
+
+표준 출력과 표준 에러를 모두 파일로 저장
+
+### 1>&2
+
+표준 출력을 표준 에러로 보낸다. `echo` 명령으로 문자열을 표준 출력으로 출력했지만 표준 에러로 보냈기 때문에 변수에는 문자열이 들어가지 않는다
+
+```bash
+# 변수 hello에 "Hello wordl"를 출력하고 표준 에러로 보냄
+hello=$(echo "Hello world" 1>&2)
+
+# "Hello world" 를 표준 에러로 보냈기 때문에 변수 hello에는 문자열이 들어가지 않음
+echo $hello
+```
+
 > 연습문제
 
 2단부터 9단까지 구구단을 세로로 출력하라
@@ -183,3 +240,9 @@ done
 echo 회수를 초과했습니다.
 exit 1
 ```
+
+---
+
+## 참조
+
+<http://www.pyrasis.com/book/DockerForTheReallyImpatient/Chapter04>
