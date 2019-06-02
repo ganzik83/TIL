@@ -56,6 +56,8 @@ grep -h hello *
 | \|(egrep) | or(또는)이라는 의미                                       | or           | is                                            | go | oranges, Lisa, mongodb 등등 셋 중 하나라도 들어있으면 검색 |
 | []        | 문자 리스트 중의 한 문자                                  | New[abc]     | Newa, Newb, Newc등을 검색                     |
 | [0-9]     | 0~9까지 숫자                                              | [0-9]        | 0부터 9까지 숫자를 포함                       |
+| [a-z]     | 소문자 a~z                                                | [a-j]        | 소문자 a부터 j까지                            |
+| [A-Z]     | 대문자 A~Z                                                | [D-K]        | 대문자 D부터 K까지                            |
 | [^]       | ^는 []안에 들어가면 not을 의미한다                        | [^1-3]       | 1,2,3을 제외한 모든 문자                      |
 | \         | ignores the special meaning of the character following it | New\.\[abc\] | New.abc와 같은 말을 찾는다                    |
 |           | 지정문자 특징을 무시한다                                  |              | 정규표현식 .이나[]패턴을 무시한다             |
