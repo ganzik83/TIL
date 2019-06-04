@@ -4,7 +4,7 @@
 
 apt-get update 명령을 했는데 GPG error가 발생하면서 진행되지 않았다
 
-![gpg error](./imgs/gpgerror.png)
+![gpg error](../imgs/gpgerror.png)
 
 Public key 를 추가해준다. 위의 경우 `F76221572C52609D`
 
@@ -12,6 +12,6 @@ Public key 를 추가해준다. 위의 경우 `F76221572C52609D`
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D
 ```
 
-![solved gpg error](./imgs/gpgerrorsolve.png)
+![solved gpg error](../imgs/gpgerrorsolve.png)
 
 이제 `apt-get update` 명령을 실행하면 정상 처리된다
