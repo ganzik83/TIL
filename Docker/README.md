@@ -8,6 +8,9 @@ docker --help
 docker image --help
 ```
 
+![vm-vs-docker](./imgs/vm-vs-docker.png)
+가상 머신과 도커의 비교
+
 ## 참고자료
 
 <https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html>
