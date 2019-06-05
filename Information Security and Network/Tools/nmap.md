@@ -17,6 +17,16 @@ SCAN TECHNIQUES:
   -b <FTP relay host>: FTP bounce scan
 ```
 
+> 실험을 위해 kali#1(Victim)에 apache2, vsftp 서비스를 실행
+
+kali#2(Attacker)에서 kali#1(Victim)으로 웹 서비스 요청과 FTP 서비스 요청을 할 수 있다
+
+```bash
+service apache2 start
+
+service vsftpd start
+```
+
 ## TCP Open Scan
 
 ![tcp open scan](../imgs/tcpopenscan.png)

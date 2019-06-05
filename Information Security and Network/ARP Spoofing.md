@@ -2,29 +2,31 @@
 
 <https://www.researchgate.net/figure/Arp-Spoofing-Hung-Tran-2014_fig7_328262183>
 
+![arp](./imgs/arp123.png)
+ARP(Address Resolution Protocol)
+
 ![arp_spoofing](./imgs/arpspoofing.png)
 
 주로 효율적으로 게이트웨이를 공격한다
 
-windows xp : 192.168.44.146
-kali2(attacker) : 192.168.44.145
-kali1 : 192.168.44.144
+> 실험 할 VM과 ip  
+> windows xp : 192.168.44.146  
+> kali2(attacker) : 192.168.44.145  
+> kali1(victim) : 192.168.44.144
 
-@Kali2 에서 명령을 입력
+## Arp Spoofing 공격
 
+```bash
 # arpspoof -i eth0 -t VICTIM_IP(window_xp) GATEWAY_IP
-
-⇒ # arpspoof -i eth0 -t 192.168.44.146 192.168.44.2
+arpspoof -i eth0 -t 192.168.44.146 192.168.44.2
+```
 
 ![arpspoofing](./imgs/arpspoofingtest.png)
 
-게이트웨이에 공격자주소가 첨부되면서
-나의 mac 주소가 공격자의 mac 주소로 변경되었다
+게이트웨이에 피공격자의 mac 주소가 공격자의 mac 주소로 변경되었다
 
 피공격자는 dns를 못찾아서 인터넷에 접속이 안된다(연결이 끊긴다)
 게이트웨이(192.168.44.2)로 전달이 되어야 하는데 공격자 ip(192.168.44.145)로 전달을 하기 때문에 외부로 못나간다
-
-이제 공격자는 피공격자가 보내는 패킷을 외부로 나가도록 해준다
 
 ![arpspoofing](./imgs/arpspoofingtest1.png)
 
@@ -52,7 +54,7 @@ ARP cache table에 gateway mac 주소를 정적으로 설정
 
 windows에서는 cmd에서 아래와 같이 입력한다
 
-```
+```bash
 arp -s GATEWAY_IP GATEWAY_MAC
 # or
 netst interface ip delete neighbors "NETWORK_CARD_NAME" "GATEWAY_IP"

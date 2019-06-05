@@ -13,7 +13,7 @@ TCP Header
 
 - Well-known ports(0~1,023) : IANA에 의해 배정되고 제어된다.
 
-- Registered port(1,024~49,151) : IANA에 의해 배정되거나 제어되지 않는다. 하지만 중복을 피하기 위해 IANA에 등록 될 수는 있다.
+- Registered port(1,02ㅍ4~49,151) : IANA에 의해 배정되거나 제어되지 않는다. 하지만 중복을 피하기 위해 IANA에 등록 될 수는 있다.
 
 - Dynamic Ports(49,152~65,535) : IANA에 의해 제어되거나 등록되지 않는다. 어느 프로세스라도 사용 할 수 있으며 임시 포트이다.
 

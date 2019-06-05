@@ -9,16 +9,27 @@
 ### ettercap 실행
 
 ![ettercap](../imgs/ettercap.png)
+
 ![ettercap](../imgs/ettercap1.png)
+
 ![ettercap](../imgs/ettercap2.png)
+
 ![ettercap](../imgs/ettercap3.png)
+
 ![ettercap](../imgs/ettercap4.png)
+
 ![ettercap](../imgs/ettercap5.png)
+
 ![ettercap](../imgs/ettercap6.png)
+
 ![ettercap](../imgs/ettercap7.png)
+
 ![ettercap](../imgs/ettercap8.png)
+
 ![ettercap](../imgs/ettercap9.png)
+
 ![ettercap](../imgs/ettercap10.png)
+
 ![ettercap](../imgs/ettercap11.png)
 
 root@kali:~# ettercap -G
@@ -40,6 +51,7 @@ Plugins > Manage the plugins > dns_spoof
 WinXP에서 http://www.naver.com으로 접속을 시도 → Kali#2에서 제공하는 웹 페이지가 보이면 공격 성공
 
 ![ettercap](../imgs/ettercap12.png)
+
 ![ettercap](../imgs/ettercap13.png)
 
 <https://stackoverflow.com/questions/40515543/chrome-dns-spoofing-protections>
