@@ -37,3 +37,8 @@ Client | State | Server
 | | <- fin / ark | |
 || <- fin |
 || fin / ark -> |
+
+## 참고 서적
+
+웹 해킹 % 보안 완벽 가이드
+에이콘출판사
