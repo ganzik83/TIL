@@ -1,4 +1,10 @@
-# 네트워크 (Network)
+## 정보 보안 (Information Security)
+
+무결성(integrity), 기밀성(Confidentiality), 가용성(availability)을 제공 하는 것
+
+---
+
+## 네트워크 (Network)
 
 ## 네트워크란?
 
@@ -14,29 +20,7 @@ TCP/IP Protocol 기반으로 전 세계 컴퓨터를 하나로 연결
 
 독립적인 네트워크
 
-# HTTP
-
-- request, response
-- stateless
-
-## Request
-
-3way handshake
-Client | State | Server
----------|----------|---------
-|| syn -> | |
-| | <- syn / ark | |
-|| ark -> |
-
-## Response
-
-4way handshake
-Client | State | Server
----------|----------|---------
-|| fin -> | |
-| | <- fin / ark | |
-|| <- fin |
-|| fin / ark -> |
+---
 
 ## 참고 서적
 
