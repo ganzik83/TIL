@@ -52,3 +52,33 @@ ip 헤더의 프래그먼트 오프셋을 조작하여 수신측에서 분할된
 ## Fragmentation Offset 필드 (13bit)
 
 8바이트 오프셋으로 조각에 저장된 원래 데이터의 바이트 범위를 나타낸다.
+
+![ipv4header](./imgs/ipv4header1.png)
+
+## Time-to-live 필드(8bit)
+
+데이터을 전달할 수 없는 것으로 판단되어 소멸되기 이전에 데이터가 이동할 수 있는 단계의 수를 나타낸다.
+
+Time-to-Live 필드는 1에서 255사이의 값을 지정하며 라우터들은 패킷을 전달 할 때마다 이 값을 하나씩 감소시킨다.
+
+## Protocol Identifier 필드(8bit)
+
+상위 계층 프로토콜
+
+1 - ICMP, 2 - IGMP, 6 - TCP, 17 - UDP
+
+## Header Checksum 필드(16bit)
+
+IP 헤더의 체크섬을 저장, 라우터를 지나갈때 마다 재 계산을 하기 때문에 속도가 떨어진다.
+
+## Source IP Address 필드(32bit)
+
+출발지 IP 주소
+
+## Destiantion IP Address 필드(32bit)
+
+목적지 IP 주소
+
+## Options(선택적) 필드(가변적)
+
+Type-of-Service 플래그 처럼 특별한 처리 옵션을 추가로 정의 할 수 있다.
