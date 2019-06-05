@@ -119,3 +119,48 @@ MTU 1500 byte
 
 티얼드롭(Tear drop) 공격
 ip 헤더의 프래그먼트 오프셋을 조작하여 수신측에서 분할된 패킷을 재조립할 수 없도록 하는 공격 기법
+
+## TCP Header Format
+
+![tcp_header](./imgs/tcpheader1.png)
+
+### Source and Destination Port Number
+
+Identification of the sending and receiving application. Along with the source and destination IP addresses in the IP - header identify the connection as a socket.
+
+### Sequence Number
+
+The sequence number of the first data byte in this segment. If the SYN bit is set, the sequence number is the initial sequence number and the first data byte is initial sequence number + 1.
+
+### Acknowledgement Number
+
+If the ACK bit is set, this field contains the value of the next sequence number the sender of the segment is expecting to receive. Once a connection is established this is always sent.
+
+### Hlen
+
+The number of 32-bit words in the TCP header. This indicates where the data begins. The length of the TCP header is always a multiple of 32 bits.
+
+### Flags
+
+There are six flags in the TCP header. One or more can be turned on at the same time.
+
+- **URG** The URGENT POINTER field contains valid data
+- **ACK** The ackowledgement number is valid
+- **PSH** The receiver should pass this data to the application as soon as possible
+- **RST** Reset the connection
+- **SYN** Synchronize sequence numbers to initiate a connection.
+- **FIN** The sender is finished sending data.
+
+### Window
+
+This is the number of bytes, starting with the one specified by the acknowledgment number field, that the receiver is willing to accept. This is a 16-bit field, limiting the window to 65535 bytes.
+
+### Checksum
+
+This covers both the header and the data. It is calculated by prepending a pseudo-header to the TCP segment, this consists of three 32 bit words which contain the source and destination IP addresses, a byte set to 0, a byte set to 6 (the protocol number for TCP in an IP datagram header) and the segment length (in words). The 16-bit one's complement sum of the header is calculated (i.e., the entire pseudo-header is considered a sequence of 16-bit words). The 16-bit one's complement of this sum is stored in the checksum field. This is a mandatory field that must be calculated and stored by the sender, and then verified by the receiver.
+
+### Urgent Pointer
+
+The urgent pointer is valid only if the URG flag is set. This pointer is a positive offset that must be added to the sequence number field of the segment to yield the sequence number of the last byte of urgent data. TCP's urgent mode is a way for the sender to transmit emergency data to the other end. This feature is rarely used.
+
+<http://telescript.denayer.wenk.be/~hcr/cn/idoceo/tcp_header.html>

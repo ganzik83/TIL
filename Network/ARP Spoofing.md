@@ -43,7 +43,18 @@ fragrouter -B1
 
 피공격자(kali1) 에서 wireshark로 확인해보면 맥 어드레스 공격이 계속 들어온다(빨간색 박스). 파란색박스처럼 간간히 정상적인 요청도 들어온다
 
+- 처음에 게이트웨이를 두 개 생겼다 하나로 줄어드는 이유는 ARP 캐시 테이블에 담기기 때문, 시간이 지나서 사라지기 때문에 공격자 게이트웨이만 남는다
+
 ## 방어 방법
 
 게이트웨이를 변경되지 않도록 정적으로(스태틱하게) 설정한다 (수동입력)
 ARP cache table에 gateway mac 주소를 정적으로 설정
+
+windows에서는 cmd에서 아래와 같이 입력한다
+
+```
+arp -s GATEWAY_IP GATEWAY_MAC
+# or
+netst interface ip delete neighbors "NETWORK_CARD_NAME" "GATEWAY_IP"
+netst interface ip add neighbors "NETWORK_CARD_NAME" "GATEWAY_IP" "GATEWAY_MAC"
+```
