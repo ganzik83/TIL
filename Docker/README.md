@@ -1,12 +1,6 @@
 # 도커 Docker
 
-```bash
-docker --help
-```
-
-```bash
-docker image --help
-```
+<https://www.docker.com/>
 
 ![vm-vs-docker](./imgs/vm-vs-docker.png)
 가상 머신과 도커의 비교
