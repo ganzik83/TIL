@@ -8,58 +8,49 @@
 
 ### ettercap 실행
 
-![ettercap](../imgs/ettercap.png)
-
-![ettercap](../imgs/ettercap1.png)
-
-![ettercap](../imgs/ettercap2.png)
-
-![ettercap](../imgs/ettercap3.png)
-
-![ettercap](../imgs/ettercap4.png)
-
-![ettercap](../imgs/ettercap5.png)
-
-![ettercap](../imgs/ettercap6.png)
-
-![ettercap](../imgs/ettercap7.png)
-
-![ettercap](../imgs/ettercap8.png)
-
-![ettercap](../imgs/ettercap9.png)
-
-![ettercap](../imgs/ettercap10.png)
-
-![ettercap](../imgs/ettercap11.png)
-
-root@kali:~# ettercap -G
+```bash
+ettercap -G
+```
 
 Sniff > Unified sniffing > eth 0 ⇐ 스니핑할 NIC를 지정
+
+![ettercap](../imgs/ettercap.png)
 Hosts > Scan for hosts ⇐ 해당 LAN에 존재하는 호스트를 검색
+
+![ettercap](../imgs/ettercap1.png)
 Hosts > Hosts list ⇐ 검색 결과를 확인
 
-공격 대상을 지정
-target1 => Gateway (192.168.111.2)
-target2 => WinXP (192.168.111.140)
+![ettercap](../imgs/ettercap2.png)
+게이트웨이와 공격대상을 타켓으로 설정한다
 
-Apr spoofing ⇒ 공격자를 공격 대상 사이에 위치 ⇒ WinXP <---> Kali#2 <---> Gateway
-Mitm > ARP Spoofing > Sniff remote connections
+![ettercap](../imgs/ettercap3.png)
+게이트웨이를 타겟1로 설정
 
-DNS Spoofing 공격
-Plugins > Manage the plugins > dns_spoof
+![ettercap](../imgs/ettercap4.png)
+공격대상을 타겟2로 설정
 
-WinXP에서 http://www.naver.com으로 접속을 시도 → Kali#2에서 제공하는 웹 페이지가 보이면 공격 성공
+![ettercap](../imgs/ettercap5.png)
+공격자를 공격 대상 사이에 위치 ⇒ WinXP <---> Kali#2 <---> Gateway
+
+![ettercap](../imgs/ettercap6.png)
+Mitm > ARP Spoofing > Sniff remote connections 체크박스 선택
+
+![ettercap](../imgs/ettercap7.png)
+Plugins > Manage the plugins
+
+![ettercap](../imgs/ettercap8.png)
+dns_spoof 더블클릭해서 선택
+
+WinXP(공격대상)에서 http://www.naver.com으로 접속을 시도 → Kali#2(attacker)에서 제공하는 웹 페이지가 보이면 공격 성공
 
 ![ettercap](../imgs/ettercap12.png)
+naver.com에 접속을 했지만 kali#2(attacker)가 제공하는 웹페이지가 나타난다
 
 ![ettercap](../imgs/ettercap13.png)
+정보를 입력하면 Kali#2(attacker)가 패킷을 볼 수 있다 - 아이디와 비밀번호가 노출된 상황
 
 <https://stackoverflow.com/questions/40515543/chrome-dns-spoofing-protections>
 
 <https://opentogether.tistory.com/27>
 
 <https://opentogether.tistory.com/28>
-
-빠져 나오는 방법?
-
-ipconfig /flushdns
