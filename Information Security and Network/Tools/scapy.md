@@ -8,13 +8,21 @@
 
 <https://www.itlkorea.kr/data/scapy-pocket-guide0.2.pdf>
 
+### scapy 실행
+
 ```bash
-# scapy 실행
 scapy
+```
 
-# 지원하는 프로토콜을 확인
+### 지원하는 프로토콜을 확인
+
+```
 ls()
+```
 
+![scapyls](../imgs/scapyls.png)
+
+```
 # TCP 헤더 정보를 출력
 ls(TCP)
 

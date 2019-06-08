@@ -54,6 +54,8 @@ ARP cache table에 gateway mac 주소를 정적으로 설정
 
 windows에서는 cmd에서 아래와 같이 입력한다
 
+![flushdns](./imgs/flushdns.png)
+
 ```bash
 arp -s GATEWAY_IP GATEWAY_MAC
 # or
