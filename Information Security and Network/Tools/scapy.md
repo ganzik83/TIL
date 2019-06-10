@@ -138,24 +138,31 @@ wireshark로 확인
 kali1 (피해자) 클라이언트에서 원활한 실습을 위해 설정을 변경한다
 
 ```bash
-root@kali:~# sysctl -a | grep syncookies
+sysctl -a | grep syncookies
+
 net.ipv4.tcp_syncookies = 1    # syncookies를 사용 = backlog que에 SYN 패킷을 저장하지 않음
 sysctl: reading key "net.ipv6.conf.all.stable_secret"
 sysctl: reading key "net.ipv6.conf.default.stable_secret"
 sysctl: reading key "net.ipv6.conf.eth0.stable_secret"
 sysctl: reading key "net.ipv6.conf.lo.stable_secret"
+```
 
-root@kali:~# sysctl -w net.ipv4.tcp_syncookies=0
+![scapy sysctl -a | grep syncookies](../imgs/scapy9.png)
+
+```bash
+sysctl -w net.ipv4.tcp_syncookies=0
+
 net.ipv4.tcp_syncookies = 0
-root@kali:~# sysctl -a | grep syncookies
+
+sysctl -a | grep syncookies
 sysctl: reading key "net.ipv6.conf.all.stable_secret"
 net.ipv4.tcp_syncookies = 0
 sysctl: reading key "net.ipv6.conf.default.stable_secret"
 sysctl: reading key "net.ipv6.conf.eth0.stable_secret"
 sysctl: reading key "net.ipv6.conf.lo.stable_secret"
-
-
 ```
+
+![scapy sysctl -w net.ipv4.tcp_syncookies=0](../imgs/scapy10.png)
 
 @Kali#2 에서 RST 패킷이 외부로 나가지 못 하도록 방화벽에 등록
 
