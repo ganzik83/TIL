@@ -58,3 +58,20 @@ PowerMockup
 
 kakao oven
 <https://ovenapp.io/>
+
+### 웹 아이콘
+
+fontawesome
+<https://fontawesome.com/>
+
+materialdesignicons
+<https://materialdesignicons.com/>
+
+glyphicons
+<https://getbootstrap.com/docs/3.3/components/#glyphicons-examples>
+
+weather-icons
+<https://erikflowers.github.io/weather-icons/>
+
+Mfglabs
+<https://mfglabs.github.io/mfglabs-iconset/>
