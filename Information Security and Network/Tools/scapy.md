@@ -174,7 +174,11 @@ exit()
 
 # kali2 공격자 pc에서 rst가 나가는 것을 막는다. kali2에서 아래 명령어를 작업
 iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP
+```
 
+![scapy iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP](../imgs/scapy11.png)
+
+```bash
 # scapy로 들어간다
 scapy
 
@@ -189,8 +193,9 @@ send(syn, loop=True)
 
 싱크플러딩 공격
 공격자가 피공격자에게 아크를 보내야 하는데 싱크만 계속 보낸다
-
 ```
+
+![scapy](../imgs/scapy12.png)
 
 kali1 피해자 클라이언트에서 확인
 
