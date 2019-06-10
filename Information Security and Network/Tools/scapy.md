@@ -75,14 +75,24 @@ sniff()
 # sniffing 결과를 sf 변수에 저장
 sf = sniff()    # 실행하고 웹브라우저에서 사이트에 접속해보자
 sf.display()
+```
 
+![scapy sf.display()](../imgs/scapy6.png)
+
+```bash
 # 10개의 정보만 스니핑
 sf = sniff(count=10)
 sf.display()
+```
 
+![scapy sf = sniff(count=10)](../imgs/scapy7.png)
+
+```bash
 # 스니핑 한 결과의 0번째를 자세하게 보여준다
 sf[0].show()
 ```
+
+![scapy sf[0].show()](../imgs/scapy8.png)
 
 ## scapy를 이용한 3way handshaking
 
