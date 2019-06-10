@@ -30,29 +30,45 @@ ls(TCP)
 
 ![scapy ls(TCP)](../imgs/scapy1.png)
 
-```
+```bash
 # 현재 설정되어 있는 TCP헤더 정보를 출력
 TCP().display()
 
 # 사용가능한 기능을 확인
 lsc()
+```
 
+![scapy TCP().display()](../imgs/scapy2.png)
+
+```bash
 # 현재 설정되어 있는 IP헤더 정보를 출력
 IP().display()
 # or
 ip = IP()    #  변수로 지정
 ip.display()
+```
 
+![scapy IP().display()](../imgs/scapy3.png)
+
+```bash
 # ip destination 값을 192.168.44.144로 변경
 ip.dst="192.168.44.144"
 ip.display()
+```
 
+![scapy ip.display()](../imgs/scapy4.png)
+
+```bash
 # scapy는 전송 계층을 쌓을 수 있다. 캡슐래이션 하는 방법을 알아보자
 ip = IP()
 tcp = TCP()
 packet = ip/tcp
 packet.display()
+```
 
+![scapy packet.display()](../imgs/scapy5.png)
+
+```bash
 # sniffing하기
 sniff()
 
