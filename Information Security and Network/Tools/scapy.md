@@ -138,6 +138,9 @@ wireshark로 확인
 kali1 (피해자) 클라이언트에서 원활한 실습을 위해 설정을 변경한다
 
 ```bash
+# 80포트 이용을 위해 서버를 시작한다
+service apache2 start
+
 sysctl -a | grep syncookies
 
 net.ipv4.tcp_syncookies = 1    # syncookies를 사용 = backlog que에 SYN 패킷을 저장하지 않음
