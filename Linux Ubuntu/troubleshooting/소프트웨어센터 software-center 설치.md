@@ -18,7 +18,7 @@ apt-get install gvfs-backends
 gvfs, gvfs-daemons, gvfs-libs, gvfs-common 패키지 의존정 문제가 발생한다.
 
 ```bash
-# 모두 삭제
+# 모두 삭제하자
 apt-get remove gvfs
 apt-get remove gvfs-deamons
 apt-get remove gvfs-libs
