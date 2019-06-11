@@ -89,3 +89,54 @@ npm start
 
 브라우저에서 서버가 정상 작동하는지 확인  
 `http://localhost:8080`
+
+## Docker container에서 실행
+
+## Dockerfile 생성
+
+```bash
+# Specify a base image
+FROM alpine
+
+# Install some dependencies
+RUN npm Install
+
+# Default command
+CMD ["npm", "start"]
+```
+
+## docker build 이미지 생성
+
+```bash
+sudo docker build -t ganzik/node_server:1.0 .
+```
+
+오류가 발생한다
+
+## base 이미지를 변경한다
+
+Dockerfile 수정
+
+```bash
+# Specify a base image
+FROM node:10-alpine
+
+# Install some dependencies
+COPY . .
+RUN npm install
+
+# Default command
+CMD ["npm", "start"]
+```
+
+## 다시 이미지를 빌드한다
+
+```bash
+sudo docker build -t ganzik/node_server:1.0 .
+```
+
+## 동작 확인
+
+```bash
+sudo docker run [container id]
+```
