@@ -368,3 +368,162 @@ sudo docker build -t optimiseweb:3.0 .
 ```
 
 ![docker node_server](./imgs/dockernode11.png)
+
+---
+
+## Node - Redis 연동하기
+
+![node-redis](./imgs/noderedis.png)
+
+### 프로젝트 생성
+
+```bash
+mkdir node_redis
+cd node_redis
+npm init
+npm install --save express
+npm install --save redis
+```
+
+### app.js 작성
+
+```js
+const express = require("express");
+const redis = require("redis");
+
+const app = express();
+
+const client = redis.createClient();
+client.set("visits", 0);
+
+app.get("/", (req, res) => {
+  client.get("visits", (err, visits) => {
+    res.send("Number of visit is " + visits);
+    client.set("visits", parseInt(visits) + 1);
+  });
+});
+
+app.listen(8081, () => {
+  console.log("Listening 8081 port");
+});
+```
+
+![node-redis](./imgs/noderedis1.png)
+redis가 없어서 에러를 발생한다
+
+### redis-server 설치
+
+```bash
+sudo apt-get install redis-server
+```
+
+### redis-server 실행
+
+```bash
+redis-server
+```
+
+### redis 동작 확인
+
+새터미널을 열어서 입력
+
+```bash
+redis-cli
+```
+
+![node-redis](./imgs/noderedis2.png)
+
+### app.js 동작 확인
+
+```bash
+node app.js
+```
+
+![node-redis](./imgs/noderedis3.png)
+
+브라우저에서 `http://localhost:8081` 입력한다
+
+![node-redis](./imgs/noderedis4.png)
+
+## Docker 컨테이너 올리기
+
+### Dockerfile 작성하기
+
+```docker
+FROM node:10-alpine
+
+WORKDIR '/app'
+
+# Install some dependencies
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+# Default command
+CMD ["npm", "start"]
+```
+
+### Docker 이미지 빌드하기
+
+```bash
+sudo docker build -t ganzik/node_redis:1.0 .
+```
+
+![node-redis](./imgs/noderedis5.png)
+
+도커 컨테이너 올리기
+
+```bash
+sudo docker run -it ganzik/node_redis:1.0
+```
+
+![node-redis](./imgs/noderedis6.png)
+오류를 나타낸다
+
+### Docker-compose 파일 작성
+
+docker-compose.yml
+
+```yml
+# docker-compose 버전을 지정한다
+version: "3"
+# service를 제공할 컨테이너를 작성한다
+services:
+  # 컨테이너 이름은 redis-server
+  redis-server:
+    # "redis"라는 이미지를 이용해서 생성한다
+    image: "redis"
+  # 컨테이너 이름은 node-app
+  node-app:
+    # 현재 디렉터리의 Dockerfile을 이용해서 생성한다
+    build: .
+    # 호스트 포트 8081과 컨테이너 포트 8081을 맵핑해서 연결한다
+    ports:
+      - 8081:8081
+```
+
+### docker-compose 설치
+
+```bash
+sudo apt-get install docker-compose
+```
+
+### docker-compose 실행
+
+```bash
+sudo docker-compose up --build
+```
+
+![node-redis](./imgs/noderedis7.png)
+![node-redis](./imgs/noderedis71.png)
+
+node-app 컨테이너와 redis-server 컨테이너 연결을 위해 "redis-server"포트를 입력해준다
+
+app.js 수정해준다
+
+```js
+const client = redis.createClient({
+  host: "redis-server",
+  port: 6379
+});
+```
