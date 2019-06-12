@@ -375,7 +375,15 @@ sudo docker build -t optimiseweb:3.0 .
 
 ![node-redis](./imgs/noderedis.png)
 
+컨테이너 두 개를 띄워서 서로 연동하는 것을 실습해보자
+
+redis-server 컨테이너는 데이터베이스를 저장하는 redis가 작동하게 하고
+nodejs 컨테이너는 Dockerfile을 이용해서 실행되도록한다
+그리고 그 둘을 연결해서 nodejs에서 서비스하는 웹 방문자 카운터를 redis-server 컨테이너 redis 데이터베이스에 저장해보자
+
 ### 프로젝트 생성
+
+/home/ubuntu/docker/ 디렉터리에서 프로젝트를 위한 하위 디렉터리를 하나 생성하고 npm을 이용해 초기 설정 및 모듈을 설치하자
 
 ```bash
 mkdir node_redis
@@ -527,3 +535,187 @@ const client = redis.createClient({
   port: 6379
 });
 ```
+
+---
+
+## Apache 서버 (ubuntu 16.04)
+
+Dockerfile
+
+```bash
+FROM ubuntu:16.04
+
+MAINTAINER ubuntu
+
+LABEL "purpose"="practice"
+
+WORKDIR /var/www/html
+
+RUN apt-get update
+RUN apt-get install apache2 -y
+RUN ["/bin/bash", "-c", "echo hello >> test2.html"]
+
+EXPOSE 80
+
+CMD apachectl -DFOREGROUND
+```
+
+### 도커 빌드 및 실행
+
+```bash
+sudo docker build -t ganzik/apache_server:1.0 .
+
+sudo docker run ganzik/apache_server:1.0
+```
+
+![node-apache](./imgs/nodeapache1.png)
+
+브라우저에 주소를 입력하면 apache2 서버에 정상 접속된다
+![node-apache](./imgs/nodeapache.png)
+
+---
+
+## Apache 서버 두번째 방법 (httpd)
+
+### Dockerfile 작성
+
+참조 <https://hub.docker.com/_/httpd>
+
+```docker
+FROM httpd:2.4
+COPY ./public-html /usr/local/apache2/htdocs/
+```
+
+### index.html 파일
+
+```bash
+mkdir public-html
+cd public-html
+vim index.html
+```
+
+index.html
+
+```html
+<html lang="en"></html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+<body>
+  Hello world
+</body>
+```
+
+### docker 이미지 빌드 및 컨테이너 실행
+
+```bahs
+sudo docker build -t my-apache2 .
+
+sudo docker run -dit --name my_apache -p 8080:80 my-apache2
+```
+
+![node-apache](./imgs/nodeapache2.png)
+
+### 확인
+
+브라우저에서 `http://localhost:8080` 입력
+
+![node-apache](./imgs/nodeapache3.png)
+
+---
+
+## MySQL 서버 구축
+
+```bash
+# 도커 컨테이너를 바로 실행한다. root password는 0918, 그리고 데이터베이스를 wordpress를 생성한다
+sudo docker run -d --name mysqldb -e MYSQL_ROOT_PASSWORD=0918 -e MYSQL_DATABASE=wordpress mysql
+```
+
+![docker mysql](./imgs/dockermysql.png)
+
+### MySQL 접속
+
+```bash
+sudo docker exec -it 7ff /bin/bash
+
+mysql -u root -p
+```
+
+![docker mysql](./imgs/dockermysql1.png)
+
+database 생성해보기
+
+```mysql
+show databases;
+
+use wordpress
+
+CREATE TABLE ganzik (ganzik_no INT(11) unsigned NOT NULL, ganzik_name VARCHAR(32) NOT NULL, PRIMARY KEY (ganzik_no));
+
+show tables;
+```
+
+![docker mysql](./imgs/dockermysql2.png)
+
+---
+
+## MongoDB 서버 설치
+
+### Mongodb 컨테이너 실행
+
+```bash
+sudo docker run --name my-mongo -d mongo:4-xenial
+```
+
+![docker mongodb](./imgs/dockermongodb.png)
+
+### mongodb 테스트
+
+```bash
+sudo docker exec -it my-mongo /bin/bash
+
+# mongoDB 실행
+mongo
+```
+
+![docker mongodb](./imgs/dockermongodb2.png)
+
+```bash
+# 데이터베이스 확인한다
+show dbs;
+
+# mydb를 이용한다. 없으면 mydb를 생성
+use mydb
+
+# movie 컬렉션을 작성한다
+db.movie.insert({"name":"avengers", "character":"iron man"});
+
+# 생성된 컬렉션을 확인한다
+show collections
+
+# 데이터베이스에서 빠져 나간다
+exit
+```
+
+![docker mongodb](./imgs/dockermongodb3.png)
+
+---
+
+## couchbase 생성
+
+<https://hub.docker.com/_/couchbase>
+
+```bash
+# 이름이 couch인 couchbase 이미지를 이용한 컨테이너를 생성한다.
+sudo docker run -d --name couch -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+```
+
+![docker couchbase](./imgs/dockercouchbase.png)
+
+### 접속 확인
+
+브라우저에서 `http://localhost:8091` 접속
+![docker couchbase](./imgs/dockercouchbase1.png)
