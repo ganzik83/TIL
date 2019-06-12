@@ -122,7 +122,7 @@ Dockerfile 수정
 FROM node:10-alpine
 
 # Install some dependencies
-COPY . .
+COPY ./ ./
 RUN npm install
 
 # Default command
