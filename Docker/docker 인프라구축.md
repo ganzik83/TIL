@@ -15,19 +15,19 @@ source ~/.profile
 nvm ls-remote
 ```
 
-## NodeJS 설치하기
+## nodejs 설치하기
 
 ```bash
 nvm install 10.14.2
 ```
 
-## NodeJS 설치 확인하기
+## nodejs 설치 확인하기
 
 ```bash
 node -v
 ```
 
-## NodeJS 삭제하기
+## nodejs 삭제하기
 
 ```bash
 # nvm 확인하기
