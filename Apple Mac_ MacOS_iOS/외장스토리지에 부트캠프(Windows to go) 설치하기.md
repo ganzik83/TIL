@@ -79,3 +79,11 @@ EFI 시스템 파티션과 부트 파티션을 선택한다
 설치가 완료되었다
 
 ## Windows10으로 부팅하기
+
+## Windows10 업데이트 하기
+
+레지스트리 편집기 `regedit.exe` 실행
+
+> HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control
+
+PortableOperatingSystem 값을 0으로 수정
