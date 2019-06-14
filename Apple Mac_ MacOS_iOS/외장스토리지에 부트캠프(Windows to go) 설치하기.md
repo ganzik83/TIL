@@ -102,3 +102,7 @@ EFI 시스템 파티션과 부트 파티션을 선택한다
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control
 
 PortableOperatingSystem 값을 0으로 수정
+
+---
+
+파티션하고 남은 부분은 맥에서 파티션 및 볼륨 지정하여 외장스토리지로 사용을 하자
