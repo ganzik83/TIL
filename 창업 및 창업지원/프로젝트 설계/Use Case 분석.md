@@ -95,3 +95,12 @@
 ### Use Case Diagram 4차
 
 ![usecase](../imgs/usecase8.png)
+
+---
+
+## Use Case 기술서 작성
+
+유스케이스 기술서 서식 파일  
+[유스케이스기술서.xlsx](..file/유스케이스기술서.xlsx)
+
+![usecase](../imgs/usecase9.png)
