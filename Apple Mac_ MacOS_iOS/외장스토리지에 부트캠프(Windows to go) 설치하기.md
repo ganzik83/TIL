@@ -89,10 +89,10 @@ EFI 시스템 파티션과 부트 파티션을 선택한다
 
 맥 부팅시에 옵션키를 누르면 부팅 디스크 선택이 나온다.
 
-![windows to go](./imgs/wintogo14.png)
+![windows to go](./imgs/wintogo14.PNG)
 윈도우즈10이 정상 설치 되었다
 
-![windows to go](./imgs/wintogo15.png)
+![windows to go](./imgs/wintogo15.PNG)
 아까 받은 Boot Camp 설치 프로그램을 실행한다
 
 ## Windows10 업데이트 하기
