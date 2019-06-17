@@ -167,6 +167,7 @@ sudo ufw allow 53
 
 인데 실패함;;
 방법을 찾아보자
+![dns server](./imgs/dnsserver16.png)
 
 ### 응용
 
