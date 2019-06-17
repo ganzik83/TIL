@@ -58,6 +58,10 @@ sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F2
 sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://ftp.kaist.ac.kr/mariadb/repo/10.3/ubuntu bionic main'
 ```
 
+![docker MariaDB](./imgs/dockermariadb6.png)
+![docker MariaDB](./imgs/dockermariadb7.png)
+![docker MariaDB](./imgs/dockermariadb8.png)
+
 ### MariaDB Server, Client 설치
 
 ```bash
@@ -66,7 +70,8 @@ apt update
 apt-get install mariadb-server mariadb-client
 ```
 
-![docker MariaDB](./imgs/dockermariadb2.png)
+![docker MariaDB](./imgs/dockermariadb9.png)
+![docker MariaDB](./imgs/dockermariadb10.png)
 
 ---
 
