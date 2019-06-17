@@ -1,12 +1,12 @@
-# Settings Sync
+## Settings Sync
 
 <https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync>
 
-# Extention Setup
+## Extention Setup
 
 Extentions(ctl+cmd+x) -> code-setting-sync
 
-# Get the Github Personal Access Token
+## Get the Github Personal Access Token
 
 GitHub 계정의 Personal Access Token을 이용해서 gist를 업로드, 다운로드하여 동기화하기 위해 토큰을 생성
 
@@ -22,7 +22,7 @@ GitHub 계정 로그인 > Settings > Developer settings> Personal Access Tokens 
 
 ![generated new token](./images/gist_3.png)
 
-# Upload Settings
+## Upload Settings
 
 Shift + Alt + U
 
@@ -35,6 +35,6 @@ GitHub Token: ~~~
 GitHub Gist: ~~~  
 GitHub Gist Type: Secret
 
-# Download settings to other devices
+## Download settings to other devices
 
 Shift + Alt + D
