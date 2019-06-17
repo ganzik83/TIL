@@ -82,3 +82,7 @@ sudo docker run --name my-mariadb -e MYSQL_ROOT_PASSWORD=1234 -d mariadb:10-bion
 ```
 
 ![docker MariaDB](./imgs/dockermariadb3.png)
+
+```bash
+sudo docker exec -it [container id] bin/sh
+```
