@@ -12,4 +12,4 @@ code
 2. 명령 팔레트(mac에서 cmd + shift + p)를 실행
 3. Shell Command : install 'code' command in PATH 입력 후 실행
 
-터미널을 재시작 하면 실행된다
+터미널을 재시작 하고 `code` 명령어를 입력하면 VScode가 실행된다.
