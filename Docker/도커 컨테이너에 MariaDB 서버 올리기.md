@@ -195,25 +195,3 @@ apt-get install mariadb-server mariadb-client
 
 ![docker MariaDB](./imgs/dockermariadb9.png)
 ![docker MariaDB](./imgs/dockermariadb10.png)
-
-```bash
-# MariaDB 서비스 시작
-systemctl restart mysql
-```
-
-![docker MariaDB](./imgs/dockermariadb11.png)
-`systemctl` 명령이 실행되지 않는다
-
-```bash
-# systemctl 명령어를 사용하기 위해 systemd를 설치한다
-apt install systemd
-```
-
-```bash
-# MariaDB 서비스 시작
-systemctl restart mysql
-
-systemctl status mysql
-```
-
----
