@@ -1,5 +1,7 @@
 # DNS 서버 - ubuntu 18.04
 
+<https://blog.lael.be/post/6308>
+
 ## 도메인 네임서버란?
 
 Domain Name Server는 "네임서버" 또는 "DNS"라고 부른다
