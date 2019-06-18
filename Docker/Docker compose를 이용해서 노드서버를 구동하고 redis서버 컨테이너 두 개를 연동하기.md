@@ -177,3 +177,10 @@ sudo apt-get install docker-compose
 
 sudo docker-compose up --build
 ```
+
+---
+
+docker-compose로 묶인 컨테이너는 각자 ip와 포트를 할당받아 하나의 네트워크로 구성이 된다
+
+위의 실습 예제에서 노드서버와 redis서버 두 대가 통신을 할 때 ip:port를 지정해줘도 되지만
+각각의 redis서버 컨테이너의 이름을 지정해줘도 통신이 가능하다
