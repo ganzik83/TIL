@@ -6,112 +6,84 @@
 
 #### RDBS
 
-MySQL
-<https://www.mysql.com/>
+MySQL <https://www.mysql.com/>
 
-PostgreSQL
-<https://www.postgresql.org/>
+PostgreSQL <https://www.postgresql.org/>
 
-MariaDB  
-<https://mariadb.org/>
+MariaDB <https://mariadb.org/>
 
 #### NoSQL
 
-MongoDB  
-<https://www.mongodb.com/>
+MongoDB <https://www.mongodb.com/>
 
-Redis
-<https://redis.io/>
+Redis <https://redis.io/>
 
 ## 개발자 포털사이트
 
-Git Hub  
-<https://github.com>
+Git Hub <https://github.com>
 
-okky  
-<https://okky.kr/>
+okky <https://okky.kr/>
 
-stackoverflow  
-<https://stackoverflow.com/>
+stackoverflow <https://stackoverflow.com/>
 
-code talks  
-<https://www.codentalks.com/>
+code talks <https://www.codentalks.com/>
 
 ## IT 뉴스
 
-itworld  
-<http://www.itworld.co.kr>
+itworld <http://www.itworld.co.kr>
 
-삼성SDS 인사이트  
-<https://www.samsungsds.com/global/ko/support/insights/index.html>
+삼성SDS 인사이트 <https://www.samsungsds.com/global/ko/support/insights/index.html>
 
-LG CNS 인사이트  
-<https://blog.lgcns.com/category/IT%20Insight>
+LG CNS 인사이트 <https://blog.lgcns.com/category/IT%20Insight>
 
 ## HTML, CSS, JavaScript 기초
 
-w3schools  
-<https://www.w3schools.com/>
+w3schools <https://www.w3schools.com/>
 
 ## Dockr 도커
 
-가장 빨리 만나는 Docker  
-<http://www.pyrasis.com/docker.html>
+가장 빨리 만나는 Docker <http://www.pyrasis.com/docker.html>
 
-Docker Reference
-<https://docs.docker.com/engine/reference/commandline/cli/>
+Docker Reference <https://docs.docker.com/engine/reference/commandline/cli/>
 
-Docker 도커 무작정 따라하기
-<https://www.slideshare.net/pyrasis/docker-fordummies-44424016>
+Docker 도커 무작정 따라하기 <https://www.slideshare.net/pyrasis/docker-fordummies-44424016>
 
 ## TOOL
 
 ### 에디터
 
-**VScode**
-<https://code.visualstudio.com/>
+**VScode** <https://code.visualstudio.com/>
 
-typora - markdown
-<https://typora.io/>
+typora - markdown <https://typora.io/>
 
 ### 목업
 
-**balsamiq**
-<https://balsamiq.com/wireframes/>
+**balsamiq** <https://balsamiq.com/wireframes/>
 
-PowerMockup
-<https://www.powermockup.com>
+PowerMockup <https://www.powermockup.com>
 
-kakao oven
-<https://ovenapp.io/>
+kakao oven <https://ovenapp.io/>
 
 ### 웹 아이콘
 
-fontawesome
-<https://fontawesome.com/>
+fontawesome <https://fontawesome.com/>
 
-materialdesignicons
-<https://materialdesignicons.com/>
+materialdesignicons <https://materialdesignicons.com/>
 
-glyphicons
-<https://getbootstrap.com/docs/3.3/components/#glyphicons-examples>
+glyphicons <https://getbootstrap.com/docs/3.3/components/#glyphicons-examples>
 
-weather-icons
-<https://erikflowers.github.io/weather-icons/>
+weather-icons <https://erikflowers.github.io/weather-icons/>
 
-Mfglabs
-<https://mfglabs.github.io/mfglabs-iconset/>
+Mfglabs <https://mfglabs.github.io/mfglabs-iconset/>
 
 ### UML
 
-Draw  
-<https://www.draw.io/>
+Draw <https://www.draw.io/>
 
 ## Royalty Free
 
 ### Images
 
-unsplash  
-<https://unsplash.com/>
+unsplash <https://unsplash.com/>
 
 ### Musics
