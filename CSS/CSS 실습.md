@@ -302,6 +302,13 @@
 ![css 3열 배치 결과](./imgs/css3column1.png)
 내가 만든 결과물
 
+> 무엇을 배웠나
+>
+> - 아이콘을 <https://fontawesome.com/>에서 받아서 사용하는 법.
+>   - 헤더에 스크립트 코드를 불러오고 본문에 아이콘 클래스를 이용하여 첨부한다
+> - \<div>태크 안쪽에 아이콘을 상하 중간으로 위치시키는 방법
+>   - line-height 속성값을 \<div> 태크와 같은 픽셀로 지정한다
+
 ---
 
 ## 3열 배치 포트폴리오 만들기 실습
@@ -319,8 +326,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/44b4f52062.js"></script>
-    <title>3단 배치</title>
+    <title>3단 배치 포트폴리오</title>
     <style>
       body {
         text-align: center;
