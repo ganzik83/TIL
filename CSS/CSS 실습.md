@@ -301,3 +301,9 @@
 
 ![css 3열 배치 결과](./imgs/css3column.png)
 내가 만든 결과물
+
+---
+
+## 3열 배치 포트폴리오 만들기 실습
+
+![3열 배치 포트폴리오 연습문제](./imgs/css3column-portfolio.png)
