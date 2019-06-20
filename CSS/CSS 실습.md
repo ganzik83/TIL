@@ -307,3 +307,100 @@
 ## 3열 배치 포트폴리오 만들기 실습
 
 ![3열 배치 포트폴리오 연습문제](./imgs/css3column-portfolio.png)
+
+위와 같이 만들어보자
+
+아래는 내가 작성한 코드
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://kit.fontawesome.com/44b4f52062.js"></script>
+    <title>3단 배치</title>
+    <style>
+      body {
+        text-align: center;
+        width: 600px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        margin-bottom: 5px;
+      }
+
+      p {
+        color: gray;
+        margin: 0px;
+      }
+
+      .parents {
+        width: 600px;
+        display: table;
+        margin: auto;
+      }
+
+      .box {
+        display: table-cell;
+        height: 300px;
+      }
+
+      .box-a {
+        width: 200px;
+      }
+
+      .box-b {
+        width: 200px;
+      }
+
+      .box-c {
+        width: 200px;
+      }
+
+      .one {
+        margin: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>PORTFOLIO</h1>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+    <p style="padding-bottom: 30px;"></p>
+
+    <div class="parent">
+      <div class="box box-a">
+        <div class="one">
+          <img src="./imgs/flower.png" width="180px" />
+        </div>
+
+        <h2>Threads</h2>
+        <p>Illustration</p>
+      </div>
+      <div class="box box-b">
+        <div class="one">
+          <img src="./imgs/spring.png" width="180px" />
+        </div>
+
+        <h2>Explore</h2>
+        <p>Graphic Design</p>
+      </div>
+      <div class="box box-c">
+        <div class="one">
+          <img src="./imgs/hanriver.png" width="180px" />
+        </div>
+
+        <h2>Finish</h2>
+        <p>Identity</p>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+내가 만든 결과물
+![3열 배치 포트폴리오 연습문제](./imgs/css3column-portfolio1.png)
