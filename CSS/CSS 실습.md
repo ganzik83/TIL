@@ -299,7 +299,7 @@
 </html>
 ```
 
-![css 3열 배치 결과](./imgs/css3column.png)
+![css 3열 배치 결과](./imgs/css3column1.png)
 내가 만든 결과물
 
 ---
