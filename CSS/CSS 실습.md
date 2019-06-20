@@ -22,6 +22,16 @@
         text-align: center;
       }
 
+      a:link {
+        color: rgb(43, 147, 211);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: red;
+        text-decoration: none;
+      }
+
       #center {
         border: 1px solid whitesmoke;
         background-color: whitesmoke;
@@ -49,6 +59,18 @@
         height: 35px;
         margin: 5px;
       }
+
+      #create_account {
+        margin: 10px;
+      }
+
+      #keep {
+        text-align: left;
+      }
+
+      #forget {
+        text-align: right;
+      }
     </style>
   </head>
 
@@ -58,10 +80,20 @@
       <input type="text" placeholder="Username" id="user" /><br />
       <input type="password" placeholder="Password" id="passwd" /><br />
       <input type="button" id="button" value="Log in" /><br />
-      <span><input type="checkbox" name="keep" />Remember me</span>
-      <span name="find">Forget Password?</span>
+      <div style="width: 290px; margin: auto;">
+        <table style="width: 290px;">
+          <tr>
+            <td id="keep"><input type="checkbox" />Remember me</td>
+            <td id="forget">
+              <a href="forget_password.html">Forget Password?</a>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <p style="color: rgb(43, 147, 211)">Create an Account</p>
+    <div id="create_account">
+      <a href="/create_account.html">Create an Account</a>
+    </div>
   </body>
 </html>
 ```
