@@ -18,10 +18,10 @@ https://www.bootcampdrivers.com/
 
 이 곳에서 최신 드라이버인 Adrenalin June 2019 edition 을 받아서 드라이버 업데이트를 하였더니 이제 부트캠프 울트라파인 5K가 확장모드에서도 5K 해상도로 작동하게 되었다
 
-![부트캠프 amd 드라이버 업데이트](./imgs/amd.png)
+![부트캠프 amd 드라이버 업데이트](./imgs/amd.PNG)
 
-![부트캠프 amd 드라이버 업데이트](./imgs/amd1.png)
+![부트캠프 amd 드라이버 업데이트](./imgs/amd1.PNG)
 
-![부트캠프 amd 드라이버 업데이트](./imgs/amd2.png)
+![부트캠프 amd 드라이버 업데이트](./imgs/amd2.PNG)
 
-![부트캠프 amd 드라이버 업데이트](./imgs/amd3.png)
+![부트캠프 amd 드라이버 업데이트](./imgs/amd3.PNG)
