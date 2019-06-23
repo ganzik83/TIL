@@ -1,4 +1,4 @@
-# VMware fution 10 호스트와 게스트 파일 공유 방법
+# VMware fusion 10 호스트와 게스트 파일 공유 방법
 
 1. VMware에서 폴더를 공유하고자 하는 virtual machine을 선택하고 설정(settings)에 들어간다
 
