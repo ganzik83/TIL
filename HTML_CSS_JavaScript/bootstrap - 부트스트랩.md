@@ -9,7 +9,7 @@
 w3schools - bootstrap4 tutorial
 <https://www.w3schools.com/bootstrap4/default.asp>
 
-반응형 웹에 최적화 되어있다
+부트스트랩은 html 문서 형식을 지키면서 쉽게 웹사이트를 제작 할 수 있도록 css와 javastipt 클래스를 제공하는 템플릿이다
 
 ## Bootstrap 4 is mobile-first
 
@@ -109,3 +109,81 @@ The following example shows how to create four equal-width columns starting at t
   <div class="col-sm-3">.col-sm-3</div>
 </div>
 ```
+
+### Two Unequal Responsive Columns
+
+The following example shows how to get two various-width columns starting at tablets and scaling to large extra desktops:
+
+```html
+<div class="row">
+  <div class="col-sm-4">.col-sm-4</div>
+  <div class="col-sm-8">.col-sm-8</div>
+</div>
+```
+
+### Grid Background-Color
+
+클래스 `bg-primary`와 같이 입력해서 표현 가능하다
+
+```html
+<div class="row">
+  <div class="col-sm-4 bg-danger">
+    <h1>left menu</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, sint!</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 bg-warning">
+    <h1>Contents</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae omnis
+      veniam explicabo quo consectetur nisi dolore, molestiae nulla repellendus
+      culpa ratione saepe mollitia earum quam incidunt minima tempore maxime
+      amet.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 bg-dark">
+    <h1>Footer</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae omnis
+      veniam explicabo quo consectetur nisi dolore, molestiae nulla repellendus
+      culpa ratione saepe mollitia earum quam incidunt minima tempore maxime
+      amet.
+    </p>
+  </div>
+</div>
+```
+
+![background-color](./imgs/bootstrap-grid-bg.png)
+
+### Grid in Grid
+
+그리드 안에 그리드를 생성할 수 있다.
+그리드 한 개에 또 그리드 12개를 생성 할 수 있다. 이것 또한 반응형으로 작동 할 수 있다.
+
+## Text Colors
+
+Bootstrap 4 has some contextual classes that can be used to provide "meaning through colors".
+
+The classes for text colors are: `.text-muted`, `.text-primary`, `.text-success`, `.text-info`, `.text-warning`, `.text-danger`, `.text-secondary`, `.text-white`, `.text-dark`, `.text-body` (default body color/often black) and `.text-light`:
+
+```html
+<div class="container">
+  <h2>Contextual Link Colors</h2>
+  <p>Hover over the links.</p>
+  <a href="#" class="text-muted">Muted link.</a>
+  <a href="#" class="text-primary">Primary link.</a>
+  <a href="#" class="text-success">Success link.</a>
+  <a href="#" class="text-info">Info link.</a>
+  <a href="#" class="text-warning">Warning link.</a>
+  <a href="#" class="text-danger">Danger link.</a>
+  <a href="#" class="text-secondary">Secondary link.</a>
+  <a href="#" class="text-dark">Dark grey link.</a>
+  <a href="#" class="text-body">Body/black link.</a>
+  <a href="#" class="text-light">Light grey link.</a>
+</div>
+```
+
+![bootstrap-text-color](./imgs/bootstrap-text-color.png)
