@@ -524,3 +524,80 @@ The `.fade` and`.show` classes adds a fading effect when closing the alert messa
 ```html
 <div class="alert alert-danger alert-dismissible fade show"></div>
 ```
+
+## Button Styles
+
+The button classes can be used on \<a>, \<button>, or \<input> elements:
+
+```html
+<a href="#" class="btn btn-info" role="button">Link Button</a>
+<button type="button" class="btn btn-info">Button</button>
+<input type="button" class="btn btn-info" value="Input Button" />
+<input type="submit" class="btn btn-info" value="Submit Button" />
+```
+
+### Button Outline
+
+```html
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<button type="button" class="btn btn-outline-success">Success</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-dark">Dark</button>
+<button type="button" class="btn btn-outline-light text-dark">Light</button>
+```
+
+### Button Sizes
+
+Use the `.btn-lg` class for large buttons or `.btn-sm` class for small buttons:
+
+```html
+<button type="button" class="btn btn-primary btn-lg">Large</button>
+<button type="button" class="btn btn-primary">Default</button>
+<button type="button" class="btn btn-primary btn-sm">Small</button>
+```
+
+### Block Level Buttons
+
+Add class `.btn-block` to create a block level button that spans the entire width of the parent element.
+
+```html
+<button type="button" class="btn btn-primary btn-block">
+  Full-Width Button
+</button>
+```
+
+### Active/Disabled Buttons
+
+The class `.active` makes a button appear pressed, and the disabled attribute makes a button unclickable. Note that \<a> elements do not support the disabled attribute and must therefore use the `.disabled` class to make it visually appear disabled.
+
+```html
+<button type="button" class="btn btn-primary active">Active Primary</button>
+<button type="button" class="btn btn-primary" disabled>Disabled Primary</button>
+<a href="#" class="btn btn-primary disabled">Disabled Link</a>
+```
+
+### Spinner Buttons
+
+```html
+<button class="btn btn-primary">
+  <span class="spinner-border spinner-border-sm"></span>
+</button>
+
+<button class="btn btn-primary">
+  <span class="spinner-border spinner-border-sm"></span>
+  Loading..
+</button>
+
+<button class="btn btn-primary" disabled>
+  <span class="spinner-border spinner-border-sm"></span>
+  Loading..
+</button>
+
+<button class="btn btn-primary" disabled>
+  <span class="spinner-grow spinner-grow-sm"></span>
+  Loading..
+</button>
+```
