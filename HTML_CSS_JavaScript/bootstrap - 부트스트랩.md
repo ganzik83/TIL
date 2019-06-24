@@ -601,3 +601,84 @@ The class `.active` makes a button appear pressed, and the disabled attribute ma
   Loading..
 </button>
 ```
+
+## Button Groups
+
+Use a \<div> element with class `.btn-group` to create a button group:
+
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+
+Tip: Instead of applying button sizes to every button in a group, use class `.btn-group-lg` for a large button group or the `.btn-group-sm` for a small button group:
+
+### Vertical Button Groups
+
+Use the class `.btn-group-vertical` to create a vertical button group:
+
+### Nesting Button Groups & Dropdown Menus
+
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <div class="btn-group">
+    <button
+      type="button"
+      class="btn btn-primary dropdown-toggle"
+      data-toggle="dropdown"
+    >
+      Sony
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Tablet</a>
+      <a class="dropdown-item" href="#">Smartphone</a>
+    </div>
+  </div>
+</div>
+```
+
+### Split Button Dropdowns
+
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Sony</button>
+  <button
+    type="button"
+    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+    data-toggle="dropdown"
+  >
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Tablet</a>
+    <a class="dropdown-item" href="#">Smartphone</a>
+  </div>
+</div>
+```
+
+### Vertical Button Group w/ Dropdown
+
+```html
+<div class="btn-group-vertical">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <div class="btn-group">
+    <button
+      type="button"
+      class="btn btn-primary dropdown-toggle"
+      data-toggle="dropdown"
+    >
+      Sony
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Tablet</a>
+      <a class="dropdown-item" href="#">Smartphone</a>
+    </div>
+  </div>
+</div>
+```
