@@ -1,5 +1,15 @@
 # 즐겨찾기 사이트
 
+## Github
+
+blog theme <https://github.com/mmistakes/minimal-mistakes>
+
+badges - 뱃지 생성 방법
+<https://shields.io/> <https://github.com/badges/shields>
+
+utterances - blog comments
+<https://github.com/utterances-bot>
+
 ## Programming languages
 
 ### Databases
