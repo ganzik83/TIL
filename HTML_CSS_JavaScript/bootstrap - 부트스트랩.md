@@ -187,3 +187,337 @@ The classes for text colors are: `.text-muted`, `.text-primary`, `.text-success`
 ```
 
 ![bootstrap-text-color](./imgs/bootstrap-text-color.png)
+
+## Table
+
+A basic Bootstrap 4 table has a light padding and horizontal dividers.
+
+The `.table` class adds basic styling to a table:
+
+```html
+<div class="container">
+  <table class="table">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Striped Rows
+
+The .table-striped class adds zebra-stripes to a table:
+
+```html
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Bordered Table
+
+The `.table-bordered` class adds borders on all sides of the table and cells:
+
+```html
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Hover Rows
+
+The `.table-hover` class adds a hover effect (grey background color) on table rows:
+
+```html
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Black/Dark Table
+
+The `.table-dark` class adds a black background to the table:
+
+```html
+<div class="container">
+  <table class="table table-dark">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Dark Striped Table
+
+Combine `.table-dark` and `.table-striped` to create a dark, striped table:
+
+```html
+<div class="container">
+  <table class="table table-dark table-striped">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Hoverable Dark Table
+
+The `.table-hover` class adds a hover effect (grey background color) on table rows:
+
+```html
+<div class="container">
+  <table class="table table-dark table-hover">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### Borderless Table
+
+The `.table-borderless` class removes borders from the table:
+
+```html
+<div class="container">
+  <table class="table table-borderless">
+    <thead>
+      <td>Firstname</td>
+      <td>Lastname</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>John@google.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Mary@naver.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@icloud.me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+## Jumbotron
+
+A jumbotron indicates a big grey box for calling extra attention to some special content or information.
+
+Tip: Inside a jumbotron you can put nearly any valid HTML, including other Bootstrap elements/classes.
+
+```html
+<div class="jumbotron">
+  <h1>Bootstrap Tutorial</h1>
+  <p>Bootstrap is the most popular HTML, CSS...</p>
+</div>
+```
+
+![bootstrap-jumbotron](./imgs/bootstrap-jumbotron.png)
+
+### Full-width Jumbotron
+
+If you want a full-width jumbotron without rounded borders, add the `.jumbotron-fluid` class and a `.container` or `.container-fluid` inside of it:
+
+```html
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Bootstrap Tutorial</h1>
+    <p>Bootstrap is the most popular HTML, CSS...</p>
+  </div>
+</div>
+```
+
+## Alerts
+
+Alerts are created with the .alert class, followed by one of the contextual classes `.alert-success`, `.alert-info`, `.alert-warning`, `.alert-danger`, `.alert-primary`, `.alert-secondary`, `.alert-light` or `.alert-dark`:
+
+```html
+<div class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+```
+
+### Alert Links
+
+Add the `alert-link` class to any links inside the alert box to create "matching colored links":
+
+```html
+<div class="alert alert-success">
+  <strong>Success!</strong> You should
+  <a href="#" class="alert-link">read this message</a>.
+</div>
+```
+
+### Closing Alerts
+
+To close the alert message, add a `.alert-dismissible` class to the alert container. Then add `class="close"` and `data-dismiss="alert"` to a link or a button element (when you click on this the alert box will disappear).
+
+```html
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+```
+
+### Animated Alerts
+
+The `.fade` and`.show` classes adds a fading effect when closing the alert message:
+
+```html
+<div class="alert alert-danger alert-dismissible fade show"></div>
+```
