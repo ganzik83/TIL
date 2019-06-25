@@ -113,3 +113,40 @@
 ```
 
 ![javascript 경품추천 실습 예제](./imgs/javascript7.png)
+
+---
+
+사용자에게 숫자를 입력받아 홀수 인지 짝수인지 출력하는 스크립트를 작성하시오.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script>
+      function num() {
+        var num = prompt("숫자를 입력하세요");
+        if (num % 2 == 0) {
+          alert("짝수입니다");
+        } else {
+          alert("홀수입니다");
+        }
+      }
+      num();
+    </script>
+  </body>
+</html>
+```
+
+숫자를 아무것도 입력하지 않았을 때 숫자를 입력하라는걸 띄워주는 프로그램을 만들어보자
+
+---
+
+회원 탈퇴여부를 묻는 창을 띄우고 “확인”, “취소” 버튼에 따라 탈퇴여부를 출력하는 스크립트를 작성하시오
+
+```html
+
+```

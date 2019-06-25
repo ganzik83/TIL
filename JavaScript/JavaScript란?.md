@@ -358,3 +358,185 @@ document.write(typeof test);
 - 이벤트 등록 : 이벤트와 이벤트핸들러를 연결하는 과정
 - 이벤트 속성 : 이벤트가 발생하면 설정된 자바스크립트 코드를 실행하는 속성
   - 속성이름은 “on이벤트명” 형식임
+
+## 제어문
+
+- 프로그램의 흐름을 제어할 수 있도록 도와주는 실행문
+- 조건문: 조건 만족 여부에 따라 분기(if/else if/else 문)
+- 선택문: 변수 값에 따라 분기(switch문)
+- 반복문: 정해진 반복 횟수 혹은 조건에 따라 반복 실행(for, while, do-while문)
+
+### 조건문
+
+1. 단일 if문: 조건식의 결과에 따라 특정 문장의 실행 여부 결정
+
+![자바스크립트 if문](./imgs/jsif.png)
+
+```html
+<p>18시 이전이면 Good Day 출력</p>
+
+<p id="demo">Good Evening!</p>
+
+<script>
+  if (new Date().getHours() < 18) {
+    document.getElementById("demo").innerHTML = "Good day!";
+  }
+</script>
+```
+
+2. 양자 택일(if ~ else): 조건에 따라 선택 실행
+   ![자바스크립트 if문](./imgs/jsifelse.png)
+
+```html
+<p>현재 시간에 따른 인사</p>
+
+<button onclick="myFunction()">눌러보세요</button>
+
+<p id="demo"></p>
+
+<script>
+  function myFunction() {
+      var hour = new Date().getHours();
+      var greeting;
+      if (hour < 18) {
+          greeting = "Good day";
+      } else {
+          greeting = "Good evening";
+
+      document.getElementById("demo").innerHTML = greeting;
+</script>
+```
+
+/ 실습 과제
+
+1. 사용자에게 숫자를 입력받아 홀수 인지 짝수인지 출력하는 스크립트를 작성하시오.
+2. 회원 탈퇴여부를 묻는 창을 띄우고 “확인”, “취소” 버튼에 따라 탈퇴여부를 출력하는 스크립트를 작성하시오
+3. 위 이벤트 처리 예제 중 경품 추첨 예제를 if 문을 사용하여 구현하시오
+   (힌트 : <div id="b1" onclick="check('b1')"></div>)
+4. 다중 조건문
+   ![자바스크립트 if문](./imgs/jsif1.png)
+
+```html
+<p>현재 시간에 따른 인사</p>
+
+<button onclick="myFunction()">눌러보세요</button>
+
+<p id="demo"></p>
+
+<script>
+  function myFunction() {
+      var greeting;
+      var time = new Date().getHours();
+      if (time < 12) {
+          greeting = "Good morning";
+      } else if (time < 18) {
+          greeting = "Good day";
+      } else {
+          greeting = "Good evening";
+
+      document.getElementById("demo").innerHTML = greeting;
+</script>
+```
+
+// 실습 과제
+
+1. 월을 입력받아 봄(3~5), 여름(6~8), 가을(9~11), 겨울(12~2)를 출력하는 스크립트를 작성하시오.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script>
+      function season() {
+        var month = prompt("월을 입력하세요");
+        if (month <= 12) {
+          if (3 <= month && month < 6) {
+            alert("봄입니다");
+          } else if (6 <= month && month < 9) {
+            alert("여름입니다");
+          } else if (9 <= month && month < 12) {
+            alert("가을입니다");
+          } else {
+            alert("겨울입니다");
+          }
+        } else {
+          alert("1부터 12까지 입력하세요");
+        }
+      }
+      season();
+    </script>
+  </body>
+</html>
+```
+
+2. 성적을 입력바당 A(>=90), B(>=80), C(>=70), D(>=60), F 를 출력하는 스크립트를 작성하시오
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script>
+      function grade() {
+        var mygrade = prompt("성적을 입력하시오");
+        if (mygrade >= 90) {
+          alert("A학점입니다");
+        } else if (mygrade >= 80) {
+          alert("B학점입니다");
+        } else if (mygrade >= 70) {
+          alert("C학점입니다");
+        } else if (mygrade >= 60) {
+          alert("D학점입니다");
+        } else {
+          alert("F학점입니다");
+        }
+      }
+      grade();
+    </script>
+  </body>
+</html>
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h1>학점 계산기</h1>
+    <p>당신의 점수를 입력하세요. 학점을 알려드립니다.</p>
+    <input type="number" id="score" name="score" />
+    <button onclick="grade();">채점</button>
+    <hr />
+    <p>당신의 학점은 <span id="result"></span>입니다</p>
+    <script>
+      function grade() {
+        var mygrade = document.getElementById("score").value;
+        if (mygrade >= 90) {
+          document.getElementById("result").innerHTML = "A";
+        } else if (mygrade >= 80) {
+          document.getElementById("result").innerHTML = "B";
+        } else if (mygrade >= 70) {
+          document.getElementById("result").innerHTML = "C";
+        } else if (mygrade >= 60) {
+          document.getElementById("result").innerHTML = "D";
+        } else {
+          document.getElementById("result").innerHTML = "F";
+        }
+      }
+      grade();
+    </script>
+  </body>
+</html>
+```
+
+3. 위 이벤트 처리 예제 중 경품 추첨 예제를 if ~ else 문을 사용하여 구현하시오
