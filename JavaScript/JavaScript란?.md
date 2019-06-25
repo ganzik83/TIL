@@ -244,3 +244,32 @@ document.write(typeof test);
       document.write(str3 + Number(flag2) + '<br>');
    </script>
    ```
+
+## 연산자
+
+![연산자](./imgs/javascript3.png)
+
+### 산술 연산자
+
+| Operator | Description                                |
+| -------- | ------------------------------------------ |
+| \+       | Addition                                   |
+| \-       | Subtraction                                |
+| \*       | Multiplication 곱하기                      |
+| \*\*     | Exponentiation (거듭제곱)                  |
+| \/       | Division 나누기                            |
+| \%       | Modulus (Division Remainder) 나눗셈 나머지 |
+| \++      | Increment                                  |
+| \--      | Decrement                                  |
+
+### 할당 연산자
+
+| Operator | Example   | Same As      |
+| -------- | --------- | ------------ |
+| =        | x = y     | x = y        |
+| +=       | x += y    | x = x + y    |
+| -+       | x -= y    | x = x - y    |
+| \*=      | x \*= y   | x = x \* y   |
+| /=       | x /=      | x = x / y    |
+| %=       | x %=      | x = x % y    |
+| \*\*=    | x \*\*= y | x = x \*\* y |
