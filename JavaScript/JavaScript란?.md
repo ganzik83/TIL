@@ -79,3 +79,63 @@ document.write("입력하신 아이디는 " + result + " 입니댜");
 var result2 = confirm("회원 탈퇴를 하시겠습니까?");
 document.write(result2);
 ```
+
+## 기본 문법
+
+### 변수 선언
+
+- 변수는 변하는 데이터를 저장할 수 있는 메모리 공간(빈 상자)
+- 변수 이름을 지을 때는 camelCase 방식 사용 권장
+- 변수는 한번에 하나의 값만 저장할 수 있음(이전에 값이 있으면 덮어씀)
+- 수치형, 문자열, 부울형, 객체형 등이 있음
+
+기존에는 var를 이용하여 선언했지만 지금은
+const, let 을 이용하여 변수를 선언한다.
+
+let: 전역변수와 코드블록 안의 변수를 구분한다
+
+#### typeof 변수의 속성을 나타낸다
+
+```js
+// number
+var test = 1;
+document.write(typeof test);
+
+// string
+var test = "1";
+document.write(typeof test);
+
+// boolean
+var test = true;
+document.write(typeof test);
+
+// function
+var test = function() {
+  return 1;
+};
+document.write(typeof test);
+
+// object
+```
+
+## 숫자형
+
+```js
+ <script>
+        var x = 314e-2,
+            y = 12345e10;
+        var num1 = 999999999999999,
+            num2 = 9999999999999999;
+        document.write("x = " + x + "<br>");
+        document.write("y =  " + y + "<br>");
+        document.write("num1 =  " + (num1) + " <br> ");
+
+        // 15자리 이상을 입력했을 때는 출력이 제대로 되지 않는다
+        document.write("num2 =  " + (num2) + " <br> ");
+        document.write("54 / 0  =  " + (54 / 0) + "<br> ");
+        document.write("-54 / 0 = " + (-54 / 0) + " <br> ");
+
+        // 숫자를 문자로 나눴을 때 NaN(Not a Number)을 출력한다
+        document.write("88/’pi’ =  " + (88 / 'pi'));
+    </script>
+```
