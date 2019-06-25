@@ -68,3 +68,14 @@ alert();
 ```
 
 ## JavaScript로 입력받기
+
+```js
+// prompt
+var result = prompt("아이디를 입력하세요");
+console.log(result);
+document.write("입력하신 아이디는 " + result + " 입니댜");
+
+//confirm
+var result2 = confirm("회원 탈퇴를 하시겠습니까?");
+document.write(result2);
+```
