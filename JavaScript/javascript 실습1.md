@@ -69,3 +69,47 @@
   </body>
 </html>
 ```
+
+---
+
+![javascript 경품추천 실습 예제](./imgs/javascript6.png)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>1. MouseClick 이벤트 처리</h1>
+    <p>경품 추첨! 원하는 공을 클릭하세요.</p>
+    <button onclick="alert('꽝입니다')" style="background-color: red"></button>
+    <button onclick="alert('꽝입니다')" style="background-color: blue"></button>
+    <button
+      onclick="alert('축하합니다! 당첨되었습니다!')"
+      style="background-color: yellow"
+    ></button>
+    <button
+      onclick="alert('꽝입니다')"
+      style="background-color: green"
+    ></button>
+    <button
+      onclick="alert('꽝입니다')"
+      style="background-color: black"
+    ></button>
+  </body>
+</html>
+```
+
+![javascript 경품추천 실습 예제](./imgs/javascript7.png)

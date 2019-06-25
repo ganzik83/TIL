@@ -273,3 +273,88 @@ document.write(typeof test);
 | /=       | x /=      | x = x / y    |
 | %=       | x %=      | x = x % y    |
 | \*\*=    | x \*\*= y | x = x \*\* y |
+
+### 비교 연산자
+
+| Operator | Description                       |
+| -------- | --------------------------------- |
+| ==       | equal to                          |
+| ===      | equal value and equal type        |
+| !=       | not equal                         |
+| !==      | not equal value or not equal type |
+| >        | greater than                      |
+| <        | less than                         |
+| >=       | greater than or equal to          |
+| <=       | less than or equal to             |
+| ?        | ternary operator                  |
+| A2       | B2                                |
+| A3       | B3                                |
+
+### 논리 연산자
+
+| Operator | Description |
+| -------- | ----------- |
+| &&       | logical and |
+| \|\|     | logical or  |
+| !        | logical not |
+
+## 함수
+
+- 정 작업을 수행하도록 구현된 코드 블록
+- 인수들을 통해 외부로 부터 자료값을 전달 받고
+- 실행 결과 값을 반환할 수 있음
+- 보통 사용 전에 미리 정의해야 함
+- 함수로 만들어놓은 코드는 재사용 할 수 있음
+
+![자바스크립트 함수](./imgs/javascript4.png)
+
+- 함수 실행 시점
+  - 이벤트가 발생했을 때
+  - 다른 Javascript 코드에 의해 호출되었을 때
+- 함수의 리턴값
+  - 함수 실행 후 리턴 값은 호출자에게 반환됨
+
+```js
+<script>
+ var x = myFunction(4, 3);
+ document.getElementById("demo").innerHTML = x;
+
+ function myFunction(a, b) {
+   return a * b;
+
+</script>
+```
+
+## 이벤트
+
+- 웹 문서를 로드한 웹 브라우저에서 발생되는 어떤 동작이나 상태변화를 나타내는 것
+- 웹 문서를 로드한 웹 브라우저에서 발생되는 어떤 동작이나 상태변화를 나타내는 것웹 - - - 브라우저에 로드된 HTML 문서 와 사용자 사이의 상호작용에 의해 발생함
+- 사용자의 마우스 클릭, 입력, 타이머 등
+- 이벤트가 발생 했을 때, 호출되는 JavaScript 실행문을 이벤트 핸들러라고 함
+
+![자바스크립트 이벤트 핸들러](./imgs/javascript5.png)
+
+### 이밴트 등록
+
+1. 요소 직접 등록 방식: 태그의 이벤트 속성에 직접 등록
+
+```html
+<button id="”btn”" onclick="”alert(‘이벤트가" 발생했습니다.’);”>버튼</button>
+```
+
+2. DOM 을 이용한 방식
+
+```html
+<button id="”btn”">버튼</button>
+<script>
+  document.getElementById(“btn”).onclick=function() {
+      alert(‘이벤트가 발생했습니다.’);
+</script>
+```
+
+### 이벤트 처리
+
+- 이벤트 발생 -> (웹브라우저) -> 이벤트 처리함수(이벤트핸들러) 호출 & 실행 -> 이벤트 처리
+- 이벤트 등록 : 이벤트와 이벤트핸들러를 연결하는 과정
+- 이벤트 속성 : 이벤트가 발생하면 설정된 자바스크립트 코드를 실행하는 속성
+  - 속성이름은 “on이벤트명” 형식임
