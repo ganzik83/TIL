@@ -44,3 +44,44 @@ for (let i = 10; i <= 100; i += 3) {
 console.log(sum);
 document.write(sum);
 ```
+
+3. 사용자에게 2~9 사이의 숫자를 입력받아 구구단을 출력하는 스크립트를 작성하시오
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>구구단 계산하기</h1>
+    <p>계산할 구구단의 숫자를 입력하세요</p>
+    <input type="number" id="gugu" />
+    <button onclick="gugudan();">실행</button>
+    <p id="result"></p>
+
+    <script>
+      function gugudan() {
+        let x = document.getElementById("gugu").value;
+        // console.log(x);
+        var sum = "";
+        for (let i = 1; i <= 9; i++) {
+          var y;
+          y = x * i;
+          sum = sum + " " + x + "x" + i + " = " + y + "<br>";
+          console.log(y);
+          document.getElementById("result").innerHTML = sum;
+        }
+      }
+    </script>
+  </body>
+</html>
+```
+
+각 단이 끝날 때 마다 스트링을 sum에 추가해주는 방식으로 표현한다
+
+![javascript for문](./imgs/jsforgugu.png)
