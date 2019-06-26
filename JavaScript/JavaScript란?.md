@@ -540,3 +540,53 @@ document.write(typeof test);
 ```
 
 3. 위 이벤트 처리 예제 중 경품 추첨 예제를 if ~ else 문을 사용하여 구현하시오
+
+### 선택문
+
+조건에 맞는 케이스에 해당하는 문장을 실행
+![자바스크립트 선택문](./imgs/jsif2.png)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      var day;
+      switch (new Date().getDay()) {
+        case 0:
+          day = "Sunday";
+          break;
+        case 1:
+          day = "Monday";
+          break;
+        case 2:
+          day = "Tuesday";
+          break;
+        case 3:
+          day = "Wednesday";
+          break;
+        case 4:
+          day = "Thursday";
+          break;
+        case 5:
+          day = "Friday";
+          break;
+        case 6:
+          day = "Saturday";
+        default:
+        //
+      }
+      document.getElementById("demo").innerHTML = "Today is " + day;
+    </script>
+  </body>
+</html>
+```
