@@ -582,3 +582,147 @@ $("button").click(function() {
 ### HTML 요소 객체 추가
 
 ![HTML 요소의 속성 변경](./imgs/jquery17.png)
+
+---
+
+## 실습
+
+- 이름, 전화번호, 주소 를 입력받아 리스트에 추가하는 전화번호부를 작성하시오
+- 각 사용자 정보는 객체 배열을 이용해 저장하고
+- jQuery after나 append기능을 이용할것
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <style>
+      div {
+        display: inline-block;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      #cname {
+        width: 50px;
+      }
+
+      #cphone {
+        width: 100px;
+      }
+
+      #caddr {
+        width: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>연락처</h2>
+    <table>
+      <tr>
+        <td>이름 :</td>
+        <td><input type="text" name="name" id="name" /></td>
+      </tr>
+      <tr>
+        <td>전화번호 :</td>
+        <td><input type="number" name="phone" id="phone" /></td>
+      </tr>
+      <tr>
+        <td>주소 :</td>
+        <td><input type="text" name="address" id="addr" /></td>
+      </tr>
+    </table>
+
+    <button onclick="contact();" id="btn">입력</button>
+    <hr />
+    <ul id="list"></ul>
+
+    <script>
+      function contact() {
+        var contact;
+        var addContact;
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var address = document.getElementById("addr").value;
+        contact = {
+          name: name,
+          phone: phone,
+          address: address
+        };
+        console.log(contact);
+        console.log(contact.name);
+
+        addContact =
+          '<div id="cname">' +
+          contact.name +
+          '</div><div id="cphone">' +
+          contact.phone +
+          '</div><div id="caddr">' +
+          contact.address +
+          "</div>";
+
+        $("ul").append("<li>" + addContact + "</li>");
+
+        // 입력란 값을 공백으로 바꾼다
+        document.getElementById("name").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("addr").value = "";
+      }
+    </script>
+  </body>
+</html>
+```
+
+만약 삭제 기능을 추가하고 싶다면
+아래 코드를 참조해보자
+
+```html
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+    ></script>
+    <script type="text/javascript">
+      $(function() {
+        $("#addTR").click(function() {
+          var row = "<tr>";
+          row += "<td><input type='text' name='idx[]' value='' /></td>";
+          row += "<td><span>날 누르면 삭제가 됨</span></td>";
+          row += "</tr>";
+          $("#table").append(row);
+        });
+
+        $("#table").on("click", "span", function() {
+          $(this)
+            .closest("tr")
+            .remove();
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <button id="addTR">날 누르면 추가가 됨</button>
+    <table id="table">
+      <tr>
+        <td><input type="text" /></td>
+      </tr>
+    </table>
+  </body>
+</html>
+```
