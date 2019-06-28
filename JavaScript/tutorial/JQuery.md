@@ -286,3 +286,299 @@ on()을 이용한 이벤트 등록
   </body>
 </html>
 ```
+
+on() 을 이용한 다중 이벤트 등록
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery 사용 예</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#b1").on({
+          click: function() {
+            $("#t1").html("jQuery 라이브러리");
+          },
+          mouseover: function() {
+            $("#t1").css("color", "red");
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h3 id="t1">자바스크립트 프로그래밍</h3>
+    <hr />
+    <button id="b1">내용변경&스타일변경</button>
+  </body>
+</html>
+```
+
+jQuery 이벤트 처리 ( 이벤트별 작업 함수 - 자주 사용되는 이벤트에 대해 함수로 노출)
+
+![제이쿼리 이벤트 처리](./imgs/jquery7.png)
+
+```js
+$("p").dblclick(function() {
+  $(this).hide();
+});
+
+$("#p1").mouseenter(function() {
+  alert("You entered p1!");
+});
+
+$("#p1").mouseleave(function() {
+  alert("Bye! You now leave p1!");
+});
+
+$("#p1").mousedown(function() {
+  alert("Mouse down over p1!");
+});
+
+$("#p1").mouseup(function() {
+  alert("Mouse up over p1!");
+});
+
+$("#p1").hover(
+  function() {
+    alert("You entered p1!");
+  },
+  function() {
+    alert("Bye! You now leave p1!");
+  }
+);
+
+$("input").focus(function() {
+  $(this).css("background-color", "#cccccc");
+});
+
+$("input").blur(function() {
+  $(this).css("background-color", "#ffffff");
+});
+```
+
+### .click() 함수
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery 사용 예</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      function f1() {
+        $("#t1").html("jQuery 라이브러리");
+      }
+      function f2() {
+        $("#t1").css("color", "red");
+      }
+      $(document).ready(function() {
+        $("#b1").click(f1);
+        $("#b2").click(function() {
+          $("#t1").css("color", "red");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3 id="t1">자바스크립트 프로그래밍</h3>
+    <hr />
+    <button id="b1">내용변경</button>
+    <button id="b2">스타일변경</button>
+  </body>
+</html>
+```
+
+### .hover(f1, f2) 함수
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery 사용 예</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#b1").hover(
+          function() {
+            $("#t1").html("jQuery 라이브러리");
+            $("#t1").css("color", "red");
+          },
+          function() {
+            $("#t1").css("color", "black");
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <h3 id="t1">자바스크립트 프로그래밍</h3>
+    <hr />
+    <button id="b1">내용변경&스타일변경</button>
+  </body>
+</html>
+```
+
+## jQuery 효과
+
+### jQuery 시각 효과
+
+![jQuery 시각 효과](./imgs/jquery8.png)
+![jQuery 시각 효과](./imgs/jquery9.png)
+
+```js
+$("#hide").click(function() {
+  $("p").hide();
+});
+
+$("#show").click(function() {
+  $("p").show();
+});
+
+$("button").click(function() {
+  $("p").hide(1000);
+});
+
+$("button").click(function() {
+  $("p").toggle();
+});
+```
+
+### fadeIn / fadeOut
+
+```js
+$(selector).fadeIn(speed, callback);
+$(selector).fadeOut(speed, callback);
+$(selector).fadeToggle(speed, callback);
+$(selector).fadeTo(speed, opacity, callback);
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("button").click(function() {
+          $("#div1").fadeIn();
+          $("#div2").fadeIn("slow");
+          $("#div3").fadeIn(3000);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <p>Demonstrate fadeIn() with different parameters.</p>
+
+    <button>Click to fade in boxes</button><br /><br />
+
+    <div
+      id="div1"
+      style="width:80px;height:80px;display:none;background-color:red;"
+    ></div>
+    <br />
+    <div
+      id="div2"
+      style="width:80px;height:80px;display:none;background-color:green;"
+    ></div>
+    <br />
+    <div
+      id="div3"
+      style="width:80px;height:80px;display:none;background-color:blue;"
+    ></div>
+  </body>
+</html>
+```
+
+```js
+$("button").click(function() {
+  $("#div1").fadeOut();
+  $("#div2").fadeOut("slow");
+  $("#div3").fadeOut(3000);
+});
+
+$("button").click(function() {
+  $("#div1").fadeToggle();
+  $("#div2").fadeToggle("slow");
+  $("#div3").fadeToggle(3000);
+});
+
+$("button").click(function() {
+  $("#div1").fadeTo("slow", 0.15);
+  $("#div2").fadeTo("slow", 0.4);
+  $("#div3").fadeTo("slow", 0.7);
+});
+```
+
+### 애니메이션 처리 효과
+
+![애니메이션 처리 효과](./imgs/jquery10.png)
+![애니메이션 처리 효과](./imgs/jquery11.png)
+
+```js
+$(selector).animate({ params }, speed, callback);
+
+$("button").click(function() {
+  $("div").animate({ left: "250px" });
+});
+
+$("button").click(function() {
+  $("div").animate({
+    left: "250px",
+    opacity: "0.5",
+    height: "150px",
+    width: "150px"
+  });
+});
+
+// using relative value
+
+$("button").click(function() {
+  $("div").animate({
+    left: "250px",
+    height: "+=150px",
+    width: "+=150px"
+  });
+});
+
+// using queue
+
+$("button").click(function() {
+  var div = $("div");
+  div.animate({ height: "300px", opacity: "0.4" }, "slow");
+  div.animate({ width: "300px", opacity: "0.8" }, "slow");
+  div.animate({ height: "100px", opacity: "0.4" }, "slow");
+  div.animate({ width: "100px", opacity: "0.8" }, "slow");
+});
+```
+
+## jQuery 이용 동적 문서 작성 (객체 조작)
+
+### 객체 조작 관련 주요 함수
+
+![객체 조작 관련 주요 함수](./imgs/jquery12.png)
+
+### HTML 요소의 내용 변경
+
+![객체 조작 관련 주요 함수](./imgs/jquery13.png)
+
+### HTML 요소의 속성 변경
+
+![HTML 요소의 속성 변경](./imgs/jquery14.png)
+
+### HTML 요소의 추가, 삭제
+
+![HTML 요소의 속성 변경](./imgs/jquery15.png)
+
+### HTML 요소 생성
+
+![HTML 요소의 속성 변경](./imgs/jquery16.png)
+
+### HTML 요소 객체 추가
+
+![HTML 요소의 속성 변경](./imgs/jquery17.png)
