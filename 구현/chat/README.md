@@ -1,9 +1,13 @@
+## 요구사항
+
+-
+
 ## 필요한 기술 사항
 
-Nodejs  
+Node_js  
 <https://nodejs.org/>
 
-`socket.io`  
+socket_io  
 <https://socket.io/>
 
 ## Reference

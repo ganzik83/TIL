@@ -12,11 +12,9 @@ utterances - blog comments
 
 ---
 
-## Programming languages
+## Databases
 
-### Databases
-
-#### RDBS
+### RDBS
 
 MySQL <https://www.mysql.com/>
 
@@ -24,7 +22,7 @@ PostgreSQL <https://www.postgresql.org/>
 
 MariaDB <https://mariadb.org/>
 
-#### NoSQL
+### NoSQL
 
 MongoDB <https://www.mongodb.com/>
 
