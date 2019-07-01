@@ -583,6 +583,93 @@ $("button").click(function() {
 
 ![HTML 요소의 속성 변경](./imgs/jquery17.png)
 
+## jQuery 요소 탐색
+
+$(선택자).parent();  
+$(선택자).parents();  
+$(선택자).children(선택자);  
+$(선택자).find(선택자);  
+$(선택자).siblings(선택자);  
+$(선택자).next(선택자);  
+$(선택자).prev(선택자);  
+$(선택자).closest(선택자);
+
+```html
+<div class="box">
+  <div class="something1"></div>
+  <div class="something2">
+    <a class="mylink">My link</a>
+  </div>
+</div>
+
+$(".mylink").click(function() { // 아래 4개는 모두 동일한 결과 반환
+$(this).parent().siblings(".something1"); $(this).parent().prev(); // if you
+always want the parent's previous sibling
+$(this).parents(".box").children(".something1");
+$(this).closest('.box').children('.something1'); }); - closest()는 모든 부모
+요소를 대상으로하여 원하는 요소만 선택자로 가져올 수 있다. - 하나가 아닌 모든
+부모 요소를 반환할 필요가 있다면 parents() 메소드를 사용한다. - parent()는 해당
+요소의 바로 위의 부모 요소를 반환한다. - children()은 해당 요소의 바로 아래 자식
+요소들만을 반환한다. - find()는 해당 노드 아래의 전체 DOM을 탐색하여 반환한다. -
+prev() - 이전 요소를 선택하도록 반환한다. - next() - 다음 요소를 선택하도록
+반환한다.
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        // $('.level-1').find('ul').css({
+        //     'color': 'red' });
+        // item-2의 parent-부모에 append를 하라. 결과는 item-2의 부모인 level-3 밑에 append 조건으로 생성
+        // $('.item-2').parent().append('<li class="item-c">test</li>');
+        // level-1의 바로 자식들 children에 모두 append하여 생성
+        // $('.level-1').children().append('<li class="item-c">go</li>');
+        // level-1의 자식들 중 클래스가 item-i를 선택하고 append하여 생성
+        // $('.level-1').children(".item-i").append('<li class="item-c">goto</li>');
+        // 형제들을 모두 선택
+        // $('.item-a').siblings().append('<li class="item-c">goto</li>');
+        // 형제들 중 item-b 클래스를 선택
+        //$('.item-a').siblings(".item-b").append('<li class="item-c">goto</li>');
+        // item-ii 다음(item-iii)에 append 하여 붙이기
+        // $('.item-ii').next().append('<li class="item-c">goto</li>');
+        // 바로 위의 요소 중 ul를 찾아 선택하고 append하여 붙여넣기
+        // $('.item-a').closest('ul').append('<li class="item-c">goto</li>');
+      });
+    </script>
+  </head>
+
+  <body>
+    <ul class="level-1">
+      <li class="item-i">I</li>
+      <li class="item-ii">
+        II
+        <ul class="level-2">
+          <li class="item-a">A</li>
+          <li class="item-b">
+            B
+            <ul class="level-3">
+              <li class="item-1">1</li>
+              <li class="item-2">2</li>
+              <li class="item-3">3</li>
+            </ul>
+          </li>
+          <li class="item-c">C</li>
+        </ul>
+      </li>
+      <li class="item-iii">III</li>
+    </ul>
+  </body>
+</html>
+```
+
 ---
 
 ## 실습
