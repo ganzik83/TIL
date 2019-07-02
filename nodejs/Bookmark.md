@@ -1,5 +1,17 @@
 # 북마크
 
+노드 공식 사이트
+<https://nodejs.org>
+
+노드 공식 사이트 가이드  
+<https://nodejs.org/en/docs/guides>
+
+이벤트 루푸에 대한 시각적 설명  
+<http://latentflip.com/loupe>
+
+이벤트 루프에 대한 설명  
+<https://nodejs.org/ko/docs/guids/event-loop-timers-and-nexttick>
+
 자바스크립트의 동작원리: 엔진, 런타임, 호출 스택
 <https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/#%EB%9F%B0%ED%83%80%EC%9E%84>
 

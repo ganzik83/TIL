@@ -193,3 +193,153 @@ num3 + ‘ 더하기 ‘ + num4 + ‘ 는 ‘ + result;
 // ES6
 `${num3} 더하기 ${num4}는 ${result} `;
 ```
+
+```js
+var num1 = 1;
+var num2 = 2;
+var result = num1 + num2;
+var string1 = num1 + " 더하기 " + num2 + "는 '" + result + "'";
+var string2 = `${num1} 더하기 ${num2}는 '${result}'`;
+
+console.log(string1);
+console.log(string2);
+```
+
+### 객체 리터럴 관련
+
+기존 방식
+
+```js
+var sayNode = function() {
+  console.log("Node");
+};
+var es = "ES";
+var oldObject = {
+  sayJS: function() {
+    console.log("JS");
+  },
+  sayNode: sayNode
+};
+oldObject[es + 6] = "Fantastic";
+
+oldObject.sayNode();
+oldObject.sayJS();
+console.log(oldObject.ES6);
+```
+
+개선 방식
+
+- 내부 함수 정의 시 function 키워드 필요 없음
+- Key와 value가 같은 이름인 경우 key만 적어도 됨
+- 동적으로 key 생성
+- 전체적으로 코딩이 짧아짐
+
+```js
+var sayNode = function() {
+  console.log("Node");
+};
+var es = "ES";
+const newObject = {
+  sayJS() {
+    // define function
+    console.log("JS");
+  },
+  sayNode, // key=value
+  [es + 6]: "Fantastic" // dynamic key
+};
+newObject.sayNode(); // Node
+newObject.sayJS(); // JS
+console.log(newObject.ES6);
+```
+
+### 화살표 함수
+
+- 화살표 방식의 함수 선언 추가됨
+- 기존 function 키워드 대신 ‘=>’ 화살표 사용
+- 간단한 리턴문의 경우 {, }, return 없이 사용 가능
+
+```js
+( ) => { … }   	           // 매개변수가 없는 경우
+ x => { … } 		// 매개변수가 하나인경우 ( ) 생략 가능
+ (x, y) => { … }	           // 매개변수가 여러 개인 경우 , 사용, ( ) 생략 불가
+ x => (x * x)		// 함수 몸체가 return 문인 경우 축약 가능
+```
+
+```js
+function add1(x, y) {
+  return x + y;
+}
+const add2 = (x, y) => {
+  return x + y;
+};
+const add3 = (x, y) => x + y;
+```
+
+### 비구조화 할당
+
+- 구조 분해 할당(destructuring assignment)라고도 함
+- 배열이나 객체의 속성 값을 변수에 꺼내 올 때 사용
+
+배열의 비구조화 할당
+
+```js
+// 배열의 구조 분해
+var foo = ["one", "two", "three"];
+var [one, two, three] = foo;
+
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+```
+
+나머지 할당
+
+```js
+// 나머지 할당
+var [a, b, ...c] = [1, 2, 3, 4, 5];
+
+console.log(a); // 1
+console.log(b); // 2;
+console.log(c); // [3, 4, 5];
+```
+
+리턴값 비구조화 할당
+
+```js
+// 함수 반환값 분해
+function f() {
+  return [1, 2];
+}
+
+var a, b;
+
+[a, b] = f();
+console.log(a); // 1
+console.log(b); // 2
+```
+
+객체의 비구조화 할당
+
+```js
+var o = { p: 42, q: true };
+var { p, q } = o;
+
+console.log(p); // 42
+console.log(q); // true
+
+var a, b;
+
+({ a, b } = { a: 1, b: 2 });
+console.log(a);
+console.log(b);
+```
+
+다른 이름의 변수로 할당
+
+```js
+var o = { p: 42, q: true };
+var { p: foo, q: bar } = o;
+
+console.log(foo); // 42
+console.log(bar); // true
+```
