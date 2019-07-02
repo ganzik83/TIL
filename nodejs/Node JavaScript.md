@@ -343,3 +343,9 @@ var { p: foo, q: bar } = o;
 console.log(foo); // 42
 console.log(bar); // true
 ```
+
+---
+
+%d : 숫자열로 출력
+%s : 문자열로 출력
+%j : 객체를 json 형식으로 출력
