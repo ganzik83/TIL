@@ -328,3 +328,104 @@ bootstrap과 jQuery를 활용하여 todo 리스트 만들기를 해보자
   </body>
 </html>
 ```
+
+---
+
+최종버전
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+    <script>
+      $(document).on('click', '.close', function() {
+          $(this).parent().hide();
+      });
+
+      $(document).on('click', '.list-group-item', function() {
+          $(this).css({'text-decoration':'line-through', 'color':'darkgray'});
+          let span = $(this).children('span');
+          $(span).before(' @<small>(' + new Date().toDateString() + ')</small>');
+      });
+
+      $(function () {
+          // $('.close').on('click',function() {
+          //     $(this).parent().hide();
+          // });
+
+          $('#addbtn').click(function() {
+              let data = $('#todoInput').val();
+              $('#todoList').append('<li class="list-group-item">' + data + '<span class="close">x</span></li>');
+              $('#todoInput').val('');
+              $('#todoInput').focus();
+          });
+
+          $('#todoInput').keydown(function(key) {
+              if(key.keyCode == 13) {
+                  let data = $('#todoInput').val();
+                  $('#todoList').append('<li class="list-group-item">' + data + '<span class="close">x</span></li>');
+                  $('#todoInput').val('');
+                  $('#todoInput').focus();
+
+          });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-6">
+          <div id="header" class="jumbotron">
+            <h2>Todo List</h2>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="todoInput"
+                placeholder="Title..."
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  id="addbtn"
+                  type="button"
+                >
+                  추가
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul id="todoList" class="list-group">
+            <li class="list-group-item">
+              HTML 복습하기<span class="close">x</span>
+            </li>
+            <li class="list-group-item">
+              다운받은 미드 보기<span class="close">x</span>
+            </li>
+            <li class="list-group-item">
+              헬스장 가서 운동하기<span class="close">x</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </body>
+</html>
+```
