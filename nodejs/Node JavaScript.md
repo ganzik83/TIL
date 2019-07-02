@@ -32,7 +32,7 @@ console.log("나이 : %n", User.age);
 console.log("전화번호 : %s", User.phoneNumber);
 ```
 
-### 함수
+## 함수
 
 ![자바스크립트와 자바의 함수 비교](./imgs/nodefunc.png)
 익명함수
@@ -118,4 +118,78 @@ add(10, 20, function(result) {
    console.log('<-- callback');
 });
 console.log('<-- add함수 호출');
+```
+
+비동기 콜백 처리 이해  
+<http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D>
+
+### 배열 사용
+
+```js
+var score = [10, 40, 30, 20];
+
+for (let i in score) {
+  var out = "";
+  out = score[i] + " : ";
+  for (let j = 0; j < score[i]; j++) {
+    out = out + "*";
+  }
+  console.log(out);
+}
+```
+
+### 객체 초기화
+
+```js
+var Car = {};
+
+Car.name = "Sorento";
+Car.cc = 2000;
+Car.number = "11주 1111";
+Car.owner = "홍길동";
+
+Car.changeOwner = function(newOwner) {
+  this.owner = newOwner;
+};
+
+console.log(Car);
+Car.changeOwner("임꺽정");
+console.dir(Car);
+```
+
+```js
+var Car = {
+   name : 'Sorento',
+   cc : 2000,
+   number : '11주 1111',
+   owner : '홍길동',
+   changeOwner : function (newOwner) {
+       this.owner = newOwner;
+
+}
+
+console.log(Car);
+Car.changeOwner('임꺽정');
+console.dir(Car);
+```
+
+## ES6(ES2015++)
+
+브라우저별 지원 현황 <http://kangax.github.io/compat-table/es5>
+
+- var : 기존 JavaScript 에서 사용, 함수 스코프
+- let : ES6 이후 JavaScript 에서 권장. 블록 스코프
+- const : ES6 이후 JavaScript 에서 상수 정의에 사용, 블록 스코프
+
+### 템플릿 문자열
+
+- ES6 부터 사용된 새로운 문자열 표기 방식.
+- 문자열 표현 시 내부에 변수 및 개행문자, 공백, 탭 등을 그대로 사용 가능
+
+```js
+// ES5
+num3 + ‘ 더하기 ‘ + num4 + ‘ 는 ‘ + result;
+
+// ES6
+`${num3} 더하기 ${num4}는 ${result} `;
 ```
