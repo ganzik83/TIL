@@ -35,9 +35,11 @@ app.get('/login', (req, res) => {
     console.log('/login 페이지에 접속 완료')
 })
 
-app.get('/loginok', (req, res) => {
-    res.render('loginok.html');
+app.post('/loginok', (req, res) => {
     console.log('로그인이 완료되었습니다')
+    console.log(req.body.id + ", " + req.body.password)
+    console.log(req.body)
+    res.render('loginok.html');
 })
 
 
