@@ -8,7 +8,7 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.send(`<img src="images/123.jpg">`);
+    res.send(`<img src="images/123.jpg" width="600px">`);
 })
 
 app.listen(port, () => {
