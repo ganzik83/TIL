@@ -16,7 +16,15 @@ npm 공식 홈페이지
 npm 설치 확인
 
 ```bash
+node -v
 
+npm -v
+```
+
+npm 설치
+
+```
+apt install npm
 ```
 
 ## npm 업그레이드
