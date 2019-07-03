@@ -2,6 +2,9 @@
 
 ## Github
 
+.gitignore 생성기
+<https://www.gitignore.io/>
+
 blog theme <https://github.com/mmistakes/minimal-mistakes>
 
 badges - 뱃지 생성 방법
