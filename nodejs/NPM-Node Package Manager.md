@@ -19,8 +19,17 @@ npm 설치 확인
 
 ```
 
+## npm 업그레이드
+
+```bash
+npm install -g npm
+```
+
 ## npm 초기화
 
 ```bash
 npm init
 ```
+
+깃허브에 올릴 때 node_modules, package.json은 올리지 않는다.
+package.json 파일만 존재하면 내려받아서 `npm install` 명령어를 입력하면 설치된다.
