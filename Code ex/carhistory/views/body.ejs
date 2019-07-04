@@ -14,3 +14,23 @@
 
     </tbody>
 </table>
+
+<script>
+    $.ajax({
+        type: 'GET',
+        url: '/api/carlist',
+        success: function (data) {
+            console.log('success');
+            console.log(data);
+            $.each(data, function (i, item) {
+                $('#list').append(`
+                       // 알아서
+                       `)
+            })
+
+        },
+        error: function (err) {
+            console.log('err');
+        }
+    });
+</script>
