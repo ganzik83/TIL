@@ -6,6 +6,7 @@ const session = require('express-session');
 const fs = require('fs')
 const port = 3000; // configure server port
 
+
 // configure app to use bodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
