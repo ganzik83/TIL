@@ -10,6 +10,14 @@ module.exports = (app, fs) => {
         res.render('carlist.html')
     })
 
+    app.get('/carlist2', (req, res) => {
+        // carlist 키 값에 sampleCarList 값을 넣어 객체에 담는다. carlist2.html 페이지에서 carlist 변수를 사용하여 접근 가능하다 
+        res.render('carlist2.html', {
+            carlist: sampleCarList
+        })
+        // console.log(sampleCarList);
+    })
+
     var sampleCarList = [{
         carNumber: '11주1111',
         owner: '홍길동',
@@ -35,5 +43,6 @@ module.exports = (app, fs) => {
         sampleCarList.push(req.body);
         res.json(sampleCarList);
     });
+
 
 }
