@@ -47,7 +47,7 @@ module.exports = (app, fs) => {
     app.post('/api/regcar', (req, res) => {
         console.log(req.body);
         sampleCarList.push(req.body);
-        // res.json(sampleCarList);
+        res.json([req.body]);
     });
 
 

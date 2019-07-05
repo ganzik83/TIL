@@ -66,8 +66,6 @@
                     </tr>
                     `)
                 })
-
-
                 console.log(data);
             },
             error: function (err) {
@@ -75,68 +73,4 @@
             }
         });
     })
-
-
-    /* 
-    $.ajax({
-        type: 'GET',
-        url: '/api/carlist',
-        success: function (data) {
-            console.log('success');
-            console.log(data);
-            $.each(data, function (i, item) {
-                $('#list').append(`
-                <tr>
-                    <td>${i+1}</td>
-                    <td>${item.carNumber}</td>
-                    <td>${item.owner}</td>
-                    <td>${item.model}</td>
-                    <td>${item.company}</td>
-                    <td>${item.numOfAccident}</td>
-                    <td>${item.numOfOwnerChange}</td>
-                </tr>
-                `)
-            })
-
-        },
-        error: function (err) {
-            console.log('err');
-        }
-    });
-    */
-    // $('#submit').click(function () {
-
-    //     let newData = serializeObject($('form[name=regform]'));
-
-    //     //alert( $('form[name=regform]').serializeArray());
-    //     //serializeObject($('form[name=regform]'));
-
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '/api/regcar',
-    //         dataType: 'json',
-    //         data: newData,
-    //         success: function (data) {
-    //             console.log('success');
-    //             $.each(data, (i, item) = > {
-    //                 $('#list').append(`
-    //             <tr>
-    //                 <td>1</td>
-    //                 <td>${data[0].carNumber}</td>
-    //                 <td></td>
-    //                 <td></td>
-    //                 <td></td>
-    //                 <td></td>
-    //                 <td></td>
-    //                 </tr>
-    //             `)
-    //             })
-
-    //             console.log(data);
-    //         },
-    //         error: function (err) {
-    //             console.log('err');
-    //         }
-    //     });
-    // })
 </script>
