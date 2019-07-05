@@ -38,6 +38,18 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
+    <script>
+        function serializeObject($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function (n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+
+            return indexed_array;
+        }
+    </script>
 
 </head>
 
@@ -45,7 +57,7 @@
     <div class="main">
         <div class="sub">
             <h1>Car History</h1>
-            <form action="/api/carlist" method="POST">
+            <form action="/api/carlist" name="regform" method="POST">
                 <input type="text" name="carNumber" placeholder="차량번호">
                 <input type="text" name="owner" placeholder="소유주">
                 <input type="text" name="model" placeholder="차량모델">
@@ -85,7 +97,41 @@
         </tbody>
     </table>
 
-    <!-- <script>
+    <script>
+        $('#submit').click(function () {
+            let newData = serializeObject($('form[name=regform]'));
+            //alert( $('form[name=regform]').serializeArray());
+            //serializeObject($('form[name=regform]'));
+            $.ajax({
+                type: 'POST',
+                url: '/api/regcar',
+                dataType: 'json',
+                data: newData,
+                success: function (data) {
+                    console.log('success');
+                    $('#list').append(`
+                    <tr>
+                        <td>1</td>
+                        <td>${data[3].carNumber}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    `)
+
+
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.log('err');
+                }
+            });
+        })
+
+
+        /* 
         $.ajax({
             type: 'GET',
             url: '/api/carlist',
@@ -111,29 +157,43 @@
                 console.log('err');
             }
         });
+        */
+        // $('#submit').click(function () {
 
-        $('#submit').click(function () {
+        //     let newData = serializeObject($('form[name=regform]'));
 
-            let newData = serializeObject($('form[name=regform]'));
+        //     //alert( $('form[name=regform]').serializeArray());
+        //     //serializeObject($('form[name=regform]'));
 
-            //alert( $('form[name=regform]').serializeArray());
-            //serializeObject($('form[name=regform]'));
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '/api/regcar',
+        //         dataType: 'json',
+        //         data: newData,
+        //         success: function (data) {
+        //             console.log('success');
+        //             $.each(data, (i, item) = > {
+        //                 $('#list').append(`
+        //             <tr>
+        //                 <td>1</td>
+        //                 <td>${data[0].carNumber}</td>
+        //                 <td></td>
+        //                 <td></td>
+        //                 <td></td>
+        //                 <td></td>
+        //                 <td></td>
+        //                 </tr>
+        //             `)
+        //             })
 
-            $.ajax({
-                type: 'POST',
-                url: '/api/regcar',
-                dataType: 'json',
-                data: newData,
-                success: function (data) {
-                    console.log('success');
-                    console.log(data);
-                },
-                error: function (err) {
-                    console.log('err');
-                }
-            });
-        })
-    </script> -->
+        //             console.log(data);
+        //         },
+        //         error: function (err) {
+        //             console.log('err');
+        //         }
+        //     });
+        // })
+    </script>
 </body>
 
 </html>

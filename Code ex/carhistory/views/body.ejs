@@ -1,0 +1,140 @@
+<div class="main">
+    <div class="sub">
+        <h1>Car History</h1>
+        <form action="/api/carlist" name="regform" method="POST">
+            <input type="text" name="carNumber" placeholder="차량번호">
+            <input type="text" name="owner" placeholder="소유주">
+            <input type="text" name="model" placeholder="차량모델">
+            <input type="text" name="company" placeholder="제조사">
+            <input type="text" name="numOfAccident" placeholder="사고 수">
+            <input type="text" name="numOfOwnerChange" placeholder="소유주 변경 수">
+            <button type="button" id="submit">제출</button>
+        </form>
+    </div>
+</div>
+
+
+<table class="table table-striped" id="cartable">
+    <thead>
+        <tr>
+            <th class="th-sm">No</th>
+            <th>CarNumber</th>
+            <th>Owner</th>
+            <th>Model</th>
+            <th>Company</th>
+            <th>NumOfAccident</th>
+            <th>NumOfOwnerChange</th>
+        </tr>
+    </thead>
+    <tbody id="list">
+        <% for(let i=0; i<carlist.length; i++) {%>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= carlist[i].carNumber %></td>
+            <td><%= carlist[i].owner %></td>
+            <td><%= carlist[i].model %></td>
+            <td><%= carlist[i].company %></td>
+            <td><%= carlist[i].numOfAccident %></td>
+            <td><%= carlist[i].numOfOwnerChange %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<script>
+    $('#submit').click(function () {
+        let newData = serializeObject($('form[name=regform]'));
+        //alert( $('form[name=regform]').serializeArray());
+        //serializeObject($('form[name=regform]'));
+        $.ajax({
+            type: 'POST',
+            url: '/api/regcar',
+            dataType: 'json',
+            data: newData,
+            success: function (data) {
+                console.log('success');
+                $('#list').append(`
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    `)
+
+
+                console.log(data);
+            },
+            error: function (err) {
+                console.log('err');
+            }
+        });
+    })
+
+
+    /* 
+    $.ajax({
+        type: 'GET',
+        url: '/api/carlist',
+        success: function (data) {
+            console.log('success');
+            console.log(data);
+            $.each(data, function (i, item) {
+                $('#list').append(`
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${item.carNumber}</td>
+                    <td>${item.owner}</td>
+                    <td>${item.model}</td>
+                    <td>${item.company}</td>
+                    <td>${item.numOfAccident}</td>
+                    <td>${item.numOfOwnerChange}</td>
+                </tr>
+                `)
+            })
+
+        },
+        error: function (err) {
+            console.log('err');
+        }
+    });
+    */
+    // $('#submit').click(function () {
+
+    //     let newData = serializeObject($('form[name=regform]'));
+
+    //     //alert( $('form[name=regform]').serializeArray());
+    //     //serializeObject($('form[name=regform]'));
+
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/api/regcar',
+    //         dataType: 'json',
+    //         data: newData,
+    //         success: function (data) {
+    //             console.log('success');
+    //             $.each(data, (i, item) = > {
+    //                 $('#list').append(`
+    //             <tr>
+    //                 <td>1</td>
+    //                 <td>${data[0].carNumber}</td>
+    //                 <td></td>
+    //                 <td></td>
+    //                 <td></td>
+    //                 <td></td>
+    //                 <td></td>
+    //                 </tr>
+    //             `)
+    //             })
+
+    //             console.log(data);
+    //         },
+    //         error: function (err) {
+    //             console.log('err');
+    //         }
+    //     });
+    // })
+</script>
