@@ -53,17 +53,19 @@
             data: newData,
             success: function (data) {
                 console.log('success');
-                $('#list').append(`
+                $.each(data, function (i, item) {
+                    $('#list').append(`
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
+                        <td>${i+1}</td>
+                        <td>${item.carNumber}</td>
+                        <td>${item.owner}</td>
+                        <td>${item.model}</td>
+                        <td>${item.company}</td>
+                        <td>${item.numOfAccident}</td>
+                        <td>${item.numOfOwnerChange}</td>
                     </tr>
                     `)
+                })
 
 
                 console.log(data);
