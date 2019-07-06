@@ -37,14 +37,17 @@
             <td><%= carlist[i].company %></td>
             <td><%= carlist[i].numOfAccident %></td>
             <td><%= carlist[i].numOfOwnerChange %></td>
-            <td><span id="delCar">x</span></td>
+            <td><span class="delCar">x</span></td>
         </tr>
         <% } %>
     </tbody>
 </table>
 
 <script>
-    $('#delCar').parent().parent().hide()
+    // document에서 클래스 delCar를 클릭 했을 때 함수를 실행하라. this의 부모의 부모를 hide()
+    $(document).on('click', '.delCar', function () {
+        $(this).parent().parent().hide()
+    })
 
     $('#submit').click(function () {
 
