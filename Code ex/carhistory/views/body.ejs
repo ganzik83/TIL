@@ -24,6 +24,7 @@
             <th>Company</th>
             <th>NumOfAccident</th>
             <th>NumOfOwnerChange</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody id="list">
@@ -36,12 +37,15 @@
             <td><%= carlist[i].company %></td>
             <td><%= carlist[i].numOfAccident %></td>
             <td><%= carlist[i].numOfOwnerChange %></td>
+            <td><span id="delCar">x</span></td>
         </tr>
         <% } %>
     </tbody>
 </table>
 
 <script>
+    $('#delCar').parent().parent().hide()
+
     $('#submit').click(function () {
 
         let newData = serializeObject($('form[name=regform]'));
@@ -57,7 +61,7 @@
                 // 아이디 list에서 태그네임 tr의 개수를 trNum 변수에 저장한다.
                 // javascript get childnodes by tagname
                 var trNum = document.getElementById('list').getElementsByTagName('tr').length;
-                console.log(trNum);
+                // console.log(trNum);
 
                 $.each(data, function (i, item) {
                     $('#list').append(`
@@ -69,6 +73,7 @@
                         <td>${item.company}</td>
                         <td>${item.numOfAccident}</td>
                         <td>${item.numOfOwnerChange}</td>
+                        <td><span id="delCar">x</span></td>
                     </tr>
                     `)
                 })
