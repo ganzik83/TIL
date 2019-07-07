@@ -46,6 +46,24 @@
 <script>
     // document에서 클래스 delCar를 클릭 했을 때 함수를 실행하라. this의 부모의 부모를 hide()
     $(document).on('click', '.delCar', function () {
+
+        let delData = $(this).parent().parent().text()
+        console.log(delData)
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/delcar',
+            data: delData,
+            success: function (data) {
+                console.log('success');
+            },
+            error: function (err) {
+                console.log('err');
+            }
+        })
+
+
+
         $(this).parent().parent().hide()
     })
 

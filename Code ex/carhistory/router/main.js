@@ -50,5 +50,7 @@ module.exports = (app, fs) => {
         res.json([req.body]);
     });
 
-
+    app.delete('/api/delcar', (req, res) => {
+        console.log(req.body);
+    })
 }
