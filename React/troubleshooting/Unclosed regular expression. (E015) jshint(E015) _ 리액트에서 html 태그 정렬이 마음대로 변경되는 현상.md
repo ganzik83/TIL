@@ -13,3 +13,9 @@ VScode에서 jshint사용시 리액트 js 문서에서 html 태그 정렬이 마
 ```
 
 VScode를 재시작하면 정상적으로 작동한다.
+
+---
+
+참조
+
+<https://stackoverflow.com/questions/44861564/react-jsx-error-unclosed-regular-expression/44861565#44861565>
