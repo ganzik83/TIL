@@ -5,8 +5,8 @@ const session = require('express-session');
 const fs = require('fs');
 const cookieparser = require('cookie-parser');
 const port = 3000; // configure server port
-const FileStore = require('session-file-store')(session); // npm install --save session-file-store
-const hasher = require('pbkdf2-password')(); // 암호화 모듈
+const FileStore = require('session-file-store')(session); // https://www.npmjs.com/package/session-file-store
+const hasher = require('pbkdf2-password')(); // 해시 암호화 모듈 https://www.npmjs.com/package/pbkdf2-password
 
 
 

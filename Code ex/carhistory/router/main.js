@@ -33,7 +33,6 @@ module.exports = (app, fs, hasher) => {
     })
     */
 
-
     app.post('/login', (req, res) => {
         console.log(req.body);
         let username = req.body.username;
@@ -88,8 +87,6 @@ module.exports = (app, fs, hasher) => {
 
     });
 
-
-
     /*
     // cookie 값으로 인증
     app.get('/carlist', (req, res) => {
@@ -100,15 +97,6 @@ module.exports = (app, fs, hasher) => {
         })
     })
     */
-
-    // session 값으로 인증
-    app.get('/carlist2', (req, res) => {
-        console.log(req.session.user.username);
-        res.render('carlist2.ejs', {
-            carlist: sampleCarList,
-            myname: req.session.user.username
-        })
-    })
 
     app.get('/signup', (req, res) => {
         res.render('signup.ejs')
@@ -147,6 +135,15 @@ module.exports = (app, fs, hasher) => {
             res.redirect('/login');
         });
     });
+
+    // session 값으로 인증
+    app.get('/carlist2', (req, res) => {
+        console.log(req.session.user.username);
+        res.render('carlist2.ejs', {
+            carlist: sampleCarList,
+            myname: req.session.user.username
+        })
+    })
 
 
     /*
