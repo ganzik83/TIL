@@ -6,10 +6,15 @@ module.exports = (app, fs) => {
         });
     });
 
+    app.get('/login', (req, res) => {
+        res.render('login.ejs', {
+            cookie: req.cookies
+        })
+    })
+
     app.post('/login', (req, res) => {
         // cookie의 이름(key값을) 설정해야 작동한다
         res.cookie('user', req.body);
-
         res.redirect('/carlist');
     })
 
@@ -22,7 +27,9 @@ module.exports = (app, fs) => {
     })
 
     app.get('/signup', (req, res) => {
-        res.render('signup.ejs')
+        res.render('signup.ejs', {
+            cookie: req.cookies
+        })
     })
 
     app.post('/api/signup', (req, res) => {
@@ -31,9 +38,7 @@ module.exports = (app, fs) => {
         res.redirect('/carlist');
     })
 
-    app.get('/login', (req, res) => {
-        res.render('login.ejs')
-    })
+
 
     /*
     app.get('/carlist', (req, res) => {
