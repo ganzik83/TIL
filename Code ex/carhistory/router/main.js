@@ -96,7 +96,7 @@ module.exports = (app, fs, hasher) => {
                              */
 
                     //req.flash('fmsg', '사용자가 없습니다.');
-                    //res.redirect('/login');
+                    res.redirect('/login');
 
                 });
 
