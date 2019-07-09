@@ -53,4 +53,14 @@ module.exports = (app, fs) => {
     app.delete('/api/delcar', (req, res) => {
         console.log(req.body);
     })
+
+    // cookie와 session
+    app.get('/test/setCookie', (req, res) => {
+
+    });
+
+    app.get('/test/getCookie', (req, res) => {
+
+    });
+
 }
