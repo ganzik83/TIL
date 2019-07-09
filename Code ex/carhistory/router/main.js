@@ -7,11 +7,12 @@ module.exports = (app, fs) => {
     });
 
     app.get('/login', (req, res) => {
-        res.render('login.ejs', {
-            cookie: req.cookies
-        })
+        res.render('login.ejs')
     })
 
+    // session은 로그인과 관련된 것에 사용을 하고, cookie는 장바구니 같은 곳에 사용을 한다
+    /*
+    // cookie 값을 이용
     app.post('/login', (req, res) => {
         // cookie의 이름(key값을) 설정해야 작동한다. cookie 기한도 설정 할 수 있다
         res.cookie('user', req.body, {
@@ -20,7 +21,18 @@ module.exports = (app, fs) => {
         });
         res.redirect('/carlist');
     })
+    */
 
+    // session 값으로 저장
+    app.post('/login', (req, res) => {
+        req.session.myname = req.body.username;
+
+        req.session.save(function () {
+            res.redirect('/carlist2');
+        })
+    })
+
+    // cookie 값으로 인증
     app.get('/carlist', (req, res) => {
         console.log(req.cookies);
         res.render('carlist.ejs', {
@@ -29,11 +41,56 @@ module.exports = (app, fs) => {
         })
     })
 
+    // session 값으로 인증
+    app.get('/carlist2', (req, res) => {
+        console.log(req.session.myname);
+        res.render('carlist2.ejs', {
+            carlist: sampleCarList,
+            myname: req.session.myname
+        })
+    })
+
     app.get('/signup', (req, res) => {
         res.render('signup.ejs', {
             cookie: req.cookies
         })
     })
+
+
+    app.post('/signup', (req, res) => {
+        console.log(req.body);
+        // 회원가입
+        let userid = req.body.username;
+        let password = req.body.password;
+        let name = req.body.name;
+        let email = req.body.email;
+        console.log('username = ', username);
+        console.log('password = ', password);
+        console.log('name = ', name);
+        console.log('email = ', email);
+
+        hasher({
+            password: req.body.password
+        }, (err, pass, salt, hash) => {
+            if (err) {
+                console.log('ERR: ', err);
+                res.redirect('/signup_form');
+            }
+            let user = {
+                username: username,
+                password: hash,
+                salt: salt, // 복호화 할 때 salt값이 필요
+                name: name,
+                email: email
+            }
+            sampleUserList.push(user);
+            console.log('user added : ', user);
+            // 회원가입이 끝나고 login 페이지로 이동
+            res.redirect('/login');
+        });
+    });
+
+
 
     app.post('/api/signup', (req, res) => {
         console.log(req.body);
@@ -98,7 +155,7 @@ module.exports = (app, fs) => {
     })
 
     // cookie와 session
-    app.get('/test/setCookie', (req, res) => {
+    app.get('/test/setcookie', (req, res) => {
         console.log('/test/setCookie')
 
         res.cookie('user', {
@@ -110,12 +167,36 @@ module.exports = (app, fs) => {
 
     });
 
-    app.get('/test/getCookie', (req, res) => {
+    app.get('/test/getcookie', (req, res) => {
         console.log(req.cookies)
 
         res.render('test/getcookie.html', {
             cookie: req.cookies
         })
     });
+
+
+    app.get('/test/setsession', (req, res) => {
+        console.log('/test/setsession');
+
+        req.session.myname = '홍길동';
+        req.session.myid = 'hong'
+
+        // 세션이 다 저장된 다음에 리다이렉트를 하라
+        req.session.save(function () {
+            res.redirect('/test/getsession');
+        })
+    })
+
+    app.get('/test/getsession', (req, res) => {
+        console.log('/test/getsession');
+        console.log('session.myname = ', req.session.myname);
+
+        res.render('test/getsession.html', {
+            myname: req.session.myname,
+            myid: req.session.myid
+        });
+    })
+
 
 }
