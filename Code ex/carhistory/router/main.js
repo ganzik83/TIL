@@ -68,6 +68,8 @@ module.exports = (app, fs, hasher) => {
                         });
                         return;
                     } else {
+                        console.log('Password incorrect');
+                        res.redirect('/login');
                         // req.flash('fmsg', '패스워드가 맞지 않습니다.');
 
                     }
@@ -78,7 +80,7 @@ module.exports = (app, fs, hasher) => {
 
         //req.flash.msg('')
         if (!bFound) {
-            console.log('not found');
+            console.log(username + ' user not found');
         }
 
         //req.flash('fmsg', '사용자가 없습니다.');

@@ -40,6 +40,8 @@ app.use(session({
 
 app.use(cookieparser());
 
+
+
 // configure router
 const router = require('./router/main')(app, fs, hasher);
 
