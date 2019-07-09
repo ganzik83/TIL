@@ -56,11 +56,23 @@ module.exports = (app, fs) => {
 
     // cookie와 session
     app.get('/test/setCookie', (req, res) => {
+        console.log('/test/setCookie')
+
+        res.cookie('user', {
+            'name': '홍길동',
+            'id': 'user01'
+        });
+
+        res.redirect('/test/getCookie')
 
     });
 
     app.get('/test/getCookie', (req, res) => {
+        console.log(req.cookies)
 
+        res.render('test/getcookie.html', {
+            cookie: req.cookies
+        })
     });
 
 }

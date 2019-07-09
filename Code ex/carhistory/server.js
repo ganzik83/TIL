@@ -2,8 +2,13 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const session = require('express-session');
-const fs = require('fs')
+const fs = require('fs');
+const cookieparser = require('cookie-parser');
 const port = 3000; // configure server port
+
+
+
+app.use(cookieparser());
 
 
 // configure app to use bodyParser
@@ -18,6 +23,8 @@ app.use(session({
     resave: false, // 세션을 언제나(변하지 않아도)) 저장할 것인지 정하는 값. express-session documentation에서는 이 값을 false로 하는것을 권장하고 필요에 따라 true로 설정.
     saveUninitialized: true // uninitialized 세션이란 새로 생겼지만 변경되지 않은 세션을 의미한다. true로 설정 할 것을 권장한다.
 }))
+
+
 
 
 // 정적파일(Static files)다루기
