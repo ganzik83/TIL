@@ -7,6 +7,7 @@ const cookieparser = require('cookie-parser');
 const port = 3000; // configure server port
 const FileStore = require('session-file-store')(session); // https://www.npmjs.com/package/session-file-store
 const hasher = require('pbkdf2-password')(); // 해시 암호화 모듈 https://www.npmjs.com/package/pbkdf2-password
+const morgan = require('morgan'); // 로깅 모듈 https://www.npmjs.com/package/morgan
 
 
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
+app.use(morgan('dev'));
 
 
 // session값은 서버에 저장이 되고 디폴트값으로 메모리에 저장이 된다. 서버를 껐다가 켜면 session 값은 날아간다. 옵션을 주면 원하는 위치에 세션값을 저장 할 수 있다.
