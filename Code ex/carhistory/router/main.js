@@ -90,7 +90,7 @@ module.exports = (app, fs, hasher) => {
 
 
 
-
+    /*
     // cookie 값으로 인증
     app.get('/carlist', (req, res) => {
         console.log(req.cookies);
@@ -99,13 +99,14 @@ module.exports = (app, fs, hasher) => {
             cookie: req.cookies
         })
     })
+    */
 
     // session 값으로 인증
     app.get('/carlist2', (req, res) => {
-        console.log(req.session.username);
+        console.log(req.session.user.username);
         res.render('carlist2.ejs', {
             carlist: sampleCarList,
-            myname: req.session.username
+            myname: req.session.user.username
         })
     })
 
