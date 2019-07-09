@@ -1,4 +1,4 @@
-module.exports = (app, fs) => {
+module.exports = (app, fs, hasher) => {
     app.get('/', (req, res) => {
         res.render('index.ejs', {
             title: 'carhistory',
@@ -21,7 +21,7 @@ module.exports = (app, fs) => {
         });
         res.redirect('/carlist');
     })
-    */
+
 
     // session 값으로 저장
     app.post('/login', (req, res) => {
@@ -31,6 +31,65 @@ module.exports = (app, fs) => {
             res.redirect('/carlist2');
         })
     })
+    */
+
+
+    app.post('/login', (req, res) => {
+        console.log(req.body);
+        let username = req.body.username;
+        let password = req.body.password;
+        console.log('username = ', username);
+        console.log('password = ', password);
+        console.log('userlist = ', sampleUserList);
+        let bFound = false;
+
+        for (let i = 0; i < sampleUserList.length; i++) {
+
+            let user = sampleUserList[i];
+            console.log(sampleUserList[i]);
+            if (username === user.username) {
+                console.log('[found] username = ', username);
+                bFound = true;
+
+                return hasher({
+                    password: password,
+                    salt: user.salt
+                }, function (err, pass, salt, hash) {
+                    if (err) {
+                        console.log('ERR : ', err);
+                        //req.flash('fmsg', '오류가 발생했습니다.');
+
+                    }
+                    if (hash === user.password) {
+                        console.log('INFO : ', username, ' 로그인 성공')
+
+                        req.session.user = sampleUserList[i];
+                        req.session.save(function () {
+                            res.redirect('/carlist2');
+                        });
+                        return;
+                    } else {
+                        // req.flash('fmsg', '패스워드가 맞지 않습니다.');
+
+                    }
+                });
+            }
+            if (bFound) break;
+        }
+
+        //req.flash.msg('')
+        if (!bFound) {
+            console.log('not found');
+        }
+
+        //req.flash('fmsg', '사용자가 없습니다.');
+        res.redirect('/login');
+
+
+    });
+
+
+
 
     // cookie 값으로 인증
     app.get('/carlist', (req, res) => {
@@ -43,24 +102,22 @@ module.exports = (app, fs) => {
 
     // session 값으로 인증
     app.get('/carlist2', (req, res) => {
-        console.log(req.session.myname);
+        console.log(req.session.username);
         res.render('carlist2.ejs', {
             carlist: sampleCarList,
-            myname: req.session.myname
+            myname: req.session.username
         })
     })
 
     app.get('/signup', (req, res) => {
-        res.render('signup.ejs', {
-            cookie: req.cookies
-        })
+        res.render('signup.ejs')
     })
 
 
     app.post('/signup', (req, res) => {
         console.log(req.body);
         // 회원가입
-        let userid = req.body.username;
+        let username = req.body.username;
         let password = req.body.password;
         let name = req.body.name;
         let email = req.body.email;
@@ -74,7 +131,7 @@ module.exports = (app, fs) => {
         }, (err, pass, salt, hash) => {
             if (err) {
                 console.log('ERR: ', err);
-                res.redirect('/signup_form');
+                res.redirect('/signup');
             }
             let user = {
                 username: username,
@@ -91,12 +148,13 @@ module.exports = (app, fs) => {
     });
 
 
-
+    /*
     app.post('/api/signup', (req, res) => {
         console.log(req.body);
         userList.push(req.body);
         res.redirect('/carlist');
     })
+    */
 
 
 
@@ -105,7 +163,7 @@ module.exports = (app, fs) => {
         res.render('carlist.html')
     })
 
-    
+
     app.get('/carlist2', (req, res) => {
         // carlist 키 값에 sampleCarList 값을 넣어 객체에 담는다. carlist2.html 페이지에서 carlist 변수를 사용하여 접근 가능하다 
         res.render('carlist2.html', {
@@ -114,15 +172,7 @@ module.exports = (app, fs) => {
         // console.log(sampleCarList);
     })
     */
-    var userList = [{
-        'name': '홍길동',
-        'password': '1234',
-        'id': 'user01'
-    }, {
-        'name': '김기홍',
-        'password': '0918',
-        'id': 'user01'
-    }];
+    var sampleUserList = [];
 
     var sampleCarList = [{
         carNumber: '11주1111',

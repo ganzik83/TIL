@@ -41,7 +41,7 @@ app.use(session({
 app.use(cookieparser());
 
 // configure router
-const router = require('./router/main')(app, fs);
+const router = require('./router/main')(app, fs, hasher);
 
 // run server
 app.listen(port, () => {
