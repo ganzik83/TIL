@@ -13,8 +13,11 @@ module.exports = (app, fs) => {
     })
 
     app.post('/login', (req, res) => {
-        // cookie의 이름(key값을) 설정해야 작동한다
-        res.cookie('user', req.body);
+        // cookie의 이름(key값을) 설정해야 작동한다. cookie 기한도 설정 할 수 있다
+        res.cookie('user', req.body, {
+            maxAge: 2000,
+            httpOnly: true
+        });
         res.redirect('/carlist');
     })
 
