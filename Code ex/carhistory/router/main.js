@@ -79,17 +79,16 @@ module.exports = (app, fs, hasher) => {
             }
 
 
-            if (fs.existsSync('data/userlist.json')) {
-                // sampleUserList.push(user); //배열을 사용 할 때는 push 메소드를 사용
+            //if (fs.existsSync('data/userlist.json')) {
+            // sampleUserList.push(user); //배열을 사용 할 때는 push 메소드를 사용
 
-                sampleUserList[username] = user;
+            sampleUserList[username] = user;
 
-                fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 2));
-                console.log('user added : ', user);
-                // 회원가입이 끝나고 login 페이지로 이동
-                res.redirect('/login');
-            }
-
+            fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 2));
+            console.log('user added : ', user);
+            // 회원가입이 끝나고 login 페이지로 이동
+            res.redirect('/login');
+            // }
         });
     });
 
@@ -113,10 +112,10 @@ module.exports = (app, fs, hasher) => {
 
     var sampleUserList = {};
 
-    let rawdata = fs.readFileSync('data/userlist.json');
+    // let rawdata = fs.readFileSync('data/userlist.json');
     // sampleUserList에 JSON 형식을 parse해서 입력한다.
     // sampleUserList = JSON.parse(rawdata);
-    console.log(sampleUserList);
+    // console.log(sampleUserList);
 
 
     // writeFile은 비동기 함수이다. 그래서 writeFileSync라는 동기 함수를 사용
