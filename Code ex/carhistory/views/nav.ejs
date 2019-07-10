@@ -1,6 +1,8 @@
 <table>
     <tr>
+        <% if(user) { %>
         <td><%= user.username %>님 로그인 되었습니다<span> | </span></td>
+        <% } %>
         <td><a href="/logout">logout</a></td>
     </tr>
 </table>

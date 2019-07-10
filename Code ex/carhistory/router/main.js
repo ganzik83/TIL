@@ -56,7 +56,7 @@ module.exports = (app, fs, hasher) => {
     app.get('/logout', (req, res) => {
         req.session.destroy(); // 세션 삭제
         res.clearCookie('sid'); // 세션 쿠키 삭제
-        // res.redirect('#')
+        res.redirect('back'); // 현재 페이지로 리다이렉트
     });
 
     app.get('/signup', (req, res) => {
