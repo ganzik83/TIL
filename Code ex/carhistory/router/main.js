@@ -154,7 +154,8 @@ module.exports = (app, fs, hasher) => {
     // session 값으로 인증
     app.get('/carlist', (req, res) => {
         // console.log(req.session.user.username);
-        if (req.session.user.username) {
+        // req.session.user.username을 하면 username이 undefined 되었다고 에러를 나타낸다. user 값 자체가 없는데 거기에 username까지 요구하기 때문이다. req.session.user까지만 사용하면 정상 작동하게 된다.
+        if (req.session.user) {
             console.log('로그인된 사용자 접근');
             res.render('carlist.ejs', {
                 carlist: sampleCarList,
@@ -162,7 +163,8 @@ module.exports = (app, fs, hasher) => {
             })
         } else {
             console.log('로그인 안된 사용자 접근');
-            res.redirect('/signup')
+            res.send(`<script type="text/javascript">var choice = confirm("회원가입을 해야 접근 가능합니다. 회원가입 하시겠습니까?"); if(choice) {location.href = "/signup"} else {location.href = "/"}</script>`)
+            // res.redirect('/signup');
         }
 
     })
