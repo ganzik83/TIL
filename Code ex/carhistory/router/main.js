@@ -10,7 +10,7 @@ module.exports = (app, fs, hasher) => {
         res.render('login.ejs', {
             fmsg: req.flash('fmsg')
         });
-    })
+    });
 
     app.post('/login', (req, res) => {
         console.log(req.body);
@@ -20,7 +20,7 @@ module.exports = (app, fs, hasher) => {
         console.log('username = ', username);
         console.log('password = ', password);
         console.log('userlist = ', sampleUserList);
-        console.log(user)
+        console.log(user);
 
         // 회원 정보가 sampleUserList에 존재 한다면
         if (user) {
@@ -33,7 +33,7 @@ module.exports = (app, fs, hasher) => {
                     req.flash('fmsg', '오류가 발생했습니다.');
                 }
                 if (hash === user.password) {
-                    console.log('INFO : ', username, ' 로그인 성공')
+                    console.log('INFO : ', username, ' 로그인 성공');
 
                     req.session.user = sampleUserList[username];
                     req.session.save(function () {
@@ -48,7 +48,7 @@ module.exports = (app, fs, hasher) => {
                 }
             });
         } else { // 회원 정보가 sampleUserList에 존재 하지 않는다면
-            req.flash('fmsg', '회원 정보가 없습니다')
+            req.flash('fmsg', '회원 정보가 없습니다');
             res.redirect('/login');
         }
     });
@@ -86,7 +86,7 @@ module.exports = (app, fs, hasher) => {
                     salt: salt, // 복호화 할 때 salt값이 필요
                     name: name,
                     email: email
-                }
+                };
 
 
                 //if (fs.existsSync('data/userlist.json')) {
@@ -102,8 +102,8 @@ module.exports = (app, fs, hasher) => {
             });
         } else {
             req.flash('fmsg', '존재하는 회원입니다');
-            res.redirect('/signup')
-        };
+            res.redirect('/signup');
+        }
     });
 
     // session 값으로 인증
@@ -113,9 +113,8 @@ module.exports = (app, fs, hasher) => {
         if (req.session.user) {
             console.log('로그인된 사용자 접근');
             res.render('carlist.ejs', {
-                carlist: sampleCarList,
-                myname: req.session.user.username
-            })
+                carlist: sampleCarList
+            });
         } else {
             console.log('로그인 안된 사용자 접근');
             res.send(`<script type="text/javascript">var choice = confirm("회원가입을 해야 접근 가능합니다. 회원가입 하시겠습니까?"); if(choice) {location.href = "/signup"} else {location.href = "/"}</script>`);
@@ -154,7 +153,7 @@ module.exports = (app, fs, hasher) => {
 
     app.get('/api/carlist', (req, res) => {
         res.json(sampleCarList);
-    })
+    });
 
     app.post('/api/regcar', (req, res) => {
         console.log(req.body);
@@ -164,5 +163,9 @@ module.exports = (app, fs, hasher) => {
 
     app.delete('/api/delcar', (req, res) => {
         console.log(req.body);
-    })
-}
+    });
+
+    app.get('/test/setlocals', (req, res) => {
+        res.render('test/locals.html');
+    });
+};
