@@ -8,7 +8,7 @@ const port = 3000; // configure server port
 const FileStore = require('session-file-store')(session); // https://www.npmjs.com/package/session-file-store
 const hasher = require('pbkdf2-password')(); // 해시 암호화 모듈 https://www.npmjs.com/package/pbkdf2-password
 const morgan = require('morgan'); // 로깅 모듈 https://www.npmjs.com/package/morgan
-
+const flash = require('connect-flash'); // https://www.npmjs.com/package/connect-flash
 
 
 
@@ -41,6 +41,9 @@ app.use(session({
 }));
 
 app.use(cookieparser());
+
+app.use(flash()); // connect-flash 모듈 사용
+
 
 
 

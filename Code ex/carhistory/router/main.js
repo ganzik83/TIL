@@ -7,26 +7,30 @@ module.exports = (app, fs, hasher) => {
     });
 
     app.get('/login', (req, res) => {
-        res.render('login.ejs')
+        res.render('login.ejs', {
+            fmsg: req.flash('fmsg')
+        });
     })
 
     app.post('/login', (req, res) => {
         console.log(req.body);
         let username = req.body.username;
         let password = req.body.password;
+        let user = sampleUserList[username];
         console.log('username = ', username);
         console.log('password = ', password);
         console.log('userlist = ', sampleUserList);
+        console.log(user)
 
-        if (sampleUserList[username]) {
+        // 회원 정보가 sampleUserList에 존재 한다면
+        if (user) {
             hasher({
                 password: password,
                 salt: user.salt
             }, function (err, pass, salt, hash) {
                 if (err) {
                     console.log('ERR : ', err);
-                    //req.flash('fmsg', '오류가 발생했습니다.');
-
+                    req.flash('fmsg', '오류가 발생했습니다.');
                 }
                 if (hash === user.password) {
                     console.log('INFO : ', username, ' 로그인 성공')
@@ -38,11 +42,14 @@ module.exports = (app, fs, hasher) => {
                     return;
                 } else {
                     console.log('Password incorrect');
+                    req.flash('fmsg', '패스워드가 맞지 않습니다.');
                     res.redirect('/login');
-                    // req.flash('fmsg', '패스워드가 맞지 않습니다.');
 
                 }
             });
+        } else { // 회원 정보가 sampleUserList에 존재 하지 않는다면
+            req.flash('fmsg', '회원 정보가 없습니다')
+            res.redirect('/login');
         }
     });
 
@@ -50,10 +57,9 @@ module.exports = (app, fs, hasher) => {
         res.render('signup.ejs');
     });
 
-
+    // 회원가입 입력 폼을 받아 데이터를 저장
     app.post('/signup', (req, res) => {
         console.log(req.body);
-        // 회원가입
         let username = req.body.username;
         let password = req.body.password;
         let name = req.body.name;
@@ -111,10 +117,9 @@ module.exports = (app, fs, hasher) => {
     });
 
     var sampleUserList = {};
-
-    // let rawdata = fs.readFileSync('data/userlist.json');
+    let rawdata = fs.readFileSync('data/userlist.json');
     // sampleUserList에 JSON 형식을 parse해서 입력한다.
-    // sampleUserList = JSON.parse(rawdata);
+    sampleUserList = JSON.parse(rawdata);
     // console.log(sampleUserList);
 
 
