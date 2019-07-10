@@ -10,6 +10,29 @@ module.exports = (app, fs, hasher) => {
         res.render('login.ejs')
     })
 
+    // session은 로그인과 관련된 것에 사용을 하고, cookie는 장바구니 같은 곳에 사용을 한다
+    /*
+    // cookie 값을 이용
+    app.post('/login', (req, res) => {
+        // cookie의 이름(key값을) 설정해야 작동한다. cookie 기한도 설정 할 수 있다
+        res.cookie('user', req.body, {
+            maxAge: 2000,
+            httpOnly: true
+        });
+        res.redirect('/carlist');
+    })
+
+
+    // session 값으로 저장
+    app.post('/login', (req, res) => {
+        req.session.myname = req.body.username;
+
+        req.session.save(function () {
+            res.redirect('/carlist2');
+        })
+    })
+    */
+
     app.post('/login', (req, res) => {
         console.log(req.body);
         let username = req.body.username;
@@ -44,11 +67,23 @@ module.exports = (app, fs, hasher) => {
                 }
             });
         }
-    });
+    })
+
+
+    /*
+    // cookie 값으로 인증
+    app.get('/carlist', (req, res) => {
+        console.log(req.cookies);
+        res.render('carlist.ejs', {
+            carlist: sampleCarList,
+            cookie: req.cookies
+        })
+    })
+    */
 
     app.get('/signup', (req, res) => {
-        res.render('signup.ejs');
-    });
+        res.render('signup.ejs')
+    })
 
 
     app.post('/signup', (req, res) => {
@@ -105,11 +140,37 @@ module.exports = (app, fs, hasher) => {
             })
         } else {
             console.log('로그인 안된 사용자 접근');
-            res.send(`<script type="text/javascript">var choice = confirm("회원가입을 해야 접근 가능합니다. 회원가입 하시겠습니까?"); if(choice) {location.href = "/signup"} else {location.href = "/"}</script>`);
+            res.send(`<script type="text/javascript">var choice = confirm("회원가입을 해야 접근 가능합니다. 회원가입 하시겠습니까?"); if(choice) {location.href = "/signup"} else {location.href = "/"}</script>`)
             // res.redirect('/signup');
         }
 
-    });
+    })
+
+
+    /*
+    app.post('/api/signup', (req, res) => {
+        console.log(req.body);
+        userList.push(req.body);
+        res.redirect('/carlist');
+    })
+    */
+
+
+
+    /*
+    app.get('/carlist', (req, res) => {
+        res.render('carlist.html')
+    })
+
+
+    app.get('/carlist2', (req, res) => {
+        // carlist 키 값에 sampleCarList 값을 넣어 객체에 담는다. carlist2.html 페이지에서 carlist 변수를 사용하여 접근 가능하다 
+        res.render('carlist2.html', {
+            carlist: sampleCarList
+        })
+        // console.log(sampleCarList);
+    })
+    */
 
     var sampleUserList = {};
 
@@ -153,4 +214,50 @@ module.exports = (app, fs, hasher) => {
     app.delete('/api/delcar', (req, res) => {
         console.log(req.body);
     })
+
+    // cookie와 session
+    app.get('/test/setcookie', (req, res) => {
+        console.log('/test/setCookie')
+
+        res.cookie('user', {
+            'name': '홍길동',
+            'id': 'user01'
+        });
+
+        res.redirect('/test/getCookie')
+
+    });
+
+    app.get('/test/getcookie', (req, res) => {
+        console.log(req.cookies)
+
+        res.render('test/getcookie.html', {
+            cookie: req.cookies
+        })
+    });
+
+
+    app.get('/test/setsession', (req, res) => {
+        console.log('/test/setsession');
+
+        req.session.myname = '홍길동';
+        req.session.myid = 'hong'
+
+        // 세션이 다 저장된 다음에 리다이렉트를 하라
+        req.session.save(function () {
+            res.redirect('/test/getsession');
+        })
+    })
+
+    app.get('/test/getsession', (req, res) => {
+        console.log('/test/getsession');
+        console.log('session.myname = ', req.session.myname);
+
+        res.render('test/getsession.html', {
+            myname: req.session.myname,
+            myid: req.session.myid
+        });
+    })
+
+
 }
