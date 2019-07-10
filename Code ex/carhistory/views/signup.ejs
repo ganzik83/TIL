@@ -15,6 +15,9 @@
         <input type="email" placeholder="email" name="email">
         <button type="submit">등록</button>
     </form>
+    <% if(fmsg) { %>
+    <div class="alert"><%= fmsg %></div>
+    <% } %>
 </body>
 
 </html>
