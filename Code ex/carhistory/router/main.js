@@ -53,6 +53,12 @@ module.exports = (app, fs, hasher) => {
         }
     });
 
+    app.get('/logout', (req, res) => {
+        req.session.destroy(); // 세션 삭제
+        res.clearCookie('sid'); // 세션 쿠키 삭제
+        // res.redirect('#')
+    });
+
     app.get('/signup', (req, res) => {
         res.render('signup.ejs', {
             fmsg: req.flash('fmsg')
@@ -163,9 +169,5 @@ module.exports = (app, fs, hasher) => {
 
     app.delete('/api/delcar', (req, res) => {
         console.log(req.body);
-    });
-
-    app.get('/test/setlocals', (req, res) => {
-        res.render('test/locals.html');
     });
 };
