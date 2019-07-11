@@ -33,6 +33,9 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
     function serializeObject($form) {
         var unindexed_array = $form.serializeArray();
@@ -47,7 +50,7 @@
 </script>
 <script>
     function searchByCarNum() {
-        let searchText = $('#search_carNumber').val();
+        let search_carNumber = $('#search_carNumber').val();
         // 변수앞에 $를 붙이는 것은 이 변수가 jQuery 변수라는 것을 알려주는 것(관습상)
         let $target = $('#list');
         $.ajax({
