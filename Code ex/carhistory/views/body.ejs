@@ -1,7 +1,7 @@
 <div class="main">
     <div class="sub">
         <h1>Car History</h1>
-        <form action="/api/carlist" name="regform" method="POST" id="form">
+        <form action="/car/api/list" name="regform" method="POST" id="form">
             <input type="text" name="carNumber" placeholder="차량번호">
             <input type="text" name="owner" placeholder="소유주">
             <input type="text" name="model" placeholder="차량모델">
@@ -71,7 +71,7 @@
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/delcar',
+            url: '/car/api/del',
             data: delData,
             success: function (data) {
                 console.log('success');
@@ -93,7 +93,7 @@
         //serializeObject($('form[name=regform]'));
         $.ajax({
             type: 'POST',
-            url: '/api/regcar',
+            url: '/car/api/reg',
             dataType: 'json',
             data: newData,
             success: function (data) {

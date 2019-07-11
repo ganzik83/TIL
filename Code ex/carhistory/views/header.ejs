@@ -48,6 +48,7 @@
         return indexed_array;
     }
 </script>
+<!-- 
 <script>
     function searchByCarNum() {
         let search_carNumber = $('#search_carNumber').val();
@@ -55,7 +56,7 @@
         let $target = $('#list');
         $.ajax({
             type: 'POST',
-            url: '/api/search',
+            url: '/car/api/search',
             dataType: 'json',
             // search_carNumber 데이터를 json 형식으로 /api/search에 보낸다.
             data: {
@@ -91,7 +92,7 @@
         let $target = $('#list');
         $.ajax({
             type: 'POST',
-            url: '/api/filter',
+            url: '/car/api/filter',
             dataType: 'json',
             data: {
                 "search_company": search_company
@@ -121,7 +122,9 @@
         })
 
     }
-</script>
+</script> -->
+
+
 <script>
     function search() {
         let selectVal = $('#selectBox').val()
@@ -133,7 +136,7 @@
             let $target = $('#list');
             $.ajax({
                 type: 'POST',
-                url: '/api/search',
+                url: '/car/api/search',
                 dataType: 'json',
                 // search_carNumber 데이터를 json 형식으로 /api/search에 보낸다.
                 data: {
@@ -167,7 +170,7 @@
             let $target = $('#list');
             $.ajax({
                 type: 'POST',
-                url: '/api/filter',
+                url: '/car/api/filter',
                 dataType: 'json',
                 data: {
                     "inputText": inputText,

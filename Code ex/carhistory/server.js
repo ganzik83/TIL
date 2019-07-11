@@ -56,8 +56,14 @@ app.use(indexRouter);
 const userRouter = require('./router/user');
 app.use('/user', userRouter);
 
-// configure router
+const carRouter = require('./router/car');
+app.use('/car', carRouter);
+
+
+/*
+// configure router 함수형 라우터
 const router = require('./router/main')(app, fs, hasher);
+*/
 
 // run server
 app.listen(port, () => {
