@@ -51,9 +51,7 @@ app.use((req, res, next) => {
 });
 
 const part1 = require('./part.js');
-console.log(part1.part, part1.part.a, part1.part.b);
-console.log(part1.a)
-part1.func.funca();
+console.log(part1.c);
 
 // configure router
 const router = require('./router/main')(app, fs, hasher);
