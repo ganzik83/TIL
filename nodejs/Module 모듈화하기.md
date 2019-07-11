@@ -1,6 +1,7 @@
 # 모듈화 하기
 
-객체나 함수를 외부로 내보내려면 exports 요소를 사용한다
+1. 객체나 함수를 외부로 내보내려면 exports 요소를 사용한다
+2. 변수를 선언하고 `module.exports = 변수;`를 사용한다
 
 server.js
 
@@ -28,4 +29,10 @@ exports.func = {
     console.log("this is router.func.a()");
   }
 };
+
+var d = { a: "this is d" };
+
+module.exports = d;
 ```
+
+---

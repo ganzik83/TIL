@@ -1,8 +1,8 @@
 // exports 전역 객체에 변수 part를 담아서 사용할 수 있다.
 exports.c = 'c';
 var funcC = () => {
-    console.log('this is funcC')
-}
+    console.log('this is funcC');
+};
 
 // exports.part = {
 //     a: 'a',

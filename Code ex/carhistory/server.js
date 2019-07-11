@@ -50,8 +50,11 @@ app.use((req, res, next) => {
     next();
 });
 
-const part1 = require('./part.js');
-console.log(part1.c);
+const indexRouter = require('./router/index');
+app.use(indexRouter);
+
+const userRouter = require('./router/user');
+app.use('/user', userRouter);
 
 // configure router
 const router = require('./router/main')(app, fs, hasher);
