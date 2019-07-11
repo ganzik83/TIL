@@ -245,10 +245,50 @@ module.exports = (app, fs, hasher) => {
 
   app.post("/api/search", (req, res) => {
     console.log(req.body);
-    console.log(req.body.search_carNumber);
+    console.log(req.body.inputText);
 
-    let carNum = req.body.search_carNumber;
+    let carNum = req.body.inputText;
 
-    res.json({ carNum: carNum });
+    // 배열의 find 함수를 활용
+    let found = sampleCarList.find(element => {
+      console.log("element = ", element);
+      if (element.carNumber == carNum) {
+        console.log("found");
+        return element;
+      }
+    });
+    console.log("found = ", found);
+
+    res.json(found);
+  });
+
+  app.post("/api/filter", (req, res) => {
+    console.log(req.body);
+    console.log(req.body.inputText);
+    console.log(req.body.selectVal);
+
+    let inputData = req.body.inputText;
+    let selectVal = req.body.selectVal;
+
+    // 배열의 find 함수를 활용
+    let found = sampleCarList.filter(element => {
+      // 만약 콤보박스 셀렉트 밸류가 어떤것인지 확인 후 데이터처리
+      if (selectVal == "company") {
+        // console.log("element = ", element);
+        if (element.company == inputData) {
+          // console.log("found");
+          return element;
+        }
+      } else if (selectVal == "model") {
+        // console.log("element = ", element);
+        if (element.model == inputData) {
+          // console.log("found");
+          return element;
+        }
+      }
+    });
+    console.log("found = ", found);
+
+    res.json(found);
   });
 };

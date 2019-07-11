@@ -12,13 +12,22 @@
         </form>
         <div><br></div>
         <div>
+            <select name="selectBox" id="selectBox">
+                <option value="carNumber">차량번호</option>
+                <option value="company">제조사</option>
+                <option value="model">모델명</option>
+            </select>
+            <input type="text" id="input_search_text">
+            <button id="btn_search" onclick="search()">검색</button>
+        </div>
+        <!-- <div>
             <input type="text" id="search_carNumber" placeholder="차량번호" value="">
             <button id="btn_search_carNumber" onclick="searchByCarNum()">검색</button>
         </div>
         <div>
             <input type="text" id="search_company" placeholder="제조사" value="">
             <button id="btn_search_company" onclick="searchByCompany()">검색</button>
-        </div>
+        </div> -->
     </div>
 
 </div>
