@@ -1,7 +1,6 @@
 # 모듈화 하기
 
 1. 객체나 함수를 외부로 내보내려면 exports 요소를 사용한다
-2. 변수를 선언하고 `module.exports = 변수;`를 사용한다
 
 server.js
 
@@ -29,10 +28,30 @@ exports.func = {
     console.log("this is router.func.a()");
   }
 };
-
-var d = { a: "this is d" };
-
-module.exports = d;
 ```
 
 ---
+
+2. 변수를 선언하고 `module.exports = 변수;`를 사용한다
+
+server.js
+
+```js
+const userRouter = require("./router/user");
+app.use("/user", userRouter); // 기본경로를 /user로 지정한다
+```
+
+./router/user.js
+
+```js
+const express = require("express");
+const router = express.Router();
+
+router.get("/login", (req, res) => {
+  res.render("login.ejs", {
+    fmsg: req.flash("fmsg")
+  });
+});
+
+module.exports = router;
+```
