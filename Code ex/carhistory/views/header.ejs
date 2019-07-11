@@ -6,7 +6,7 @@
 <style>
     .main {
         background-color: rgb(243, 243, 243);
-        height: 200px;
+        height: 300px;
         position: relative;
     }
 
@@ -43,5 +43,29 @@
         });
 
         return indexed_array;
+    }
+</script>
+<script>
+    function searchByCarNum() {
+        let searchText = $('#search_carNumber').val();
+        // 변수앞에 $를 붙이는 것은 이 변수가 jQuery 변수라는 것을 알려주는 것(관습상)
+        let $target = $('#list');
+        $.ajax({
+            type: 'POST',
+            url: '/api/search',
+            dataType: 'json',
+            data: {
+                "search_carNumber": search_carNumber
+            },
+            success: function (item) {
+                console.log('success');
+                console.log(item);
+                // item 데이터가 잘 들어오면 $target에 
+            }
+        })
+    }
+
+    function searchByCompany() {
+
     }
 </script>
