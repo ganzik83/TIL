@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="col col-lg-3">
-                <% if(user) { %>
-                <%= user.username %>님 로그인 되었습니다
+                <% if(sses_user) { %>
+                <%= sses_user.username %>님 로그인 되었습니다
                 <a href="/users/logout">logout</a>
                 <% } else { %>
                 <a href="/users/login">login</a><span> | </span>

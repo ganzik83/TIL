@@ -1,5 +1,5 @@
 module.exports = (express, fs, hasher) => {
-    const router = express.Router()
+    const router = express.Router();
 
     var userList = {};
     let rawdata = fs.readFileSync("data/userlist.json");
@@ -129,4 +129,4 @@ module.exports = (express, fs, hasher) => {
         }
     });
     return router;
-}
+};
