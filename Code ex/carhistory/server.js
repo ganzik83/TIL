@@ -46,7 +46,7 @@ app.use(flash()); // connect-flash 모듈 사용
 
 // session 값을 전역(모든페이지)에서 사용 할 수 있게 해준다.
 app.use((req, res, next) => {
-    res.locals.user = req.session.user;
+    res.locals.sses_user = req.session.user;
     next();
 });
 

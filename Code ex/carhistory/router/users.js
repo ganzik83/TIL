@@ -98,7 +98,7 @@ module.exports = (express, fs, hasher) => {
                 (err, pass, salt, hash) => {
                     if (err) {
                         console.log("ERR: ", err);
-                        res.redirect("/user/signup");
+                        res.redirect("/users/signup");
                     }
                     let user = {
                         username: username,
