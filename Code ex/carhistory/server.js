@@ -54,11 +54,11 @@ app.use((req, res, next) => {
 const indexRouter = require('./router/index')(express);
 app.use('/', indexRouter);
 
-// module - router type21
+// router - module - type1
 const userRouter = require('./router/users')(express, fs, hasher);
 app.use('/users', userRouter);
 
-// module - router type2 
+// router - module - type2
 const carRouter = require('./router/car');
 app.use('/car', carRouter);
 

@@ -28,7 +28,7 @@ router.get("/list", (req, res) => {
     } else {
         console.log("로그인 안된 사용자 접근");
         res.send(
-            `<script type="text/javascript">var choice = confirm("회원가입을 해야 접근 가능합니다. 회원가입 하시겠습니까?"); if(choice) {location.href = "/user/signup"} else {location.href = "/"}</script>`
+            `<script type="text/javascript">var choice = confirm("회원가입을 해야 접근 가능합니다. 회원가입 하시겠습니까?"); if(choice) {location.href = "/users/signup"} else {location.href = "/"}</script>`
         );
     }
 });
