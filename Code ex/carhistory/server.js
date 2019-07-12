@@ -52,8 +52,8 @@ app.use((req, res, next) => {
 
 const indexRouter = require('./router/index')(app);
 
-const userRouter = require('./router/user');
-app.use('/user', userRouter);
+const userRouter = require('./router/users');
+app.use('/users', userRouter);
 
 const carRouter = require('./router/car');
 app.use('/car', carRouter);
