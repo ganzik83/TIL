@@ -1,4 +1,6 @@
-module.exports = (app, fs, hasher) => {
+module.exports = (express, fs, hasher) => {
+    const router = express.Router()
+
     var userList = {};
     let rawdata = fs.readFileSync("data/userlist.json");
     // sampleUserList에 JSON 형식을 parse해서 입력한다.
@@ -126,5 +128,5 @@ module.exports = (app, fs, hasher) => {
             res.redirect("/user/signup");
         }
     });
-
+    return router;
 }

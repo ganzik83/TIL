@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require('fs');
-const hasher = require('pbkdf2-password')();
 const router = express.Router();
 
 var sampleCarList = [];
