@@ -14,3 +14,11 @@ body {
     position: absolute;
     top: 30px;
 }
+
+.navbar {
+    text-align: right;
+}
+
+.navbar .navlogo {
+    text-align: left;
+}

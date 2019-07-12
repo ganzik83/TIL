@@ -50,10 +50,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-const indexRouter = require('./router/index')(express);
-app.use('/', indexRouter);
-
 // router - module - type1
 const userRouter = require('./router/users')(express, fs, hasher);
 app.use('/users', userRouter);
@@ -61,6 +57,9 @@ app.use('/users', userRouter);
 // router - module - type2
 const carRouter = require('./router/car');
 app.use('/car', carRouter);
+
+const indexRouter = require('./router/index')(express);
+app.use('/', indexRouter);
 
 
 /*

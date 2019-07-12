@@ -1,30 +1,21 @@
 <table>
-  <tr>
-    <% if(user) { %>
-    <td><%= user.username %>님 로그인 되었습니다<span> | </span></td>
-    <td><a href="/users/logout">logout</a></td>
-    <% } %>
-  </tr>
+    <div class="container">
+        <div class="row justify-content-md-right navbar">
+            <div class="col col-lg-1 navlogo">
+                <a href="/">main</a>
+            </div>
+            <div class="col-md-auto">
+                <a href="/car/list">carlist</a>
+            </div>
+            <div class="col col-lg-3">
+                <% if(user) { %>
+                <%= user.username %>님 로그인 되었습니다
+                <a href="/users/logout">logout</a>
+                <% } else { %>
+                <a href="/users/login">login</a><span> | </span>
+                <a href="/users/signup">sign up</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
 </table>
-
-<!-- 강사님 메뉴바 및 로그인 로그아웃 바
-
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm sticky-top">
- <a class="navbar-brand my-0 mr-md-auto font-weight-normal text-white" href="/">Carhistory</a>
- <nav class="my-2 my-md-0 mr-md-3">
-   <a class="p-2 text-white" href="#">About</a>
-   <a class="p-2 text-white" href="#">Search</a>
-   <a class="p-2 text-white" href="#">CarList</a>
-   <a class="p-2 text-white" href="#">테스트코드</a>
- </nav>
-
- // 만약 유저 정보가 있으면 로그아웃 버튼을 활성화 하고
- 유저 정보가 없으면 로그인 버튼을 활성화
- <% if (user) {%>
-   <a class="btn btn-outline-warning" href="/logout">로그아웃</a>
- <% } else { %>
-   <a class="btn btn-outline-primary" href="/login_form">로그인</a>
- <% } %>
- </div>
-
- -->
