@@ -1,6 +1,4 @@
-const multer = require('multer');
-
-module.exports = (express) => {
+module.exports = (express, multer) => {
     const router = express.Router();
 
     // const upload = multer({
