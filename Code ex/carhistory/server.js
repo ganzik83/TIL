@@ -58,6 +58,9 @@ app.use('/users', userRouter);
 const carRouter = require('./router/car');
 app.use('/car', carRouter);
 
+const testRouter = require('./router/test')(express);
+app.use('/test', testRouter);
+
 const indexRouter = require('./router/index')(express);
 app.use('/', indexRouter);
 

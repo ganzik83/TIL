@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include header.ejs %>
+</head>
+
+<body>
+    <% include nav.ejs %>
+    <form action="/test/fileupload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="avata">
+        <input type="submit" value="업로드">
+    </form>
+</body>
+
+</html>
