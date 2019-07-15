@@ -25,6 +25,7 @@ app.use(express.urlencoded({
 
 // 정적파일(Static files)다루기
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/files', express.static(path.join(__dirname, 'uploads')));
 
 // ejs 모듈
 app.set('views', path.join(__dirname, 'views'));

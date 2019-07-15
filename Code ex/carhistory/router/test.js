@@ -20,14 +20,24 @@ module.exports = (express, multer) => {
         }
     });
 
-    var upload = multer({
+    var imgUpload = multer({
         storage: storage,
+        fileFilter: imgFileFilter,
         limits: {
             files: 10,
             fileSize: 100 * 1024 * 1024
         }
     });
 
+
+    var imgFileFilter = function (req, file, callback) {
+        var ext = path.extname(file.originalname);
+        console.log('확장자 : ', ext);
+        if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+            return callback(new Error('Only images are allowed'));
+        }
+        callback(null, true);
+    }
 
 
     router.get('/fileupload', (req, res) => {
