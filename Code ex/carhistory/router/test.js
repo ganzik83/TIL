@@ -1,4 +1,4 @@
-module.exports = (express, multer, fs) => {
+module.exports = (express, multer, path) => {
     const router = express.Router();
 
     // const upload = multer({
@@ -53,14 +53,14 @@ module.exports = (express, multer, fs) => {
     });
 
     // 미들웨어로 upload를 사용 할 수 있다. single은 한 개의 파일만, '파일명 avata'를 보내주면 업로드 시켜준다.
-    router.post('/fileupload', upload.single('avata'), (req, res, next) => {
+    router.post('/fileupload', imgUpload.single('avata'), (req, res, next) => {
         console.log(req.file);
         let imgsrc = path.join('/files', req.file.filename);
 
         console.log('imgsrc = ', imgsrc);
-        res.render('/test/showimages.html', {
+        res.render('test/showimage.html', {
             imagesrc: imgsrc
-        })
+        });
         // res.send('uploaded...' + req.file.filename);
     });
 
@@ -69,7 +69,7 @@ module.exports = (express, multer, fs) => {
     });
 
     // 파일이 여러개로 들어오기 때문에 배열로 담고, photos에 담겨진 파일을 5개까지 허용한다.
-    router.post('/fileupload_multi', imgUpload.array('photos', 5), (req, res, next) => {
+    router.post('/fileupload_multi', upload.array('photos', 5), (req, res, next) => {
         console.log('완료')
         res.send('uploaded...');
     });
