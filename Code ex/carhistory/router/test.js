@@ -1,4 +1,4 @@
-module.exports = (express, multer) => {
+module.exports = (express, multer, fs) => {
     const router = express.Router();
 
     // const upload = multer({
