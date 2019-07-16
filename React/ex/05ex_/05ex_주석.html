@@ -74,21 +74,30 @@
         }
         */
 
-        class Label extends React.Component{
+        // Component로 인식 시키기 위해서는 반드시 첫 글자는 대문자로 시작해야 한다
+        class Stuff extends React.Component{
             render(){
                 var test = '테스트';
+                var items = <h1>아이템3</h1>;
+                // return 아래 태그 영역은 jsx이므로 주석양식이 다르다
                 return(
-                    <>
-                        <h1>아이템1</h1>
+                    {/* 주석 */}
+                    <div>
+                        <h1>{this.props.hero}</h1>
                         <h1>아이템2</h1>
-                    </>
+                        {test}
+                        {items}
+                    </div>
                 )
             }
         }
 
+        var jsxVar = <Stuff hero='Ironman' />
+
+        // JSX 양역
         ReactDOM.render(
             <div>
-                <Label />
+                {jsxVar}
             </div>
             , document.body
         )
