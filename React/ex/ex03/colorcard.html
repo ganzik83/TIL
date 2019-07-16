@@ -28,7 +28,7 @@
                 textAlign: "center"
             }
             return (
-                <div style={labelStyle}>#FF6663
+                <div style={labelStyle}>{this.props.colorText}
                 </div>
             )
         }
@@ -38,7 +38,7 @@
             render(){
                 var squareStyle ={
                     height: "150px",
-                    backgroundColor: "#FF6663"
+                    backgroundColor: this.props.bgColor
                 }
                 return (
                 <div style={squareStyle}></div>
@@ -51,17 +51,21 @@
         class ColorCard extends React.Component{
         render(){
             var cardStyle = {
+                border: "1px solid gray",
                 height: "200px",
                 width: "150px",
                 padding: "0",
+                margin: "10px",
                 backgraoundColor: "#FFF",
-                boxShadow: "0px 0px 5px #666"
+                boxShadow: "0px 0px 5px #666",
+                display: "inline-block"
+                
             }
 
             return (
                 <div style={cardStyle}>
-                <Square />
-                <Label />
+                <Square bgColor={this.props.color}/>
+                <Label colorText={this.props.color}/>
                 </div>
             )
         }
@@ -69,7 +73,10 @@
     
         ReactDOM.render(
         <div>
-        <ColorCard />
+        {/* ColorCard Component를 불러와서 render한다. */}
+        <ColorCard color="tomato" />
+        <ColorCard color="skyblue"/>
+        <ColorCard color="yellow"/>
         </div>
         , document.body
     )

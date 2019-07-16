@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <script type="text/babel">
+
+        /* 트리구조가 만들어지지 않기 때문에 오류를 나타내고 DOM을 형성하지 못한다
+        class Label extends React.Component{
+            render(){
+                var test = '테스트'
+                return(
+                    <h1>아이템1</h1>
+                    <h1>아이템2</h1>
+                )
+            }
+        }
+        */
+
+        /*
+        class Label extends React.Component{
+            render(){
+                var test = '테스트'
+                return(
+                    <div>
+                    <h1>아이템1</h1>
+                    <h1>아이템2</h1>
+                    </div>
+                )
+            }
+        }*/
+
+       
+
+        /* 트리구조가 아닌 자바스크립트 배열구조로 나타낼 수 있지만 이렇게 잘 쓰지 않는다.
+        class Label extends React.Component{
+            render(){
+                var test = '테스트'
+                return(
+                    [
+                    <h1>아이템1</h1>,
+                    <h1>아이템2</h1>
+                    ]
+                )
+            }
+        }
+        */
+
+        /*
+        // React.Fragment를 활용하면 동일 계층으로 여러개의 태그가 사용 가능하다.
+        class Label extends React.Component{
+            render(){
+                var test = '테스트'
+                return(
+                    <React.Fragment>
+                    <h1>아이템1</h1>
+                    <h1>아이템2</h1>
+                    </React.Fragment>
+                )
+            }
+        }
+        */
+
+        class Label extends React.Component{
+            render(){
+                var test = '테스트';
+                return(
+                    <>
+                        <h1>아이템1</h1>
+                        <h1>아이템2</h1>
+                    </>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <Label />
+            </div>
+            , document.body
+        )
+    </script>
+</body>
+
+</html>
