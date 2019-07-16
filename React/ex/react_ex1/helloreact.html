@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        #target {
+            border: 1px solid blue;
+        }
+
+        #target h1 {
+            background-color: tomato;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Change target</h1>
+    <div id="target"></div>
+    <script type="text/babel">
+        var target = document.querySelector('#target')
+
+            class FirstComponent extends React.Component{
+                render(){
+                    return <h1>{this.props.hero}</h1>
+                }
+            }
+
+            ReactDOM.render(
+                <div>
+                <h1>Hello React</h1>
+                <h1>Batman</h1> 
+                <h1>Spyderman</h1> 
+                <h1>Superman</h1> 
+                <FirstComponent hero="Spiderman"/>
+                <FirstComponent hero="Wonderwoman"/>
+                </div>,
+                target)
+        </script>
+</body>
+
+</html>
