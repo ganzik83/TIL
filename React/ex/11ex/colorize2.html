@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel -->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+</head>
+
+<body>
+    <h1 id="colorHeading">Colorlizer</h1>
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        var heading = document.querySelector("#colorHeading")
+
+        class ColorLabel extends React.Component {
+
+            render() {
+                return ReactDOM.createPortal(
+                    <span>: {this.props.bgColor}</span>, 
+                    heading
+                )
+            }
+        }
+
+        class Colorlize extends React.Component {
+
+            constructor(props){
+                super(props);
+
+                this.state = {
+                    color: "",
+                    bgColor: "blue"
+                }
+            }
+
+            setNewColor = (evt) => {
+                console.log(this._input.value)
+                this.setState ({
+                    bgColor: this._input.value
+                })
+
+                // input 데이터 초기화 시키기
+                this._input.value = '';
+                // focus 위치시키기
+                this._input.focus();
+
+                // 할 일 끝났음. 이걸 안하면 서브밋이 있는 폼이 리로드 되면서 초기화 된다. 안되게 하기 위해서 preventDefault()를 실행한다.
+                evt.preventDefault();
+            }
+
+            render() {
+
+                var squareStyle = {
+                    width: "100px",
+                    height: "100px",
+                    backgroundColor: this.state.bgColor
+                }
+
+                return (
+                    <div>
+                        <div style={squareStyle} className="colorSquare"></div>
+                        <form onSubmit={this.setNewColor}>
+                            {/* ref 레퍼런스 (el)엘리먼트 인풋태그가 el로 들어간다. el에다가 this._input 인풋값을 집어 넣는다 */}
+                            <input placeholder="Enter color code" ref={(el) => this._input = el} />
+                            <button type="submit">Go</button>
+                        </form>
+                        <ColorLabel bgColor={this.state.bgColor} />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render( 
+            <div>
+                <Colorlize />
+            </div>, document.querySelector('#container')
+        )
+    </script>
+</body>
+
+</html>
