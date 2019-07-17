@@ -40,8 +40,14 @@
                 console.log('curr = ', this.state.isToggleOn);
                 
                 this.setState({
-                    isToggleOn: false
+                    // isToggleOn 값을 반대로 바꾼다.
+                    isToggleOn: !this.state.isToggleOn
                 })
+
+                // // setState를 할 때 revState를 받아 올 수 있다.
+                // this.setState(prevState => ({
+                //     isToggleOn: !prevState.isToggleOn
+                // }))
             }
 
             render(){
