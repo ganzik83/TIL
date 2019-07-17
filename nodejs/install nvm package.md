@@ -2,7 +2,9 @@
 
 <https://github.com/nvm-sh/nvm>
 
-## NVM 설치
+## MacOS
+
+### NVM 설치
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
@@ -20,6 +22,21 @@ export NVM_DIR="$HOME/.nvm"
 ```bash
 source ~/.profile
 nvm ls-remote
+```
+
+## nodejs 설치
+
+```bash
+nvm install node
+```
+
+## 유저에게 권한 할당
+
+Try running with sudo or get access
+to the local update config store via
+
+```bash
+sudo chown -R $USER:$(id -gn $USER) /Users/kimkihong/.config
 ```
 
 ## nodejs 10.14.2 설치
@@ -43,7 +60,3 @@ v10.14.2
 
 nvm uninstall v10.14.2
 ```
-
----
-
-## Mac에서 설치
