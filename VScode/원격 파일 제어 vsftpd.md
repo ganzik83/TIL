@@ -14,7 +14,7 @@ sftp.json
   "port": 22,
   "username": "ubuntu",
   "password": "123456",
-  "privateKeyPath": "/Users/kimkihong/styel.pem",
+  "privateKeyPath": "/Users/kimkihong/Dropbox/styel.pem",
   "remotePath": "/home/ubuntu/",
   "uploadOnSave": true,
   "ignore": [".vscode", ".git", ".DS_Store"]
