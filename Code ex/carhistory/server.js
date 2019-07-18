@@ -21,6 +21,9 @@ app.use(
   })
 );
 
+var cors = require("cors");
+app.use(cors());
+
 // 정적파일(Static files)다루기
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/files", express.static(path.join(__dirname, "uploads")));

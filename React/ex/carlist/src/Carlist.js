@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Table } from "reactstrap";
 import axios from "axios";
 
 export default class Carlist extends Component {
@@ -7,7 +8,11 @@ export default class Carlist extends Component {
 
     this.state = {
       carNumber: "...",
-      owner: "..."
+      owner: "...",
+      model: "...",
+      company: "...",
+      numOfAccident: "...",
+      numOfOwnerChange: "..."
     };
   }
 
@@ -38,6 +43,23 @@ export default class Carlist extends Component {
     })
       .then(response => {
         console.log("success: ", response);
+
+        let newList = response.data.map(c => {
+          return (
+            <tr key={c.carNumber}>
+              <td>{c.carNumber}</td>
+              <td>{c.owner}</td>
+              <td>{c.model}</td>
+              <td>{c.company}</td>
+              <td>{c.numOfAccident}</td>
+              <td>{c.numOfOwnerChange}</td>
+            </tr>
+          );
+        });
+
+        this.setState({
+          list: newList
+        });
       })
       .catch(error => {
         console.log("failure: ", error);
@@ -48,10 +70,29 @@ export default class Carlist extends Component {
     return (
       <div>
         <h1>Car Info</h1>
-        <ul>
-          <li>{this.state.carNumber}</li>
-          <li>{this.state.owner}</li>
-        </ul>
+        <Table>
+          <thead>
+            <tr>
+              <th>carNumber</th>
+              <th>owner</th>
+              <th>model</th>
+              <th>company</th>
+              <th>numOfAccident</th>
+              <th>numOfOwnerChange</th>
+            </tr>
+          </thead>
+          <tbody>{this.carlist}</tbody>
+          {/* <tbody>
+            <tr>
+              <td>{this.state.carNumber}</td>
+              <td>{this.state.owner}</td>
+              <td>{this.state.model}</td>
+              <td>{this.state.company}</td>
+              <td>{this.state.numOfAccident}</td>
+              <td>{this.state.numOfOwnerChange}</td>
+            </tr>
+          </tbody> */}
+        </Table>
       </div>
     );
   }
