@@ -6,14 +6,7 @@ export default class Carlist extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      carNumber: "...",
-      owner: "...",
-      model: "...",
-      company: "...",
-      numOfAccident: "...",
-      numOfOwnerChange: "..."
-    };
+    this.state = { carlist: [] };
   }
 
   //   componentDidMount() {
@@ -58,7 +51,7 @@ export default class Carlist extends Component {
         });
 
         this.setState({
-          list: newList
+          carlist: newList
         });
       })
       .catch(error => {
@@ -73,15 +66,15 @@ export default class Carlist extends Component {
         <Table>
           <thead>
             <tr>
-              <th>carNumber</th>
-              <th>owner</th>
-              <th>model</th>
-              <th>company</th>
-              <th>numOfAccident</th>
-              <th>numOfOwnerChange</th>
+              <th>Number</th>
+              <th>Owner</th>
+              <th>Model</th>
+              <th>Company</th>
+              <th>Accident</th>
+              <th>Change</th>
             </tr>
           </thead>
-          <tbody>{this.carlist}</tbody>
+          <tbody>{this.state.carlist}</tbody>
           {/* <tbody>
             <tr>
               <td>{this.state.carNumber}</td>
