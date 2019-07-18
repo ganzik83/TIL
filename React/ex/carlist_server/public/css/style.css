@@ -1,0 +1,10 @@
+.inputBox {
+    width: 400px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}

@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./LoginForm.css";
-import "./SignupForm.css";
+import "./index.css";
+import Carlist from "./Carlist";
 import * as serviceWorker from "./serviceWorker";
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
 
-ReactDOM.render(<LoginForm />, document.getElementById("root"));
+ReactDOM.render(<Carlist />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

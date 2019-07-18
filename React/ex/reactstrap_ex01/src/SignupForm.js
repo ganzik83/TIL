@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { Button, Form, Label, FormGroup, Input } from "reactstrap"; // use button component
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./LoginForm.css";
+import "./SignupForm.css";
 
-export default class LoginForm extends Component {
+export default class SignupForm extends Component {
   render() {
     return (
-      <Form className="login-form">
+      <Form className="signup-form">
         <h1 className="text-center">STYEL</h1>
         <h4 className="text-center">Forever Young</h4>
         <FormGroup>
           <Label>email</Label>
           <Input
             type="email"
-            placeholder="email"
+            id="inputEmail"
+            placeholder="Email"
             name="email"
             autocomplete="username"
             required
@@ -24,22 +25,27 @@ export default class LoginForm extends Component {
           <Label>password</Label>
           <Input
             type="password"
-            placeholder="password"
-            aria-describedby="passwordHelpBlock"
+            id="inputPassword"
             name="password"
-            autocomplete="current-password"
+            placeholder="Password"
+            autocomplete="new-password"
             required
           />
-          <small id="passwordHelpBlock" class="form-text text-muted">
-            Your password must be 8-20 characters long, contain letters and
-            numbers, and must not contain spaces, special characters, or emoji
-          </small>
         </FormGroup>
-        <Button className="btn btn-lg btn-dark btn-block">LOGIN</Button>
+        <FormGroup>
+          <Label>password</Label>
+          <Input
+            type="password"
+            id="inputConfirmPassword"
+            placeholder="Confirm password"
+            name="confirm_password"
+            autocomplete="-new-password"
+            required
+          />
+        </FormGroup>
+        <Button className="btn btn-lg btn-dark btn-block">Sign Up</Button>
         <div className="text-center">
-          <a href="/sign-up">Sign Up</a>
-          <span> | </span>
-          <a href="/forgotPassword">Forgot Password</a>
+          <a href="/login">Login</a>
         </div>
       </Form>
     );

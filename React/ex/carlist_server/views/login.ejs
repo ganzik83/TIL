@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= title %></title>
+    <% include partials/head.ejs %>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <% include partials/nav.ejs %>
+    <div class="container">
+
+        <form action="/users/login" method="POST">
+            <div class="inputBox">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" name="email" autocomplete="username"
+                        required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" aria-describedby="passwordHelpBlock"
+                        placeholder="password" name="password" autocomplete="current-password" required>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not
+                        contain
+                        spaces, special characters, or emoji.
+                    </small>
+                </div>
+                <button type="submit" class="btn btn-primary form-control">login</button>
+                <span id="signupBtn"></span>
+                <div><br></div>
+                <!-- flash massage -->
+                <div>
+                    <% if(message) { %>
+                    <div class="alert"><%= message %></div>
+                    <% } %>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <% include partials/footer.ejs %>
+    <% include partials/javascript.ejs %>
+</body>
+
+</html>

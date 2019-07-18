@@ -8,5 +8,5 @@
 create-react-app reactstrap_test
 
 cd reactstrap_test
-npm install reactstrap bootstrap@4.1.3
+npm install reactstrap bootstrap@4.3.1
 ```
