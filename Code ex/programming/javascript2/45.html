@@ -1,0 +1,18 @@
+<input type="button" id="target1" value="button1" />
+<input type="button" id="target2" value="button2" />
+<script>
+  var t1 = document.getElementById("target1");
+  var t2 = document.getElementById("target2");
+  function btn_listener(event) {
+    switch (event.target.id) {
+      case "target1":
+        alert(1);
+        break;
+      case "target2":
+        alert(2);
+        break;
+    }
+  }
+  t1.addEventListener("click", btn_listener);
+  t2.addEventListener("click", btn_listener);
+</script>

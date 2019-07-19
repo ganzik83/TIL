@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 자기 자신을 참조하는 불편한 방법 -->
+    <input
+      type="button"
+      id="target"
+      onclick="alert('hello world, '+document.getElementById('target').value);"
+      value="button"
+    />
+    <!--this를 통해서 간편하게 참조할 수 있다-->
+    <input
+      type="button"
+      onclick="alert('hello world, '+this.value);"
+      value="button"
+    />
+  </body>
+</html>

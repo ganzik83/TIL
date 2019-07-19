@@ -1,0 +1,11 @@
+<p>
+    <label>prevent event on</label><input id="prevent" type="checkbox" name="eventprevent" value="on" />
+</p>
+<p>
+    <a href="http://opentutorials.org" onclick="if(document.getElementById('prevent').checked) return false;">opentutorials</a>
+</p>
+<p>
+    <form action="http://opentutorials.org" onsubmit="if(document.getElementById('prevent').checked) return false;">
+            <input type="submit" />
+    </form>
+</p>

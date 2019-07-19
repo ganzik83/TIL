@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<input type="button" id="target" value="button" />
+<script>
+  var t = document.getElementById("target");
+  t.addEventListener("click", function(event) {
+    alert("Hello world, " + event.target.value);
+  });
+</script>

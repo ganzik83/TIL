@@ -1,0 +1,13 @@
+<body>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $("body").on("click", "a, li", function(event) {
+      console.log(this.tagName);
+    });
+  </script>
+  <ul>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+  </ul>
+</body>

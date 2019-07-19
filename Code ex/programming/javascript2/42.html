@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="button" id="target1" value="button" />
+    <script>
+      var t = document.getElementById("target1");
+      t.onclick = function(event) {
+        //alert("hello world, " + event.target.value);
+        console.dir(event);
+      };
+    </script>
+  </body>
+</html>

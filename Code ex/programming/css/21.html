@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        background-color: powderblue;
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+      }
+      .item {
+        background-color: tomato;
+        color: white;
+        border: 1px solid white;
+      }
+      .item:nth-child(1) {
+        /* flex-grow: 1; */
+        flex-basis: 150px;
+        flex-shrink: 0;
+      }
+      .item:nth-child(2) {
+        /* flex-grow: 1; */
+        flex-basis: 600px;
+        flex-shrink: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">
+        2 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem
+        asperiores architecto molestiae esse sapiente cumque ab iure laborum
+        nobis dolores. Rerum molestiae dolor, rem soluta neque deleniti aperiam
+        provident laborum accusantium sed, iusto nobis doloremque, nulla facere
+        a. Omnis porro enim impedit consequuntur, beatae tempore fugit vel at
+        magnam maiores.
+      </div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+    </div>
+  </body>
+</html>

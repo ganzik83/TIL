@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <ul>
+      <li>html</li>
+      <li>css</li>
+      <li id="active">javascript</li>
+    </ul>
+    <script>
+      var active = document.getElementById("active");
+      console.log(active.id);
+      active.id = "deactive";
+      console.log(active.id);
+    </script>
+  </body>
+</html>
