@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li>html</li>
+      <li>css</li>
+      <li id="target">javascript</li>
+    </ul>
+    <input type="button" onclick="callRemoveChild();" value="removeChild()" />
+    <script>
+      function callRemoveChild() {
+        var target = document.getElementById("target");
+        target.parentNode.removeChild(target);
+      }
+    </script>
+  </body>
+</html>

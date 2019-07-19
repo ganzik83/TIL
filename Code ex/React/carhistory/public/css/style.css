@@ -1,0 +1,24 @@
+body {
+    color: rgb(131, 131, 131);
+}
+
+.main {
+    background-color: rgb(243, 243, 243);
+    height: 300px;
+    position: relative;
+
+}
+
+.sub {
+    margin-left: 20px;
+    position: absolute;
+    top: 30px;
+}
+
+.navbar {
+    text-align: right;
+}
+
+.navbar .navlogo {
+    text-align: left;
+}
