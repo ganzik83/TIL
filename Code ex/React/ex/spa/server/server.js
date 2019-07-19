@@ -4,6 +4,7 @@ const app = express();
 const apiRouter = require("./routes/apirouter")();
 
 const port = 5002;
+
 global.sampleCarList = [];
 
 if (fs.existsSync("./data/carlist.json")) {
@@ -18,6 +19,12 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.all("/*", function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
 app.use("/api", apiRouter);
 

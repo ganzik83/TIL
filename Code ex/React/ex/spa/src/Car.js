@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Car extends Component {
   render() {
     return (
-      <tr key={this.props.carinfo.carNumber}>
+      <tr key={this.props.index}>
         <td>{this.props.carinfo.carNumber}</td>
         <td>{this.props.carinfo.owner}</td>
         <td>{this.props.carinfo.model}</td>
