@@ -3,6 +3,7 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Home from "./Home";
 import Stuff from "./Stuff";
 import Contact from "./Contact";
+import Carlist from "./Carlist";
 
 import "./Main.scss";
 
@@ -23,12 +24,14 @@ export default class Main extends Component {
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/carlist">Carlist</NavLink>
             </li>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home} />
             <Route path="/stuff" component={Stuff} />
             <Route path="/contact" component={Contact} />
+            <Route path="/carlist" component={Carlist} />
           </div>
         </div>
       </HashRouter>
