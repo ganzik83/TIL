@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { component } from "react";
 
-export default class Car extends Component {
+export default class car extends component {
   render() {
     return (
       <div>
@@ -9,8 +9,8 @@ export default class Car extends Component {
           <td>{c.owner}</td>
           <td>{c.model}</td>
           <td>{c.company}</td>
-          <td>{c.numOfAccident}</td>
-          <td>{c.numOfOwnerChange}</td>
+          <td>{c.numOfAcident}</td>
+          <td>{c.numOfOwnerchange}</td>
         </tr>
       </div>
     );
