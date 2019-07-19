@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 import axios from "axios";
+import Car from "./Car";
 
 export default class Carlist extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      carNumber: "...",
-      owner: "...",
-      model: "...",
-      company: "...",
-      numOfAccident: "...",
-      numOfOwnerChange: "..."
-    };
+    this.state = { carlist: [] };
   }
 
   //   componentDidMount() {
@@ -45,20 +39,11 @@ export default class Carlist extends Component {
         console.log("success: ", response);
 
         let newList = response.data.map(c => {
-          return (
-            <tr key={c.carNumber}>
-              <td>{c.carNumber}</td>
-              <td>{c.owner}</td>
-              <td>{c.model}</td>
-              <td>{c.company}</td>
-              <td>{c.numOfAccident}</td>
-              <td>{c.numOfOwnerChange}</td>
-            </tr>
-          );
+          return <Car carinfo={c} />;
         });
 
         this.setState({
-          list: newList
+          carlist: newList
         });
       })
       .catch(error => {
@@ -73,15 +58,15 @@ export default class Carlist extends Component {
         <Table>
           <thead>
             <tr>
-              <th>carNumber</th>
-              <th>owner</th>
-              <th>model</th>
-              <th>company</th>
-              <th>numOfAccident</th>
-              <th>numOfOwnerChange</th>
+              <th>Number</th>
+              <th>Owner</th>
+              <th>Model</th>
+              <th>Company</th>
+              <th>Accident</th>
+              <th>Change</th>
             </tr>
           </thead>
-          <tbody>{this.carlist}</tbody>
+          <tbody>{this.state.carlist}</tbody>
           {/* <tbody>
             <tr>
               <td>{this.state.carNumber}</td>
