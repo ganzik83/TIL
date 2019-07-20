@@ -12,15 +12,16 @@ exports.list = (req, res) => {
     });
   }
 
-  User.find({}).then(users => {
-    res.json({ users });
-  });
+  User.find({}, "-password")
+    .exec()
+    .then(users => {
+      res.json({ users });
+    });
 };
 
 /*
     POST /api/user/assign-admin/:username
 */
-
 exports.assignAdmin = (req, res) => {
   // refuse if not an admin
   if (!req.decoded.admin) {
@@ -30,10 +31,16 @@ exports.assignAdmin = (req, res) => {
   }
 
   User.findOneByUsername(req.params.username)
-    .then(user => user.assignAdmin)
+    .then(user => {
+      if (!user) throw new Error("user not found");
+      user.assignAdmin();
+    })
     .then(
       res.json({
         success: true
       })
-    );
+    )
+    .catch(err => {
+      res.status(404).json({ message: err.message });
+    });
 };

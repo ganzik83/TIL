@@ -18,8 +18,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // parse JSON and url-encoded query
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // print the request log on console
 app.use(morgan("dev"));
@@ -44,6 +44,7 @@ app.listen(port, () => {
     CONNECT TO MONGODB SERVER
 ==========================*/
 mongoose.connect(config.url, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on("error", console.error);
 db.once("open", () => {
