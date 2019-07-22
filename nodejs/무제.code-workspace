@@ -1,20 +1,7 @@
 {
   "folders": [
 	{
-		"name": "TIL",
-		"path": "/Users/kimkihong/Dropbox/GitHub/TIL"
-	},
-	{
-		"name": "mars.style",
-		"path": "/Users/kimkihong/Dropbox/GitHub/mars.style"
-	},
-	{
-		"name": "blochaid",
-		"path": "/Users/kimkihong/Dropbox/GitHub/blochaid"
-	},
-	{
-		"name": "nodejs_cookie",
-		"path": "/Users/kimkihong/Dropbox/programming/opentutorials/nodejs_cookie"
+		"path": "JWT"
 	}
 ],
   "settings": {}
