@@ -1,11 +1,10 @@
 {
-  "name": "ex12_todo_list",
+  "name": "ex13_slidingmenu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-flip-move": "^3.0.3",
     "react-scripts": "3.0.1"
   },
   "scripts": {

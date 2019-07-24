@@ -38,6 +38,15 @@ export default class Todolist extends Component {
     e.preventDefault();
   };
 
+  deleteItem = key => {
+    const filterdItems = this.state.items.filter(item => {
+      return item.key !== key;
+    });
+    this.setState({
+      items: filterdItems
+    });
+  };
+
   render() {
     return (
       <div className="todoListMain">
@@ -51,7 +60,7 @@ export default class Todolist extends Component {
           </form>
         </div>
         {/* items 배열값을 TodoItems 컴퍼넌트로 전달 */}
-        <TodoItems entries={this.state.items} />
+        <TodoItems entries={this.state.items} delete={this.deleteItem} />
       </div>
     );
   }
