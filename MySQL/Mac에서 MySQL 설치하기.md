@@ -50,6 +50,12 @@ mysql 시작
 mysql.server start
 ```
 
+mysql 중지
+
+```
+mysql.server stop
+```
+
 데몬 실행
 
 ```bash
