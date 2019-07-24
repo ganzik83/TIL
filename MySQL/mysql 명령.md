@@ -49,3 +49,38 @@ select * from employees limit 10;
 -- 앞에 10개를 생략하고 10개를 불러온다
 select * from employees limit 10 offset 10;
 ```
+
+```sql
+-- 중복된 컬럼을 제거한다
+SELECT DISTINCT first_name FROM employees;
+```
+
+## 패턴검색
+
+```sql
+--  first_name에서 K로 시작하는것을 찾아준다
+SELECT * FROM employees WHERE first_name LIKE 'K%';
+
+--  first_name에서 KA로 시작하는것을 찾아준다
+SELECT * FROM employees WHERE first_name LIKE 'KA%';
+```
+
+## Update
+
+```sql
+-- where 절에 있는 조건을 SET 조건으로 모조리 바꾼다 그래서 사용 할 때 상당히 조심해야 한다
+UPDATE employees SET birth_date = '2011-11-11' WHERE birth_date='1953-09-02';
+
+-- emp_no가 10001번의 birth_date를 2011-11-11 값으로 바꾼다
+UPDATE employees SET birth_date = '2011-11-11' WHERE emp_no=10001;
+
+-- del_yn 값으로 N을 전부 집어넣는다.
+UPDATE employees SET del_yn = 'N';
+```
+
+## Delete
+
+```sql
+--  employees 테이블에서 emp_no 10001번을 삭제한다
+DELETE FROM employees WHERE emp_no = 10001;
+```
