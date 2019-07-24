@@ -2,10 +2,24 @@ const BOARD_SAVE = "SAVE";
 const BOARD_REMOVE = "REMOVE";
 const BOARD_READ = "ONE";
 const BOARD_LIST = "LIST";
-export const board_save = data => ({ type: BOARD_SAVE, data });
-export const board_remove = brdno => ({ type: BOARD_REMOVE, brdno: brdno });
-export const board_read = brdno => ({ type: BOARD_READ, brdno: brdno });
+
+export const board_save = data => ({
+  type: BOARD_SAVE,
+  data
+});
+
+export const board_remove = brdno => ({
+  type: BOARD_REMOVE,
+  brdno: brdno
+});
+
+export const board_read = brdno => ({
+  type: BOARD_READ,
+  brdno: brdno
+});
+
 export const board_list = () => ({ type: BOARD_LIST });
+
 const initialState = {
   maxNo: 3,
   boards: [
@@ -24,8 +38,10 @@ const initialState = {
   ],
   selectedBoard: {}
 };
+
 export default function board_reducer(state = initialState, action) {
   let boards = state.boards;
+
   switch (action.type) {
     case BOARD_SAVE:
       let data = action.data;
