@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 const carlistRouter = require("./routes/carlistrouter")();
-const mysqlRouter = require("./routes/mysqlrouter");
+const mysqlRouter = require("./routes/mysqlrouter")();
 
 const port = 5002;
 
