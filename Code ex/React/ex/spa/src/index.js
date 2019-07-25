@@ -1,10 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Main from "./Main";
-<<<<<<< HEAD
 import "bootstrap/dist/css/bootstrap.min.css";
-=======
->>>>>>> 771bd1a67c49b157c3d2a016503af3f8c30e3e50
 
 import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
