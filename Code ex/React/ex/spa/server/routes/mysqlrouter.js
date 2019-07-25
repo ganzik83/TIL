@@ -1,12 +1,8 @@
 const express = require("express");
 const mysql = require("mysql");
+const dbconfig = require("./dbconfig");
 
-const connection = mysql.createConnection({
-  host: "70.12.50.169",
-  user: "root",
-  password: "0918",
-  database: "carhistory"
-});
+const connection = mysql.createConnection(dbconfig);
 
 module.exports = () => {
   const router = express.Router();
