@@ -1,7 +1,8 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
-const apiRouter = require("./routes/apirouter")();
+const carlistRouter = require("./routes/carlistrouter")();
+const mysqlRouter = require("./routes/mysqlrouter");
 
 const port = 5002;
 
@@ -26,7 +27,8 @@ app.all("/*", function(req, res, next) {
   next();
 });
 
-app.use("/api", apiRouter);
+app.use("/api/carlist", carlistRouter);
+app.use("/api/mysql", mysqlRouter);
 
 app.listen(port, () => {
   console.log("Server listening...", port);
