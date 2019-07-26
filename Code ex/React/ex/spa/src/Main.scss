@@ -5,12 +5,12 @@ ul.header li {
 }
 
 ul.header {
-  background-color: #111;
+  // background-color: #111;
   padding: 0;
 }
 
 ul.header li a {
-  color: #fff;
+  color: rgb(44, 44, 44);
   font-weight: bold;
   text-decoration: none;
   padding: 20px;
@@ -31,5 +31,5 @@ ul.header li a {
 }
 
 .active {
-  background-color: #0099ff;
+  background-color: #d4d4d4;
 }

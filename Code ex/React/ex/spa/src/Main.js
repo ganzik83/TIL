@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Home from "./Home";
-import Stuff from "./Stuff";
-import Contact from "./Contact";
+import Login from "./Login";
+import Signup from "./Signup";
 import Carlist from "./Carlist";
 
 import "./Main.scss";
@@ -12,7 +12,6 @@ export default class Main extends Component {
     return (
       <HashRouter>
         <div>
-          <h1>Simple SPA</h1>
           <ul className="header">
             <li>
               <NavLink exact to="/">
@@ -20,17 +19,17 @@ export default class Main extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/stuff">Stuff</NavLink>
+              <NavLink to="/login">Login</NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/signup">Signup</NavLink>
               <NavLink to="/carlist">Carlist</NavLink>
             </li>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home} />
-            <Route path="/stuff" component={Stuff} />
-            <Route path="/contact" component={Contact} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
             <Route path="/carlist" component={Carlist} />
           </div>
         </div>
