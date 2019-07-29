@@ -1,2 +1,0 @@
-	
-{"title":"JavaScript","author":"egoing"}
