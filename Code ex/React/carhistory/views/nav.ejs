@@ -1,0 +1,31 @@
+<table>
+    <div class="container">
+        <div class="row justify-content-md-right navbar">
+            <div class="col col-lg-1 navlogo">
+                <a href="/">main</a>
+            </div>
+            <div class="col-md-auto">
+                <div class="row">
+                    <div>
+                        <a href="/car/list">carlist</a><span> | </span>
+                    </div>
+                    <div>
+                        <a href="/test/fileupload">fileupload</a><span> | </span>
+                    </div>
+                    <div>
+                        <a href="/test/fileupload_multi">fileupload_multi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <% if(sses_user) { %>
+                <%= sses_user.username %>님 로그인 되었습니다
+                <a href="/users/logout">logout</a>
+                <% } else { %>
+                <a href="/users/login">login</a><span> | </span>
+                <a href="/users/signup">sign up</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</table>

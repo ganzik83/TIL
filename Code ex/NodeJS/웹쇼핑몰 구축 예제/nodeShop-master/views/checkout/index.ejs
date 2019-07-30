@@ -1,0 +1,176 @@
+<% include ../header.ejs %>
+    <h3 class="page-header">결제페이지</h3>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th></th>
+            <th>제품명</th>
+            <th>갯수</th>
+            <th>총가격</th>
+        </tr>
+
+        <% 
+            if( Object.keys(cartList).length ){ 
+                for( let key in cartList){
+        %>
+            <tr>
+                <td>
+                    <img src="/uploads/<%=cartList[key].thumbnail%>" alt="" width="50" height="50" />
+                </td>
+                <td><%=cartList[key].name%></td>
+                <td><%=cartList[key].number%></td>
+                <td><%=cartList[key].amount%> 원</td>
+            </tr>
+        <%
+                } //end for
+            }else{
+        %>
+            <tr>
+                <td colspan="4" style="text-align:center">장바구니에 아무것도 안담겼습니다.</td>
+            </tr>
+        <%}%>
+    </table>
+
+
+    <div class="text-center" style="font-size:30px; margin-bottom:20px;">
+        결제금액 : <span style="color:red"> <%=totalAmount%> </span> 원
+    </div>
+
+    <form action="" id ="orderForm">
+        <h3 class="text-center">배송지정보</h3>
+        <table class="table table-bordered table-hover" style="max-width:500px; margin:0 auto;">
+            <tbody>
+                <tr>
+                    <th>이메일</th>
+                    <td>
+                        <input type="text" name="buyer_email" class="form-control"  placeholder="abc@abc.com" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>구매자이름</th>
+                    <td>
+                        <input type="text" name="buyer_name" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>핸드폰번호</th>
+                    <td>
+                        <input type="text" name="buyer_tel" class="form-control"  placeholder="010-0000-0000" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>주소</th>
+                    <td>
+                        <input type="text" name="buyer_addr" class="form-control" readonly/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>상세주소</th>
+                    <td>
+                        <input type="text" name="detail_addr" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>우편번호</th>
+                    <td>
+                        <input type="text" name="buyer_postcode" class="form-control" placeholder="000-000" readonly />
+                        <span style="margin-top:10px" class="btn btn-primary" onclick="setDaumPostcode()">우편번호 찾기</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center" style="margin : 30px 0 100px 0">
+            <button class="btn btn-primary">구매하기</button>
+        </div>
+    </form>
+<!--Iamport 결제 연동-->    
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
+<!--주소록 연동-->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+$(document).ready(function(){
+    $('#orderForm').submit(function(){
+        var amount = <%=totalAmount%>;
+        var buyer_email = $('input[name=buyer_email]').val();
+        var buyer_name = $('input[name=buyer_name]').val();
+        var buyer_tel = $('input[name=buyer_tel]').val();
+        var buyer_addr = $('input[name=buyer_addr]').val() + ' / ' + $('input[name=detail_addr]').val();//주소+상세주소
+        var buyer_postcode = $('input[name=buyer_postcode]').val();
+
+        var IMP = window.IMP; 
+        IMP.init('imp32032143'); 
+        //아임포트 사이트에서 받아온다( http://www.iamport.kr/ )
+        IMP.request_pay({
+            pg : 'inicis',
+            pay_method : 'card',
+            merchant_uid : 'merchant_' + new Date().getTime(),
+            name : '수업:결제테스트',
+            amount : amount ,
+            buyer_email : buyer_email,
+            buyer_name : buyer_name,
+            buyer_tel : buyer_tel,
+            buyer_addr : buyer_addr,
+            buyer_postcode : buyer_postcode,
+
+            
+            m_redirect_url : 'http://localhost:3000/checkout/complete'
+        }, function(rsp){
+           if ( rsp.success ) {
+                document.location.href = "/checkout/complete?imp_uid=" + rsp.imp_uid;
+            } else {
+                let msg = '결제에 실패하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+                alert(msg);
+            }
+            
+
+        });
+
+        return false;
+    });
+});
+
+function setDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullAddr = ''; // 최종 주소 변수
+            var extraAddr = ''; // 조합형 주소 변수
+
+            // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                fullAddr = data.roadAddress;
+
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                fullAddr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+            if(data.userSelectedType === 'R'){
+                //법정동명이 있을 경우 추가한다.
+                if(data.bname !== ''){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있을 경우 추가한다.
+                if(data.buildingName !== ''){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            $('input[name=buyer_postcode]').val(data.zonecode);
+            $('input[name=buyer_addr]').val(fullAddr);
+            
+            // 커서를 상세주소 필드로 이동한다.
+            $('input[name=detail_addr]').focus();
+        }
+    }).open();
+}
+
+</script>
+
+<% include ../footer.ejs %>

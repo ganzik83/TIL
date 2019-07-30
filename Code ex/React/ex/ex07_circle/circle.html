@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel -->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        * {
+            color: aqua
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/babel">
+        class Circle extends React.Component{
+            render(){
+            var circleStyle = {
+                padding: "10px",
+                margin: "20px",
+                display: "inline-block",
+                backgroundColor: this.props.bgColor,
+                borderRadius: "50%",
+                width: "100px",
+                height: "100px"
+            }
+            
+             return(
+                <div style={circleStyle}></div>
+            )
+        }
+        }
+
+        // var showColor = <Circle bgColor="tomato" />;
+        // 랜덤으로 색상을 변환
+        // 컴퍼넌트 정의는 위에 한다. 만약 renderData 배열 변수를 컴퍼넌트 위에 정의하면 작동이 제대로 되지 않는다
+        var renderData=[];
+
+        function showColor() {
+            var colors = ['aqua', 'gray', 'red', 'yellow', 'green', 'blue', 'black', 'pink'];
+            var ran = Math.floor(Math.random() * colors.length);
+
+            renderData.push(<Circle bgColor={colors[ran]} />);
+
+            // return <Circle bgColor={colors[ran]} />;
+        }
+
+        showColor();
+        showColor();
+        showColor();
+        showColor();
+
+        var value = 'red';
+
+        ReactDOM.render(
+            <div>
+              
+               {renderData}
+               {renderData[0]}
+               {/*<Circle bgColor = "yellow" />*/}
+            </div>
+            , document.body
+        )
+    </script>
+</body>
+
+</html>

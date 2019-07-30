@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel -->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <script type="text/babel">
+        class LightningCounter extends React.Component{
+            constructor(props){
+                super(props);
+
+                this.state ={
+                    strikes: 100
+                }
+            }
+            
+            //  component를 다 그려지고 나서 componentDidMount() 함수를 호출한다
+            componentDidMount(){
+                setInterval(()=>{
+                    this.setState({
+                        // state의 strikes 값을 100씩 증분
+                        strikes: this.state.strikes + 100
+                    });
+                // 1초 주기로
+                }, 1000);
+
+            }
+
+            render(){
+                return(
+                    <div>
+                       <h1>{this.state.strikes}</h1>
+                    </div>
+                )
+            }
+        }
+        class LightningCounterDisplay extends React.Component{
+            render(){
+                var divStyle = {
+                    width: "250px",
+                    textAlign: "center",
+                    backgroundColor: "black",
+                    padding: "40px",
+                    fontFamily: "sans-serif",
+                    color: "#9999",
+                    borderRadius: 10
+                    
+                }
+                // return 아래 태그 영역은 jsx이므로 주석양식이 다르다
+                return(
+                    <div style={divStyle}>
+                       <LightningCounter />
+                    </div>
+                )
+            }
+        }
+
+        // var jsxVar = <Stuff hero='Ironman' />
+        ReactDOM.render(
+            <div>
+                <LightningCounterDisplay />
+            </div>
+            , document.body
+        )
+    </script>
+</body>
+
+</html>

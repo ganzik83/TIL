@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel -->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <script type="text/babel">
+
+        class Counter extends React.Component{
+            render(){
+                var counterStyle = {
+                    fontSize: "72px",
+                    fontFamily: "sans-serif",
+                    color: "black"
+                }
+                
+                return(
+                    // jsx에서는 함수를 사용하기 위해선 중괄호를 사용한다 {}
+                    <div style={counterStyle}>
+                        {this.props.countvalue}
+                    </div>
+                )
+            }
+        }
+
+        class CounterDisplay extends React.Component{
+            constructor(props){
+                super(props);
+
+                this.state = {
+                    countvalue : 0
+                }
+            }
+
+            handleClick = (evt) =>{
+                this.setState({
+                    countvalue : this.state.countvalue + 1
+                })
+            }
+
+            render(){
+                let backgroundStyle = {
+                    width: "250px",
+                    textAlign: "center",
+                    backgroundColor: "yellow",
+                    padding: "50px",
+                    fontFamily: "sans-serif",
+                    color: "#9999",
+                    borderRadius: 10
+                }
+                return(
+                    <div style={backgroundStyle}>
+                        <Counter countvalue={this.state.countvalue} />
+                        <button onClick={this.handleClick}>+</button>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <div>
+                <CounterDisplay />
+            </div>
+            , document.body
+        )
+    </script>
+</body>
+
+</html>

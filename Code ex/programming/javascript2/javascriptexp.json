@@ -1,0 +1,2 @@
+var person = { "height": 174, "job": "programmer" };
+var member = ["kihong", "goeun", "yujun"];

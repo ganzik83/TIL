@@ -1,0 +1,32 @@
+<% include ../header.ejs %>
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>id</th>
+            <th>연락처</th>
+            <th>가입일</th>
+            <th></th>
+        </tr>
+        <% contacts.forEach( function(contacts){ %>
+        <tr>
+            <td>
+                <a href="/contacts/detail/<%=contacts.id%>">
+                    <%=contacts.id%>
+                </a>
+            </td>
+            <td>
+                <%=contacts.phoneNumber%>
+            </td>
+            <td>
+                <%=contacts.getDate.year%>년
+                <%=contacts.getDate.month%>월
+                <%=contacts.getDate.day%>일
+            </td>
+            <td><a href="/contacts/delete" class="btn btn-danger">삭제</a></td>
+        </tr>
+        <% }); %>
+    </table>
+
+    <a href="/contacts/write" class="btn btn-default">작성하기</a>
+    
+<% include ../footer.ejs %>

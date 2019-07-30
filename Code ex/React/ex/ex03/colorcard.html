@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React!</title>
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+    <script type="text/babel">
+
+        class Label extends React.Component {
+            render() {
+            var labelStyle = {
+                fontFamily: "sans-serif",
+                fontWeight: "bold",
+                fontSize: "24px",
+                padding: "8px 13px",
+                margin: "0px",
+                textAlign: "center"
+            }
+            return (
+                <div style={labelStyle}>{this.props.colorText}
+                </div>
+            )
+        }
+    }
+
+        class Square extends React.Component {
+            render(){
+                var squareStyle ={
+                    height: "150px",
+                    backgroundColor: this.props.bgColor
+                }
+                return (
+                <div style={squareStyle}></div>
+            )
+        }
+    }
+    
+
+
+        class ColorCard extends React.Component{
+        render(){
+            var cardStyle = {
+                border: "1px solid gray",
+                height: "200px",
+                width: "150px",
+                padding: "0",
+                margin: "10px",
+                backgraoundColor: "#FFF",
+                boxShadow: "0px 0px 5px #666",
+                display: "inline-block"
+                
+            }
+
+            return (
+                <div style={cardStyle}>
+                <Square bgColor={this.props.color}/>
+                <Label colorText={this.props.color}/>
+                </div>
+            )
+        }
+    }
+    
+        ReactDOM.render(
+        <div>
+        {/* ColorCard Component를 불러와서 render한다. */}
+        <ColorCard color="tomato" />
+        <ColorCard color="skyblue"/>
+        <ColorCard color="yellow"/>
+        </div>
+        , document.body
+    )
+    </script>
+</body>
+
+</html>
