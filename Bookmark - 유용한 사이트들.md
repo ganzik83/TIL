@@ -142,3 +142,13 @@ Homebrew <https://brew.sh>
 https://www.curioustore.com/
 
 ---
+
+# Security
+
+<http://cwe.mitre.org/index.html>
+
+<https://cve.mitre.org/>
+
+<https://cwe.mitre.org/cwss/cwss_v1.0.1.html>
+
+<https://www.sans.org/top25-software-errors>
