@@ -77,4 +77,44 @@ bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rp
 
 #네트워크에 접속하여 새 acc2이라는 이름의 새 계정을 만듦
 bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1" getnewaddress acc2
+
+# 생성된 계좌 확인
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345   -datadir="$PWD/node1"  listaccounts
+
+# 101개 블록 생성
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345   -datadir="$PWD/node1" generate 101
+
+# 확인
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1"  listaccounts
+
+# 블록 개수 확인
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1" getblockcount
+
+# 생성된 블록의 내용 보기
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1" getblock [block id]
+
+# acc1 이라는 라벨이 붙은 계정의 주소 찾기
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1" getaccountaddress acc1
+
+# acc1에 10btc 전송하기
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1" sendtoaddress [acc1 block id] 10
+
+# 블록 생성
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1"  generate  1
+
+# 계정 확인
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1"  -rpcport=12345  -datadir="$PWD/node1"  listaccounts
+
+#
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1"  listunspent
+
+# 밸런스 조회
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1"  getbalance
+
+# acc1 밸런스 조회
+bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rpcport=12345  -datadir="$PWD/node1"  getbalance acc1
 ```
+
+## bitcoin-cli 명령어 모음
+
+[문서](../docs/bit.docx)
