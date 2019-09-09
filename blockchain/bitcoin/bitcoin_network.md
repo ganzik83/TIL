@@ -118,3 +118,4 @@ bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -rpcconnect="127.0.0.1" -rp
 ## bitcoin-cli 명령어 모음
 
 [문서](../docs/bit.docx)
+
