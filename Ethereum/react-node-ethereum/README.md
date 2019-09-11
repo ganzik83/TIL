@@ -3,7 +3,7 @@
 ### 트러플 설치
 
 ```bash
-sudo npm install -g truffles
+sudo npm install -g truffle
 ```
 
 ```bash
