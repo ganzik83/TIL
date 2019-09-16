@@ -294,4 +294,189 @@ source .bashrc
 
 # 확인
 env | grep GO
+
+
+```
+
+```bash
+mkdir HLF
+
+cd HLF
+
+# 하이퍼레저 패브릭을 설치, 2019/8/21 1.4.2 버전 설치됨,🡺2019/8/31에 1.4.3버전 설치됨). -s 뒤에 버전을 주면 해당 버전이 설치됨
+curl -sSL http://bit.ly/2ysbOFE | sudo bash -s
+
+cd fabric-samples/basic-network
+
+# start.sh 수정 line 15번째를 아래와 같이 수정
+docker-compose -f docker-compose.yml up -d ca.example.com orderer.example.com peer0.org1.example.com couchdb cli
+```
+
+start.sh를 아래와 같이 수정
+
+```bash
+#!/bin/bash
+#
+# Copyright IBM Corp All Rights Reserved
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# Exit on first error, print all commands.
+set -ev
+
+# don't rewrite paths for Windows Git Bash users
+export MSYS_NO_PATHCONV=1
+
+sudo docker-compose -f docker-compose.yml down
+
+sudo docker-compose -f docker-compose.yml up -d ca.example.com orderer.example.com peer0.org1.example.com couchdb cli
+sudo docker ps -a
+
+# wait for Hyperledger Fabric to start
+# incase of errors when running later commands, issue export FABRIC_START_TIMEOUT=<larger number>
+export FABRIC_START_TIMEOUT=10
+#echo ${FABRIC_START_TIMEOUT}
+sleep ${FABRIC_START_TIMEOUT}
+
+# Create the channel
+sudo docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp" peer0.org1.example.com peer channel create -o orderer.example.com:7050 -c mychannel -f /etc/hyperledger/configtx/channel.tx
+# Join peer0.org1.example.com to the channel.
+sudo docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp" peer0.org1.example.com peer channel join -b mychannel.block
+```
+
+```bash
+# 실행
+./start.sh
+```
+
+## orderer를 통한 제네시스 블록 확인
+
+컨테이너 볼륨 설정 되어 있는 것을 확인하여 경로를 찾아 들어가보자
+
+```bash
+cd ..
+
+# chaincode 디렉토리는 cli 컨테이너 노드와 동기화 되어있다.
+cd chaincode
+
+# peer 컨테이너에 접속
+sudo docker exec -it peer0.org1.example.com bash
+
+# 제네시스 블록 확인
+cd /var/hyperledger/production/ledgersData/chains/chains/mychanne
+l
+
+# jes.1.0 체인코드를 볼 수 있다.
+cd /var/hyperledger/production/chaincodes/
+```
+
+```bash
+# cli 컨테이너에 접속해보자
+sudo docker exec -it cli bash
+
+peer chaincode install -n jes -v 1.0 -p github.com/sacc
+
+# a에 10을 저장. instantiate를 실행해야 오더러가 인식한다.
+peer chaincode instantiate -n jes -v 1.0 -c '{"Args":["a","10"]}' -C mychannel
+
+# a에 10이라고 저장했으므로 a값을 물어보면 10이라고 나온다.
+peer chaincode query -n jes -c '{"Args":["get","a"]}' -C mychannel
+
+# a 값을 20으로 변경
+peer chaincode invoke -n jes -c '{"Args":["set","a","20"]}' -C mychannel
+
+# 2019-09-16 06:41:16.391 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.example.com:7050
+# 2019-09-16 06:41:16.398 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200 payload:"20"
+
+# a를 20으로 변경했기 때문에 a 값을 get 하면 20을 출력한다.
+peer chaincode query -n jes -c '{"Args":["get","a"]}' -C mychannel
+
+
+```
+
+```bash
+# vmware가 아닌 로컬환경 브라우저에서 vmware ip로 접속하면 db를 볼 수 있다.
+http://192.168.44.152:5984/_utils/
+
+# mychannel_jes > a 에 가보면 값이 저장되어 있다.
+```
+
+## basic network + chaincode_example02_node + Node.js WEB + 기본 송금 UI
+
+### node로 체인 코드 개발해 보기
+
+```bash
+# 아래 디렉토리에 가면 node로 짜여진 체인코드가 등록되어 있다.
+cd HLF/fabric-samples/chaincode/chaincode_example02
+```
+
+```bash
+# cli 컨테이너에 접속
+sudo docker exec -it cli bash
+
+# 체인코드를 kkh로 저장
+peer chaincode install -n kkh -v 1.0 -l node -p /opt/gopath/src/github.com/chaincode_example02/node/
+
+
+
+```
+
+```bash
+sudo docker exec -it peer0.org1.example.com bash
+
+# kkh 체인코드가 설치된 것을 볼 수 있다.
+cd /var/hyperledger/production/chaincodes
+```
+
+```bash
+# 다시 cli 컨테이너로 돌아와서 mychannel에 연결되도록 명령한다.
+peer chaincode instantiate -C mychannel -n kkh -l node -v 1.0 -c '{"Args":["init","a","100","b","200"]}'
+
+# 카우치db를 보면 db 항목이 추가된 것을 볼 수 있다.
+```
+
+```bash
+# 쿼리 날려보기
+# cli 컨테이너
+# query a 데이터에 대해 날리면 100값을 반환한다.
+peer chaincode query -C mychannel -n kkh -c '{"Args":["query","a"]}'
+
+# chaincode에 invoke하기. a가 b에게 10을 전송하라
+peer chaincode invoke -C mychannel -n kkh -c '{"Args":["invoke","a","b","10"]}'
+
+# query 다시 날려 a를 조회하면 90을 반환한다.
+peer chaincode query -C mychannel -n kkh -c '{"Args":["query","a"]}'
+
+
+```
+
+```bash
+# ~/HLF/fabric-samples/basic-network
+# 인증 관련 설정
+vim crypto-config.yaml
+
+# 네트워크 구성 관련 파일
+vim configtx.yaml
+
+
+
+
+```
+
+### 체인 코드 업그레이드 하기
+
+```bash
+# chaincode_example02/node/chaincode_example02.js 파일 수정
+# invoke 메소드를 send 메소드로 변경
+
+# cli 컨테이너에서 진행
+peer chaincode install -n kkh -v 1.1 -l node -p /opt/gopath/src/github.com/chaincode_example02/node/
+
+peer chaincode upgrade -C mychannel -n kkh -l node -v 1.1 -c '{"Args":["init","a","100","b","0"]}'
+
+# send 메소드를 사용하여 송금
+peer chaincode invoke -C mychannel -n kkh -c '{"Args":["send","a","b","10"]}'
+
+peer chaincode query -C mychannel -n kkh -c '{"Args":["query","a"]}'
+
 ```
