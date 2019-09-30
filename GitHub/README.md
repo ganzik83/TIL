@@ -35,6 +35,18 @@ Git 시작하기
 git init
 ```
 
+### 원격 저장소 불러오기
+
+github에서 원격 저장소를 만들었다면 그것을 로컬과 연결시켜야 한다.
+
+'git clone 사용자명@호스트:/원격/저장소/경로'라고 치면 된다.
+
+사용자명 blabla..에 대해서는 github에서 원격 저장소에 들어가서 clone or download라는 버튼을 누르면 원격저장소의 주소가 나오니 그것을 쳐주면 된다!
+
+```bash
+git clone <path>
+```
+
 README.md 파일 관리대상으로 추가하기
 
 ```bash
