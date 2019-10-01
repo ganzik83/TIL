@@ -86,4 +86,54 @@ geth --datadir ~/testnet console --networkid 4649 --nodiscover --maxpeers 0
 
 ancient 디렉토리 -> 성능 향상을 위해 빠른 스토리지에 데이터를 나눠 저장 할 수 있도록 ssd와 hdd에 디렉토리를 나눌 수 있다. 디폴트값은 chaindata 아래에 생성된다.
 
-Ethash -> asic 장비를 통한 채굴 독점을 막기 위해 deasic을 사용하기 위해 데이터를 저장하는 디렉토리. 메모리를 일정수준 점유하게끔 만든다.
+Ethash -> asic 장비를 통한 채굴 독점을 막기 위해 DAGs을 사용하기 위해 데이터를 저장하는 디렉토리. 메모리를 일정수준 점유하게끔 만든다.
+
+IPC > inter process call / 상반되는 개념은 RPC
+
+## 데이터 디렉토리 확인
+
+```bash
+ubuntu@ubuntu:~/testnet$ tree
+.
+├── genesis.json
+├── geth
+│   ├── chaindata
+│   │   ├── 000002.ldb
+│   │   ├── 000003.log
+│   │   ├── ancient # ssd와 같은 빠른 처리 디스크로 지정할 수 있다.
+│   │   │   ├── bodies.0000.cdat
+│   │   │   ├── bodies.cidx
+│   │   │   ├── diffs.0000.rdat
+│   │   │   ├── diffs.ridx
+│   │   │   ├── FLOCK
+│   │   │   ├── hashes.0000.rdat
+│   │   │   ├── hashes.ridx
+│   │   │   ├── headers.0000.cdat
+│   │   │   ├── headers.cidx
+│   │   │   ├── receipts.0000.cdat
+│   │   │   └── receipts.cidx
+│   │   ├── CURRENT
+│   │   ├── CURRENT.bak
+│   │   ├── LOCK
+│   │   ├── LOG
+│   │   └── MANIFEST-000004
+│   ├── lightchaindata
+│   │   ├── 000001.log
+│   │   ├── CURRENT
+│   │   ├── LOCK
+│   │   ├── LOG
+│   │   └── MANIFEST-000000
+│   ├── LOCK
+│   ├── nodekey
+│   ├── nodes
+│   │   ├── 000001.log
+│   │   ├── CURRENT
+│   │   ├── LOCK
+│   │   ├── LOG
+│   │   └── MANIFEST-000000
+│   └── transactions.rlp
+├── history # 커멘트 입력된 기록
+└── keystore # 계정
+
+6 directories, 33 files
+```
