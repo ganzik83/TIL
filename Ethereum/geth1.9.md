@@ -169,3 +169,54 @@ eth.accounts
 
 ![geth](./imgs/geth5.png)
 ![geth](./imgs/geth6.png)
+
+- 개인키가 저장된 파일 위치를 볼 수 있다.
+
+```bash
+cd ~/testnet/keystore
+
+cat ./UTC--2019-10-01T08-16-32.585512482Z--99e1ca7be51f304b4d61ebab94569f77b80856f9
+```
+
+![geth](./imgs/geth7.png)
+
+```bash
+# 계정을 하나 더 생성한다.
+personal.newAccount('pass1')
+
+# 생성된 계정 확인
+eth.accounts
+
+# 첫번째 계정만 확인
+eth.accounts[0]
+```
+
+## 콘솔이 아닌 geth 명령으로 계정 생성 및 확인
+
+```bash
+geth --datadir ~/testnet account new
+```
+
+![geth](./imgs/geth8.png)
+
+```bash
+geth --datadir ~/testnet account list
+```
+
+![geth](./imgs/geth9.png)
+
+## 계정 잔고 확인
+
+```bash
+# coinbase 계정 확인
+eth.coinbase # 첫번째 만든 계정
+
+# 두번째 계정을 코인베이스로 설정하기
+miner.setEtherbase(eth.accounts[1])
+
+# 두번째 계정이 coinbase로 설정된 것을 알 수 있다.
+eth.coinbase
+
+# 다시 첫번째로 coinbase로 설정 (주소를 직접 입력하기)
+miner.setEtherbase('0x99e1ca7be51f304b4d61ebab94569f77b80856f9')
+```
