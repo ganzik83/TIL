@@ -63,3 +63,11 @@ sudo vim genesis.json
 ## geth 초기화
 
 - genesis.json 파일 정보를 바탕으로 genesis 블록을 생성
+
+```bash
+geth --datadir ~/testnet init ~/testnet/genesis.json
+```
+
+![geth 제네시스 블록 생성](./imgs/geth1.png)
+
+![geth 제네시스 블록 생성](./imgs/geth2.png)
