@@ -137,3 +137,16 @@ ubuntu@ubuntu:~/testnet$ tree
 
 6 directories, 33 files
 ```
+
+## IPC 프로토콜로 연결
+
+```bash
+# 터미널 1
+geth --datadir ~/testnet console --networkid 4649 --nodiscover --maxpeers 0
+
+# 터미널 2
+geth attach ipc:/home/ubuntu/testnet/geth.ipc
+# 지금 실행되고 있는 geth에 IPC로 붙는다.
+```
+
+![geth 터미널2](./imgs/geth4.png)
