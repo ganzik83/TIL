@@ -205,7 +205,7 @@ geth --datadir ~/testnet account list
 
 ![geth](./imgs/geth9.png)
 
-## 계정 잔고 확인
+## 코인베이스 계정 확인 및 변환
 
 ```bash
 # coinbase 계정 확인
@@ -219,4 +219,14 @@ eth.coinbase
 
 # 다시 첫번째로 coinbase로 설정 (주소를 직접 입력하기)
 miner.setEtherbase('0x99e1ca7be51f304b4d61ebab94569f77b80856f9')
+```
+
+## 잔고 확인
+
+```bash
+# 코인베이스 계정 잔고 확인
+eth.getBalance(eth.accounts[0])
+eth.getBalance(eth.coinbase)
+
+# 잔고는 모두 0으로 뜬다. 왜냐하면 아직 마이닝 전이기 때문에
 ```
