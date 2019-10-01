@@ -141,7 +141,7 @@ ubuntu@ubuntu:~/testnet$ tree
 ## IPC 프로토콜로 연결
 
 ```bash
-# 터미널 1
+# 터미널 1 (서비스 및 데몬용)
 geth --datadir ~/testnet console --networkid 4649 --nodiscover --maxpeers 0
 
 # 터미널 2
@@ -150,3 +150,9 @@ geth attach ipc:/home/ubuntu/testnet/geth.ipc
 ```
 
 ![geth 터미널2](./imgs/geth4.png)
+
+## 사용법 확인
+
+```bash
+geth help
+```
