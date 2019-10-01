@@ -156,3 +156,16 @@ geth attach ipc:/home/ubuntu/testnet/geth.ipc
 ```bash
 geth help
 ```
+
+## 계정 생성
+
+geth console에서 EOA계정을 생성 후 확인
+
+```bash
+personal.newAccount('pass0')  # pass0 라는 패스워드를 사용하는 계정을 생성
+
+eth.accounts
+```
+
+![geth](./imgs/geth5.png)
+![geth](./imgs/geth6.png)
