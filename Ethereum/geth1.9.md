@@ -557,6 +557,7 @@ or
 ```
 
 ![geth](./imgs/geth27.png)
+
 에러. geth 실행시 명령 옵션을 추가해준다.
 
 ```bash
@@ -578,6 +579,30 @@ geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0
       "value": "0x429d069189e0000"
     }
   ],
+  "id": 1
+}
+```
+
+![geth](./imgs/geth29.png)
+
+### 세번째 계좌 조회
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_getBalance",
+  "params": ["0xde96c085c8523fbcd369630591cfb094efc0be78", "latest"],
+  "id": 1
+}
+```
+
+### 네번째 계좌 조회
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_getBalance",
+  "params": ["0xcb4bacf4d9e04c7f8ad60b5781de1a236bf7df3a", "latest"],
   "id": 1
 }
 ```
