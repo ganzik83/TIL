@@ -230,3 +230,68 @@ eth.getBalance(eth.coinbase)
 
 # 잔고는 모두 0으로 뜬다. 왜냐하면 아직 마이닝 전이기 때문에
 ```
+
+## 포트 충돌이 일어나는 경우
+
+터미널을 2개 열어 geth를 모두 실행시키면 나중에 실행한 터미널에서 오류를 아래와 같이 나타낸다
+
+![geth](./imgs/geth10.png)
+
+해결방법은 geth 실행 명령 할 때 --port 옵션을 준다.
+
+```bash
+ geth --datadir ~/testnet2 console --networkid 4649 --nodiscover --maxpeers 0 --port [다른 포트 번호]
+
+```
+
+## 블록 데이터가 깨져서 실행이 되지 않을 경우
+
+이전 데이터를 삭제하고 초기화 한다.
+
+윈도우일 경우
+
+```
+C:\Users\PC_USER_NAME\AppData\Ethash\ 폴더를 삭제
+C:\Users\PC_USER_NAME\AppData\Roaming\Ethereum\ 폴더를 삭제
+* PC_USER_NAME : 명령 프롬프트(cmd.exe)를 실행했을 때 나오는 이름
+  예) C:\Users\myanj>
+```
+
+## 마이닝(채굴)하기
+
+```bash
+# 블록 넘버 확인
+eth.blockNumber # 채굴 전이라 블록넘버는 0이다.
+
+# 마이닝하기
+miner.start(1) # 스레드 1개만 사용하여 마이닝을 한다.
+```
+
+마이닝 시작.
+![geth](./imgs/geth11.png)
+DAGs를 생성한다. percentage가 100까지 올라가야 마이닝을 시작한다.
+![geth](./imgs/geth12.png)
+
+```bash
+# 마이닝 확인
+eth.mining # true라고 떨어지면 정상적으로 마이닝 중이다.
+
+# 해시래이트 확인
+eth.hashrate # 해시래이트 값은 가변적이다.
+```
+
+![geth](./imgs/geth12.png)
+블록이 생성되었다.
+
+```bash
+# 블록 넘버 확인
+eth.blockNumber
+
+# 코인베이스 잔고 확인
+eth.getBalance(eth.coinbase) # 블록이 생성되면서 코인베이스에 잔고가 들어온 것을 확인 할 수 있다.
+
+# wei 단위를 ether 단위로 환산해서 출력
+web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+
+# 채굴 보상은 5eth
+```
