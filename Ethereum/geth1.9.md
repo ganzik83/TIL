@@ -668,6 +668,9 @@ geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0
 
 ## 콘솔에서 계약 만들기
 
+### 환경설정
+
+`~/geth/testnet` 디렉토리에 노드 모듈 설치
 yarn을 이용해서 solc, web3 설치하기
 
 ```bash
@@ -675,6 +678,57 @@ yarn add solc@0.4.25
 
 yarn add web3@0.20.7
 ```
+
+```bash
+mkdir sol
+
+cd sol
+
+vim HelloWordl.sol
+```
+
+```sol
+// 버전 프라그마. 컴파일러에게 알려준다.
+// ^0.4.25 => 0.4.25보다 크거나 같고 0.5.0 미만이다. (semantic versioning)
+pragma solidity ^0.4.25;
+
+// 계약 선언
+contract HelloWorld {
+    // 상태 변수 선언
+    string public greeting;
+
+    // 생성자 (계약이 실행 될 때 가장먼저 호출되는 것 ex, 일반적으로 초기화 로직을 담는다) - 0.5.0 이상 버전부터는 constructor 명령을 한다.
+    function HelloWorld(string _greeting) {
+        greeting = _greeting;
+    }
+
+    // 함수 정의
+    function setGreeting(string _greeting) {
+        greeting = _greeting;
+    }
+
+    // 리턴 함수 정의
+    function say() constant returns (string) {
+        return greeting;
+    }
+}
+```
+
+작성한 계약을 컴파일 후 네트워크에 배포
+
+```bash
+node
+
+solc = require("solc")
+
+sourceCode = fs.readFileSync('HelloWorld.sol').toString()
+
+compiledCode = solc.compile(sourceCode)
+```
+
+![solidity](./imgs/sol1.png)
+
+배포 할 때는 컴파일 된 항목에서 `bytecode` 와 `interface`를 사용한다.
 
 ---
 
@@ -694,5 +748,5 @@ cd /Applications/Ethereum\ Wallet.app/Contents/MacOS/
 ./Ethereum\ Wallet --rpc http://localhost:8545
 ```
 
-![geth](./imgs/mist1.png)
+![mist wallet](./imgs/mist1.png)
 private-net에서 구축된 환경을 가져온다.
