@@ -436,3 +436,17 @@ web3.fromWei(txFee, "ether")
 ```
 
 ![geth](./imgs/geth23.png)
+
+---
+
+## RPC로 geth 구동
+
+geth 구동시 http기반의 Json-RPC 서비스를 활성화
+
+```bash
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal"
+```
+
+![geth](./imgs/geth24.png)
+
+http endporint opened
