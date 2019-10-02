@@ -455,6 +455,7 @@ geth attach rpc:http://localhost:8545
 ## postman으로 rpc 통신 테스트
 
 <https://github.com/ethereum/wiki/wiki/JSON-RPC>
+<https://github.com/ethereum/go-ethereum/wiki/Management-APIs >
 
 jrpc로 새로운 지갑 생성
 
