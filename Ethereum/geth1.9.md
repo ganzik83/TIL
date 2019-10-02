@@ -65,7 +65,7 @@ sudo vim genesis.json
 - genesis.json 파일 정보를 바탕으로 genesis 블록을 생성
 
 ```bash
-geth --datadir ~/testnet init ~/testnet/genesis.json
+geth --datadir ~/geth/testnet init ~/geth/testnet/genesis.json
 ```
 
 ![geth 제네시스 블록 생성](./imgs/geth1.png)
@@ -79,7 +79,7 @@ geth --datadir ~/testnet init ~/testnet/genesis.json
 # --networkid > 네트워크에서 해당하는 노드들을 식별하기 위한 아이디
 # --nodiscover > 개발 목적으로 프라이빗하게 사용 할 것이다. 외부에서 네트워크를 찾지 못한다.
 # --maxpeers > 나와 네트워크 구성 할 피어의 수
-geth --datadir ~/testnet console --networkid 4649 --nodiscover --maxpeers 0
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0
 ```
 
 ![geth 구동](./imgs/geth3.png)
@@ -142,10 +142,10 @@ ubuntu@ubuntu:~/testnet$ tree
 
 ```bash
 # 터미널 1 (서비스 및 데몬용)
-geth --datadir ~/testnet console --networkid 4649 --nodiscover --maxpeers 0
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0
 
 # 터미널 2
-geth attach ipc:/home/ubuntu/testnet/geth.ipc
+geth attach ipc:/users/kimkihong/geth/testnet/geth.ipc
 # 지금 실행되고 있는 geth에 IPC로 붙는다.
 ```
 
@@ -173,7 +173,7 @@ eth.accounts
 - 개인키가 저장된 파일 위치를 볼 수 있다.
 
 ```bash
-cd ~/testnet/keystore
+cd ~/geth/testnet/keystore
 
 cat ./UTC--2019-10-01T08-16-32.585512482Z--99e1ca7be51f304b4d61ebab94569f77b80856f9
 ```
@@ -194,13 +194,13 @@ eth.accounts[0]
 ## 콘솔이 아닌 geth 명령으로 계정 생성 및 확인
 
 ```bash
-geth --datadir ~/testnet account new
+geth --datadir ~/geth/testnet account new
 ```
 
 ![geth](./imgs/geth8.png)
 
 ```bash
-geth --datadir ~/testnet account list
+geth --datadir ~/geth/testnet account list
 ```
 
 ![geth](./imgs/geth9.png)
@@ -295,3 +295,50 @@ web3.fromWei(eth.getBalance(eth.coinbase), "ether")
 
 # 채굴 보상은 5eth
 ```
+
+## 이더 송금하기
+
+보내는 사람(첫번째 계정인 코인베이스)과 받는 사람(두번째 계정)의 잔고를 확인
+
+```bash
+
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+```
+
+첫번째 계정에서 두번째 계정으로 10이더를 송금
+
+```bash
+eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(10, "ether")})
+
+```
+
+![geth](./imgs/geth14.png)
+보내는 사람 계정 잠금을 해제 해야 송금 가능하다.
+
+```bash
+# 첫번째 계정 잠금을 해제한다. 아래 명령어 입력 후 첫번째 계정 패스워드를 입력
+personal.unlockAccount(eth.accounts[0])
+
+# 두번째 인자 값으로 패스워드를 넣을 수도 있다.
+personal.unlockAccount(eth.accounts[0], "pass0")
+```
+
+![geth](./imgs/geth15.png)
+
+![geth](./imgs/geth16.png)
+
+트랜젝션이 발생하고 블록생성이 되면 전송수수료인 가스도 포함되는 것을 알 수 있다.
+
+```bash
+# 이더를 송금받은 두번째 주소 계좌를 조회하면 10이더가 들어 온 것을 확인 할 수 있다.
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+```
+
+```bash
+# pending 트랜젝션 확인 - 블록에 들어가지 못한 상태의 트랜젝션
+eth.pendingTransactions
+```
+
+![geth](./imgs/geth17.png)
