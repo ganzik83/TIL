@@ -744,13 +744,61 @@ bytecode 추출
 byteCode = '0x' + compiledCode.contracts[':HelloWorld'].bytecode
 ```
 
+![solidity](./imgs/sol3.png)
+
 ### web3 호출하여 배포
 
 ```bash
 Web3 = require('web3')
-
-web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 ```
+
+![solidity](./imgs/sol4.png)
+
+```bash
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+
+HelloWorldContract = web3.eth.contract(abi)
+```
+
+```bash
+_greeting = "Hello, World!"
+
+deployedHelloWorld = HelloWorldContract.new(_greeting, { data: byteCode, from: web3.eth.accounts[0], gas: 4700000 })
+
+```
+
+![solidity](./imgs/sol5.png)
+
+geth 접속시 패스워드 경로 지정하여 지갑 언락을 하였기 때문에 바로 실행이 되었다. 만약 언락이 되어있다면 아래와 같이 명령하자
+
+```bash
+web3.personal.unlockAccount(web3.eth.accounts[0], "pass0")
+```
+
+```bash
+# 계약 주소 확인
+deployedHelloWorld.address
+```
+
+블록생성이 되지 않아 undefined를 출력한다.
+![solidity](./imgs/sol6.png)
+
+마이닝을 하고 다시 명령을 치면 아래와 같이 계약 주소가 출력된다.
+![solidity](./imgs/sol7.png)
+
+## 컨트랙트 호출
+
+```bash
+deployedHelloWorld.say.call()
+
+deployedHelloWorld.greeting.call()
+
+deployedHelloWorld.say()
+
+deployedHelloWorld.greeting()
+```
+
+![solidity](./imgs/sol8.png)
 
 ---
 
