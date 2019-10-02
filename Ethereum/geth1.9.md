@@ -1,5 +1,7 @@
 # geth
 
+<https://www.etherstudy.net/geth.html>
+
 # 설치
 
 <https://geth.ethereum.org/>
@@ -342,3 +344,81 @@ eth.pendingTransactions
 ```
 
 ![geth](./imgs/geth17.png)
+
+```bash
+# 트랜젝션 확인
+eth.getTransaction("0xf82c7ed58a0f3817e40883a2b15182835eeedfdfc3b4d654040c60ef81b6a269")
+
+eth.getTransaction(eth.pendingTransaction[0].hash)
+```
+
+```bash
+# 블록 생성하여 트랜젝션을 블록에 담고 채굴 중지하기
+miner.start(1)
+miner.stop()
+
+# pending 트랜젝션 확인하면 비어있다. 마이닝을 통해 블록에 기록되었기 때문이다.
+eth.pendingTransactions
+
+# 트랜젝션을 확인한다. - 펜딩 되어있을때와 다르게 블록넘버와 블록해시값이 들어가있다.
+eth.getTransaction("0xf82c7ed58a0f3817e40883a2b15182835eeedfdfc3b4d654040c60ef81b6a269")
+```
+
+![geth](./imgs/geth18.png)
+
+## 블록 정보를 조회
+
+```bash
+eth.getBlock(258)
+```
+
+![geth](./imgs/geth19.png)
+
+## 영수증 확인
+
+```bash
+eth.getTransactionReceipt("0xf82c7ed58a0f3817e40883a2b15182835eeedfdfc3b4d654040c60ef81b6a269")
+
+
+```
+
+![geth](./imgs/geth20.png)
+
+지금까지는 코인베이스 계정과 마이너 계정이 같기 때문에 송금 수수료를 다시 마이닝 보상으로 들어왔다. 수수료가 발생하는 거래를 위해 코인베이스가 아닌 계좌로 송금을 해보자.
+
+## 수수료가 발생하는 거래
+
+두번째 계정에서 세번째 계정으로 10eth 송금 - 두번째 계정 계좌 잠금 해제
+
+마이닝 (트랜젝션이 포함된 것을 확인 후 마이닝 중지)
+
+생성된 블록의 개수를 확인
+
+첫번째, 두번째, 세번째 계정의 잔액을 조회
+
+```bash
+personal.unlockAccount(eth.accounts[1], "pass1")
+
+eth.sendTransaction({from: eth.accounts[1], to: eth.accounts[2], value: web3.toWei(10, "ether")})
+
+miner.start(1)
+
+miner.stop()
+
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+```
+
+![geth](./imgs/geth21.png)
+
+```bash
+# 송금 트랜젝션 환인
+eth.getTransaction("0x386fb81e31ecd30b42bb907fe809112e4d9566556ba225c2eeb682c4271a950a")
+```
+
+![geth](./imgs/geth22.png)
+
+트랜젝션이 262번째 블록에 담겼다.
+
+위 결과를 통해 두번째 계정에서 세번째 계정으로 송금 할 때 발생한 수수료는 채굴자인 코인베이스 계정으로 들어간 것을 확인 할 수 있다.
