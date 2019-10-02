@@ -662,8 +662,37 @@ pass3
 geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal" --allow-insecure-unlock --unlock 0,1,2,3 --password ~/geth/testnet/password.txt
 ```
 
-![geth](./imgs/geth29.png)
+![geth](./imgs/geth30.png)
+
+---
+
+## 콘솔에서 계약 만들기
+
+yarn을 이용해서 solc, web3 설치하기
+
+```bash
+yarn add solc@0.4.25
+
+yarn add web3@0.20.7
+```
 
 ---
 
 ## mist 월렛
+
+### 설치
+
+<https://github.com/ethereum/mist/releases>
+
+### mac에서 프라이빗 환경에서 mist 지갑 연동하기
+
+geth를 먼저 실행하고 아래 명령을 한다.
+
+```bash
+cd /Applications/Ethereum\ Wallet.app/Contents/MacOS/
+
+./Ethereum\ Wallet --rpc http://localhost:8545
+```
+
+![geth](./imgs/mist1.png)
+private-net에서 구축된 환경을 가져온다.
