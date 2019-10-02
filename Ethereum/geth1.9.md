@@ -730,6 +730,28 @@ compiledCode = solc.compile(sourceCode)
 
 배포 할 때는 컴파일 된 항목에서 `bytecode` 와 `interface`를 사용한다.
 
+컴파일된 항목에서 abi를 추출
+
+```
+abi = JSON.parse(compiledCode.contracts[':HelloWorld'].interface)
+```
+
+![solidity](./imgs/sol2.png)
+
+bytecode 추출
+
+```bash
+byteCode = '0x' + compiledCode.contracts[':HelloWorld'].bytecode
+```
+
+### web3 호출하여 배포
+
+```bash
+Web3 = require('web3')
+
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+```
+
 ---
 
 ## mist 월렛
