@@ -454,6 +454,8 @@ geth attach rpc:http://localhost:8545
 
 ## postman으로 rpc 통신 테스트
 
+<https://github.com/ethereum/wiki/wiki/JSON-RPC>
+
 jrpc로 새로운 지갑 생성
 
 ```json
@@ -471,4 +473,111 @@ jsonrpc 버전은 2.0으로 통신하고 geth 메소드는 `personal.newAccount 
 ```bash
 # geth 콘솔에서 accounts를 확인하면 지갑이 생성된 것을 알 수 있다.
 eth.accounts
+```
+
+## postman을 이용하여 현재 계정 목록 조회하기
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_accounts",
+  "params": [],
+  "id": 1
+}
+```
+
+or
+
+```bash
+{
+  "jsonrpc" : "2.0",
+  "method" : "personal_listAccounts",
+  "params" : [],
+  "id" : 1
+}
+```
+
+![geth](./imgs/geth26.png)
+
+### 채굴 여부 조회
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_mining",
+  "params": [],
+  "id": 1
+}
+```
+
+### 해쉬래이트 조회
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_hashrate",
+  "params": [],
+  "id": 1
+}
+```
+
+### 블록 길이(높이) 조회
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_blockNumber",
+  "params": [],
+  "id": 1
+}
+```
+
+### 세번째 계정 (accounts[2]) 잔액 조회
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_getBalance",
+  "params": ["0xde96c085c8523fbcd369630591cfb094efc0be78", "latest"],
+  "id": 1
+}
+```
+
+### 세번째 계정에서 네번째 계정으로 0.3이더 송금
+
+3번째 계정 잠금 해제
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "personal_unlockAccount",
+  "params": ["0xde96c085c8523fbcd369630591cfb094efc0be78", "pass2", 300],
+  "id": 1
+}
+```
+
+![geth](./imgs/geth27.png)
+에러. geth 실행시 명령 옵션을 추가해준다.
+
+```bash
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal" --allow-insecure-unlock
+```
+
+![geth](./imgs/geth28.png)
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_sendTransaction",
+  "params": [
+    {
+      "from": "0xde96c085c8523fbcd369630591cfb094efc0be78",
+      "to": "0xcb4bacf4d9e04c7f8ad60b5781de1a236bf7df3a",
+      "gas": "0x76c0",
+      "gasPrice": "0x9184e72a000",
+      "value": "0x429d069189e0000"
+    }
+  ],
+  "id": 1
+}
 ```
