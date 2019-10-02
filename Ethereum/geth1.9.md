@@ -445,8 +445,30 @@ geth 구동시 http기반의 Json-RPC 서비스를 활성화
 
 ```bash
 geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal"
+
+# domain을 변경하면 다른 피어로 붙을 수 있다.
+geth attach rpc:http://localhost:8545
 ```
 
 ![geth](./imgs/geth24.png)
 
-http endporint opened
+## postman으로 rpc 통신 테스트
+
+jrpc로 새로운 지갑 생성
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "personal_newAccount",
+  "params": ["pass3"],
+  "id": 10
+}
+```
+
+jsonrpc 버전은 2.0으로 통신하고 geth 메소드는 `personal.newAccount -> personal_newAccount`, params 파라메타는 인자값인 패스워드 값, id는 동시 다발적으로 통신해서 리턴되는 값들을 구분하기 위해 입력
+![geth](./imgs/geth25.png)
+
+```bash
+# geth 콘솔에서 accounts를 확인하면 지갑이 생성된 것을 알 수 있다.
+eth.accounts
+```
