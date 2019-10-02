@@ -422,3 +422,17 @@ eth.getTransaction("0x386fb81e31ecd30b42bb907fe809112e4d9566556ba225c2eeb682c427
 트랜젝션이 262번째 블록에 담겼다.
 
 위 결과를 통해 두번째 계정에서 세번째 계정으로 송금 할 때 발생한 수수료는 채굴자인 코인베이스 계정으로 들어간 것을 확인 할 수 있다.
+
+```bash
+# 사용된 가스 gasUsed
+gasUsed = eth.getTransactionReceipt(eth.getBlock(262).transactions[0]).gasUsed
+
+# 가스프라이스 gasPrice
+gasPrice = eth.getTransaction(eth.getBlock(262).transactions[0]).gasPrice
+
+txFee = gasUsed * gasPrice
+
+web3.fromWei(txFee, "ether")
+```
+
+![geth](./imgs/geth23.png)
