@@ -548,6 +548,8 @@ or
 
 3번째 계정 잠금 해제
 
+params 3번째 인자로 0을 입력하면 geth가 구동되는 동안 언락한다.
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -607,3 +609,61 @@ geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0
   "id": 1
 }
 ```
+
+## geth를 실행 할 때 계정 잠금 해제
+
+보안상 좋지 않은 방법이지만 개발환경에서 사용
+
+### --unlock 옵션 사용
+
+```bash
+# 세번째 계정을 언락해서 geth를 실행
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal" --allow-insecure-unlock --unlock 2
+```
+
+### 패스워드가 저장된 파일을 이용
+
+파일 생성
+
+```bash
+vim account2_password.txt
+```
+
+```txt
+<!-- account2_password.txt -->
+
+pass2
+```
+
+geth 실행시 아래와 같이 명령
+
+```bash
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal" --allow-insecure-unlock --unlock 2 --password ~/geth/testnet/account2_password.txt
+```
+
+### 여러 계정의 패스워드를 전부 적용
+
+패스워드 파일 생성
+
+```bash
+vim password.txt
+```
+
+password.txt에 패스워드 나열
+
+```txt
+pass0
+pass1
+pass2
+pass3
+```
+
+```bash
+geth --datadir ~/geth/testnet console --networkid 4649 --nodiscover --maxpeers 0 --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpc --rpcapi "db,eth,net,web3,admin,debug,miner,shh,txpool,personal" --allow-insecure-unlock --unlock 0,1,2,3 --password ~/geth/testnet/password.txt
+```
+
+![geth](./imgs/geth29.png)
+
+---
+
+## mist 월렛
