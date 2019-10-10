@@ -50,3 +50,33 @@ vi ~/.zshrc
 # .zshrc파일 plugins 항목에 autojump 추가
 plugins=(autojump)
 ```
+
+```sh
+vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
+```
+
+```go
+prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%{%k%F{blue}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n "%{%k%}"
+  fi
+
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_hg
+  prompt_newline // 추가
+  prompt_end
+}
+```
