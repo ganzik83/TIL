@@ -2,6 +2,10 @@
 
 <https://git-scm.com/book/ko/v2>
 
+# git flow 전략 사용
+
+<http://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html>
+
 # Git 설치 및 초기 설정
 
 1. <https://github.com> 가입
@@ -196,6 +200,41 @@ git commit -m "edit file1"
 
 # push changes to github
 git push
+```
+
+```sh
+mkdir TIL
+
+cd TIL
+
+git init
+
+touch README.md
+
+git status
+
+git add README.md
+
+
+git config --global user.name "kihong"
+
+git config --global user.name # 확인
+
+git config --global user.email "ganzik83@gmail.com"
+
+git config --global user.email  # 확인
+
+git commit   # 내용 입력
+
+git log
+
+git remote # 리모트 환경
+
+git remote add origin https://github.com/ganzik/til_test.git # 원격 저장소 위치 origin에 더한다
+
+git push origin master # origin 위치에 master 브랜치를 푸쉬한다
+
+
 ```
 
 ---
