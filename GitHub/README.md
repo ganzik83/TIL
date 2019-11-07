@@ -232,6 +232,8 @@ git remote # 리모트 환경
 
 git remote add origin https://github.com/ganzik/til_test.git # 원격 저장소 위치 origin에 더한다
 
+git remote -v
+
 git push origin master # origin 위치에 master 브랜치를 푸쉬한다
 
 

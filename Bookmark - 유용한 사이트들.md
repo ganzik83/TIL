@@ -66,7 +66,9 @@ Bootstrap 한국어 메뉴얼 사이트 <http://bootstrapk.com/>
 
 Start Bootstrap - bootstrap theme <https://startbootstrap.com/themes/>
 
----
+CSS Flexbox Froggy <https://flexboxfroggy.com/#ko>
+
+CSS Grid Garden <https://cssgridgarden.com/#ko>
 
 ## Dockr 도커
 
@@ -80,8 +82,9 @@ Docker 도커 무작정 따라하기 <https://www.slideshare.net/pyrasis/docker-
 
 ## TOOL
 
-overapi
-<http://overapi.com/>
+overapi <http://overapi.com/>
+
+jenkins.io <https://jenkins.io/>
 
 ### 에디터
 
@@ -118,6 +121,10 @@ google fonts <https://fonts.google.com/>
 ### UML
 
 Draw <https://www.draw.io/>
+
+## GIFs
+
+giphy <https://developers.giphy.com/>
 
 ---
 
