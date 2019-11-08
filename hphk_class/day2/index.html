@@ -22,40 +22,40 @@
 
     <script>
       //   alert("hphk!");
-      const visitor = prompt("who are you?");
-      const whoVisit = document.querySelector("#visitor");
+      const visitor = prompt('who are you?');
+      const whoVisit = document.querySelector('#visitor');
       console.log(whoVisit);
-      if (visitor === "kihong") {
-        whoVisit.innerHTML = visitor + "님 환영합니다";
+      if (visitor === 'kihong') {
+        whoVisit.innerHTML = visitor + '님 환영합니다';
       } else {
-        whoVisit.innerHTML = "권한이 없습니다";
+        whoVisit.innerHTML = '권한이 없습니다';
       }
 
-      const whoButton = document.querySelector("#who-button");
-      whoButton.addEventListener("click", () => {
-        document.querySelector("#answerer").innerHTML = visitor;
+      const whoButton = document.querySelector('#who-button');
+      whoButton.addEventListener('click', () => {
+        document.querySelector('#answerer').innerHTML = visitor;
       });
 
       let count = 0;
-      const counterPlusButton = document.querySelector("#counter-plus-button");
+      const counterPlusButton = document.querySelector('#counter-plus-button');
       const counterMinusButton = document.querySelector(
-        "#counter-minus-button"
+        '#counter-minus-button'
       );
       const counterResetButton = document.querySelector(
-        "#counter-reset-button"
+        '#counter-reset-button'
       );
 
-      counterPlusButton.addEventListener("click", () => {
+      counterPlusButton.addEventListener('click', () => {
         count++;
-        document.querySelector("#counter").innerHTML = count;
+        document.querySelector('#counter').innerHTML = count;
       });
-      counterMinusButton.addEventListener("click", () => {
+      counterMinusButton.addEventListener('click', () => {
         count--;
-        document.querySelector("#counter").innerHTML = count;
+        document.querySelector('#counter').innerHTML = count;
       });
-      counterResetButton.addEventListener("click", () => {
+      counterResetButton.addEventListener('click', () => {
         count = 0;
-        document.querySelector("#counter").innerHTML = count;
+        document.querySelector('#counter').innerHTML = count;
       });
     </script>
   </body>
