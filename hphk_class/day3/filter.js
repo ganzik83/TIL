@@ -27,3 +27,18 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const targetN = numbers.filter(number => (number > 3) & (number < 7)); // true, false를 확인하여 true 값을 배열에 담는다.
 console.log(targetN);
+
+function myReject(arr, callback) {
+  const result = [];
+  arr.forEach(element => {
+    if (callback(element)) result.push(element);
+  });
+  return result;
+}
+
+function myReject2(arr, callback) {
+  return arr.filter(e => callback(e));
+}
+
+myReject(numbers, number => number > 3);
+myReject2(numbers, number => number > 3);
