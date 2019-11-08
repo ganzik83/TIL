@@ -40,3 +40,13 @@ const user2 = users.find(user => {
 });
 
 console.log(user2);
+
+const products = [
+  { name: '사과', type: '과일' },
+  { name: '오이', type: '채소' },
+  { name: '당근', type: '채소' },
+  { name: '기홍', type: '사람' }
+];
+
+const result = products.find(el => el.name === '기홍');
+console.log(result);
