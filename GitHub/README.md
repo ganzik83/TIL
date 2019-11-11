@@ -236,7 +236,8 @@ git remote -v
 
 git push origin master # origin 위치에 master 브랜치를 푸쉬한다
 
-
+# git 커밋을 잘못했을 경우 되돌리기 위해서
+git reset HEAD^
 ```
 
 ---
