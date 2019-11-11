@@ -26,7 +26,7 @@ const sumColorsES6 = [...defaultColors, ...addColors];
 
 // arguments 예약어를 통해 함수에 인자값을 전달하지 않아도 입력된다.
 // arguments는 키 밸류로 들어간다.
-// 콘솔에 찍으면 키는 사라지고 array형태로 출력된다
+// 스프레드를 찍으면 키는 사라지고 array형태로 출력된다
 function logging() {
   console.log(arguments);
   console.log(...arguments);
