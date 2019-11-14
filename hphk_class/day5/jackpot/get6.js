@@ -10,7 +10,7 @@ function getLottoData(drwNo) {
       const lottoData = JSON.parse(body); // json 형식으로 파싱한다.(기존 body 데이터는 string타입)
       // console.log(lottoData);
       const realNumber = [];
-      let bonusNum = 0;
+      let bnusNo = 0;
       // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of
       for (const [key, value] of Object.entries(lottoData)) {
         // console.log('-----------------');
@@ -19,13 +19,13 @@ function getLottoData(drwNo) {
 
         if (key.includes('drwt')) {
           realNumber.push(value);
-        } else if (key === 'bonusNo') {
-          bonusNum = value;
+        } else if (key === 'bnusNo') {
+          bnusNo = value;
         }
         realNumber.sort((a, b) => b - a);
       }
       // resolve({ bonusNum: bonusNum, realNumber: realNumber }); ES5 문법. 키밸류 페어를 다 적어주어야 한다.
-      resolve({ bonusNum, realNumber });
+      resolve({ bnusNo, realNumber });
     });
   });
 }
