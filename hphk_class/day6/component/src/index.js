@@ -19,12 +19,12 @@ class App extends React.Component {
 
   handleAddComment = () => {
     const newComment = {
-      author: faker.name.firstname(),
+      author: faker.name.firstName(),
       time: faker.date.recent().toLocaleString(),
       body: faker.lorem.sentence(),
       avatar: faker.image.avatar()
     };
-    this.setState({ comments: [newComment, ...this.state.comment] });
+    this.setState({ comments: [newComment, ...this.state.comments] });
   };
 
   handlePlus = () => {
@@ -34,7 +34,7 @@ class App extends React.Component {
     this.setState({ number: this.state.number - 1 });
   };
   handleReset = () => {
-    this.setState({ number: (this.state.number = 0) });
+    this.setState({ number: 0 });
   };
 
   render() {
@@ -58,7 +58,21 @@ class App extends React.Component {
         {/* props 이름 (header, body로 설정)으로 Message 컴포넌트에 정보를 전달한다. */}
         <Message header='회원 약관 변경' body='약관이 변경되었습니다' />
 
-        <div></div>
+        <div>
+          <button className='ui primary button' onClick={this.handleAddComment}>
+            댓글 작성
+          </button>
+          <ApprovalCard>
+            <h4>저는 칼퇴하겠습니다. 금요일이니까요.</h4>
+          </ApprovalCard>
+          {this.state.comments.map((comment, i) => {
+            return (
+              <ApprovalCard key={i}>
+                <CommentDetail {...comment} />
+              </ApprovalCard>
+            );
+          })}
+        </div>
       </>
     );
   }
