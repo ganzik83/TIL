@@ -38,7 +38,9 @@ class App extends React.Component {
       errorMessage: ''
     };
   }
-  render() {
+
+  componentDidMount() {
+    console.log('컴포넌트가 화면에 랜더링이 끝났다');
     window.navigator.geolocation.getCurrentPosition(
       position => {
         console.log(position);
@@ -49,7 +51,12 @@ class App extends React.Component {
         this.setState({ errorMessage: error.message });
       }
     );
+  }
 
+  componentDidUpdate() {
+    console.log('컴포넌트가 업데이트 되고, 리랜더링이 끝났다');
+  }
+  render() {
     // position을 허용
     if (this.state.lat && !this.state.errorMessage) {
       return (
@@ -75,3 +82,15 @@ class App extends React.Component {
 }
 
 export default App;
+
+// life cycle method
+
+// constructor() 단 한번 실행되면 좋은 코드들을 담는다.
+
+// render() {return (jsx template)}
+
+// componentDidMount() {컴포넌트가 화면에 랜더링이 끝나면}
+
+// componentDidUpdate() {컴포넌트가 업데이트가 되고, 리랜더링이 끝나면}
+
+// componentWillUnmount() {React요소들이 아닌 친구들을 치울 때 좋다.}
