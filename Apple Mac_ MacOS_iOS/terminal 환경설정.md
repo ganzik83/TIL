@@ -51,6 +51,18 @@ vi ~/.zshrc
 plugins=(autojump)
 ```
 
+> Syntax highlighting
+
+```sh
+# 설치
+brew install zsh-syntax-highlighting
+
+vi ~/.zshrc
+
+# .zshrc 파일에 추가
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
 ```sh
 vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
 ```
