@@ -1,0 +1,14 @@
+.season-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.summer {
+  color: orange;
+}
+
+.season-display.summer i {
+  color: red;
+}

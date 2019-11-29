@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
+import SeasonDisplay from './component/SeasonDisplay';
+import Spinner from './component/Spinner';
+
+// const SeasonDisplay = props => {
+//   return (
+//     // jsx template이 반환되어야 한다
+//     <div>위도 : {props.lat}</div>
+//   );
+// };
 
 // const App = () => {
 //   // 사용자 위치정보 가져오기
@@ -61,7 +70,7 @@ class App extends React.Component {
     if (this.state.lat && !this.state.errorMessage) {
       return (
         <div>
-          <div>위도 : {this.state.lat}</div>
+          <SeasonDisplay lat={this.state.lat} />
         </div>
       );
     }
@@ -77,7 +86,11 @@ class App extends React.Component {
       );
     }
     // 허용/거절 대기상태
-    return <div>사용자 위치 정보 동의해주세요</div>;
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
   }
 }
 
