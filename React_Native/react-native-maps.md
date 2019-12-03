@@ -43,3 +43,35 @@ pod install
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
 ```
+
+## android
+
+`android/build.gradle`에 아래 코드 삽입
+
+```java
+buildscript {
+    ext {
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 16
+        compileSdkVersion = 28
+        targetSdkVersion = 28
+        // 아래 코드 삽입
+        supportLibVersion = "28.0.0"
+        googlePlayServicesVersion = "16.1.0"
+        androidMapsUtilsVersion = "0.5+"
+    }
+    ...
+}
+```
+
+`android/app/src/main/AndroidManifest.xml` 파일 수정
+package 항목의 번들네임을 구글 API키에 등록하자
+
+```
+<application>
+   <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+   <meta-data
+     android:name="com.google.android.geo.API_KEY"
+     android:value="Your Google maps API Key Here"/>
+</application>
+```
