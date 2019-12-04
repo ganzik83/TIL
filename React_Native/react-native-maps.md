@@ -56,7 +56,7 @@ buildscript {
         compileSdkVersion = 28
         targetSdkVersion = 28
         // 아래 코드 삽입
-        supportLibVersion = "28.0.0"
+        supportLibVersion = "28.0.3"
         googlePlayServicesVersion = "16.1.0"
         androidMapsUtilsVersion = "0.5+"
     }
@@ -74,4 +74,51 @@ package 항목의 번들네임을 구글 API키에 등록하자
      android:name="com.google.android.geo.API_KEY"
      android:value="Your Google maps API Key Here"/>
 </application>
+```
+
+---
+
+## 트러블슈팅
+
+### 안드로이드에서 `showsMyLocationButton` 활성화 안되는 문제
+
+<https://github.com/react-native-community/react-native-maps/issues/1033>
+
+```js
+const App = () => {
+  useEffect(() => {
+    setTimeout(() => setState({ mapflex: 1 }), 100);
+  });
+  const [state, setState] = useState({
+    focusedLocation: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0122,
+      longitudeDelta:
+        (Dimensions.get('window').width / Dimensions.get('window').height) *
+        0.0122
+    },
+    mapflex: 0
+  });
+
+  const { focusedLocation, mapflex } = state;
+
+  const changedRegion = event => {
+    console.log(event);
+  };
+
+  return (
+    <View style={{ flex: 1 }}>
+      <MapView
+        style={{ flex: mapflex }}
+        provider={PROVIDER_GOOGLE}
+        showsUserLocation={true}
+        followsUserLocation={true}
+        showsMyLocationButton={true}
+        region={focusedLocation}
+        onRegionChange={changedRegion}
+      />
+    </View>
+  );
+};
 ```
