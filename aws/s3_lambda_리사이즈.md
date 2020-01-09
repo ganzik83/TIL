@@ -6,4 +6,4 @@
 
 ## 1. 역할 생성
 
-![역할생성]('./img/lambda-s3.png')
+![역할생성](./img/lambda-s3.png)
