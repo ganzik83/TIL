@@ -41,3 +41,7 @@
 
 gl-react-native
 [gl-react-native](https://www.npmjs.com/package/gl-react-native)
+
+react-string-replace
+정규식 활용하여 텍스트 요소 변경
+[react-string-replace](https://github.com/iansinnott/react-string-replace)
