@@ -45,3 +45,17 @@ gl-react-native
 react-string-replace
 정규식 활용하여 텍스트 요소 변경
 [react-string-replace](https://github.com/iansinnott/react-string-replace)
+
+react-native-check
+업데이트 강제하기 위해 사용하는 모듈
+[react-native-check](https://github.com/kimxogus/react-native-version-check)
+
+XLActionController
+android bottom sheet 구현
+[XLActionController](https://github.com/xmartlabs/XLActionController)
+
+react-native-actionsheet
+[react-native-actionsheet](https://github.com/beefe/react-native-actionsheet)
+
+React Native Drawer
+[React Native Drawer](https://github.com/root-two/react-native-drawer)
