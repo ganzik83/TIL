@@ -59,3 +59,16 @@ react-native-actionsheet
 
 React Native Drawer
 [React Native Drawer](https://github.com/root-two/react-native-drawer)
+
+Reanimated Bottom Sheet
+[Reanimated Bottom Sheet](https://github.com/osdnk/react-native-reanimated-bottom-sheet)
+
+react-native-paper
+Material Design for React Native (Android & iOS)
+[react-native-paper](https://github.com/callstack/react-native-paper)
+
+react-native-keyboard-aware-scroll-view
+[react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
+
+<!-- 백그라운드 태스크 -->
+<!-- https://blog.expo.io/how-to-run-background-tasks-in-react-native-e1619acef48f -->
