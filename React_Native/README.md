@@ -72,3 +72,7 @@ react-native-keyboard-aware-scroll-view
 
 <!-- 백그라운드 태스크 -->
 <!-- https://blog.expo.io/how-to-run-background-tasks-in-react-native-e1619acef48f -->
+
+연락처 가져오기
+react-native-contacts
+[react-native-contacts](https://github.com/morenoh149/react-native-contacts)
