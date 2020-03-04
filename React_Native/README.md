@@ -76,3 +76,21 @@ react-native-keyboard-aware-scroll-view
 연락처 가져오기
 react-native-contacts
 [react-native-contacts](https://github.com/morenoh149/react-native-contacts)
+
+스플래시 스크린, 앱 아이콘 설정
+react-native-make
+[react-native-make](https://github.com/bamlab/react-native-make)
+
+푸쉬 관련 글
+<https://jamcode.tistory.com/77>
+
+리얼타임 업데이트
+<https://medium.com/@gethylgeorge/using-socket-io-in-react-redux-app-to-handle-real-time-data-c0e734297795>
+<https://github.com/Gethyl/RealTimeTodo>
+
+한글 초성 중성 종성 분리 및 검색
+[Hangul.js](https://github.com/e-/Hangul.js/)
+
+접었다 폈다
+react-native-collapsible
+[react-native-collapsible](https://github.com/oblador/react-native-collapsible)
