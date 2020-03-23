@@ -98,3 +98,8 @@ react-native-collapsible
 리액트 네이티브 푸시 알림 유튜브 영상
 <https://www.youtube.com/watch?v=03-A9HdyB-Y>
 <https://www.youtube.com/watch?v=ps4HKVeu3rQ>
+<https://medium.com/@katharinep/firebase-notification-integration-in-react-native-0-60-3a8d6c8d56ff>
+
+디바이스 정보 불러오기
+react-native-device-info
+[react-native-device-info](https://github.com/react-native-community/react-native-device-info)
